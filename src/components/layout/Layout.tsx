@@ -5,9 +5,9 @@ import { Button } from "../button/Button";
 import { MailIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
+import { HeadingLogo } from "../../styled/common/heading";
 
-import logo from "../../../public/images/logo.svg";
-import logo_small from "../../../public/images/logo_small.svg";
+import logo from "../../../public/images/blue_square.svg";
 import background_large from "../../../public/images/background_large.png";
 import background_small from "../../../public/images/background_small.png";
 
@@ -30,7 +30,7 @@ const Header = styled.header`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 0 60px;
+    padding: 0 20px;
   }
 `;
 
@@ -50,14 +50,19 @@ const Navbar = styled.nav`
   }
 `;
 
-const BackgroundWrapper = styled.div<{ isDesktop: boolean }>`
+const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
   min-height: 100vh;
   background-image: ${(props) =>
-    props.isDesktop
+    !props.isMobile
       ? `url(${background_large.src})`
       : `url(${background_small.src})`};
   background-repeat: no-repeat;
+  background-position: 50% 0%;
   background-size: cover;
+
+  @media ${MediaQuery.isMobile} {
+    background-position: 0%;
+  }
 `;
 
 const Footer = styled.footer`
@@ -65,6 +70,10 @@ const Footer = styled.footer`
   background-color: ${BLACKPEARL};
   display: flex;
   justify-content: center;
+
+  @media ${MediaQuery.isMobile} {
+    font-size: 14px;
+  }
 `;
 
 const FooterContent = styled.section`
@@ -96,7 +105,11 @@ const Info = styled.div`
   }
 
   div {
-    margin: 0 10px;
+    display: flex;
+
+    p {
+      margin: 0 10px;
+    }
   }
 
   @media ${MediaQuery.isMobile} {
@@ -129,12 +142,26 @@ const HamburgerMenu = styled.div`
     height: 4px;
     width: 100%;
   }
+
+  @media ${MediaQuery.isMobile} {
+    margin-left: 20px;
+  }
+`;
+
+const Thin = styled.span`
+  font-weight: 100;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const LogoWrapper = styled.figure`
-  height: 68px;
-  width: 285px;
+  height: 30px;
+  width: 30px;
   cursor: pointer;
+  margin-right: 20px;
 
   img {
     height: 100%;
@@ -154,13 +181,16 @@ export const Layout = ({ children }: LayoutProps) => {
     <Container>
       <Header>
         <Link href="/" passHref>
-          <LogoWrapper>
-            {isMobile ? (
-              <img src={logo_small.src} alt="Logo" />
-            ) : (
+          <Logo>
+            <LogoWrapper>
               <img src={logo.src} alt="Logo" />
-            )}
-          </LogoWrapper>
+            </LogoWrapper>
+            {!isMobile ? (
+              <HeadingLogo>
+                BLOCK<Thin>TALK</Thin>
+              </HeadingLogo>
+            ) : null}
+          </Logo>
         </Link>
         <Navbar>
           {isDesktop ? (
@@ -179,7 +209,7 @@ export const Layout = ({ children }: LayoutProps) => {
           ) : null}
         </Navbar>
       </Header>
-      <BackgroundWrapper isDesktop={isDesktop}>{children}</BackgroundWrapper>
+      <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
       <Footer>
         <FooterContent>
           <Policies>
@@ -194,19 +224,23 @@ export const Layout = ({ children }: LayoutProps) => {
             </Link>
           </Policies>
           <Info>
-            <IconWrapper>
-              <MailIcon />
-            </IconWrapper>
+            {!isMobile ? (
+              <IconWrapper>
+                <MailIcon />
+              </IconWrapper>
+            ) : null}
             <div>
               <p>•</p>
+              <a href="mailto:blocktalk@blockczech.io">
+                blocktalk@blockczech.io
+              </a>
             </div>
-            <a href="mailto:blocktalk@blockczech.io">blocktalk@blockczech.io</a>
             <div>
               <p>•</p>
+              <Link href="https://www.blockczech.io" passHref>
+                <a target="_blank">www.blockczech.io</a>
+              </Link>
             </div>
-            <Link href="https://www.blockczech.io" passHref>
-              <a target="_blank">www.blockczech.io</a>
-            </Link>
           </Info>
           <p style={{ textAlign: "center" }}>
             © 2022 BlockCzech R&D Lab. All rights reserved

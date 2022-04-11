@@ -5,6 +5,7 @@ import { LocationMarkerIcon } from "@heroicons/react/outline";
 import { MediaQuery } from "../hooks/useDeviceType";
 
 import square from "../../public/images/blue_square.svg";
+import square2 from "../../public/images/purple_square.svg";
 import photo from "../../public/images/photo.svg";
 
 const Container = styled.main`
@@ -23,17 +24,27 @@ const Container = styled.main`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 40px 0;
+    padding: 80px 0;
   }
 `;
 
 const Heading = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 40px;
 
   img {
-    margin-right: 30px;
+    height: 44px;
+    width: 44px;
+    margin: 0 20px;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    img {
+      height: 30px;
+      width: 30px;
+    }
   }
 `;
 
@@ -82,12 +93,19 @@ const IconWrapper = styled.figure`
   }
 `;
 
+const Thin = styled.span`
+  font-weight: 100;
+`;
+
 const BlockTalkView = () => {
   return (
     <Container>
       <Heading>
         <img src={square.src} alt="Square" />
-        <Heading01>BLOCK TALK</Heading01>
+        <Heading01>
+          BLOCK<Thin>TALK</Thin>
+        </Heading01>
+        <img src={square2.src} alt="Square" />
       </Heading>
       <p>
         Block Talk is both in person and virtual meeting of blockchain-based

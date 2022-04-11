@@ -14,7 +14,7 @@ const Container = styled.main`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 20px 0;
+    padding: 20px 10px;
   }
 `;
 
@@ -25,17 +25,27 @@ const Partners = styled.section`
   margin-bottom: 120px;
 
   img {
+    height: 40px;
     margin: 10px;
   }
 
   @media ${MediaQuery.isTablet} {
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 60px;
+
+    img {
+      margin: 20px;
+    }
   }
 
   @media ${MediaQuery.isMobile} {
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 60px;
+
+    img {
+      height: 30px;
+      margin: 20px;
+    }
   }
 `;
 
@@ -47,6 +57,10 @@ const VideoWrapper = styled.div`
   div {
     width: 100% !important;
     height: 100% !important;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    height: 200px;
   }
 `;
 

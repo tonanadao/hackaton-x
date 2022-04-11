@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Heading01 } from "../styled/common/heading";
 import { DODGERBLUE } from "../styled/colors";
 import styled from "styled-components";
@@ -23,7 +23,7 @@ const Container = styled.main`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 40px 0;
+    padding: 40px 20px;
   }
 `;
 
@@ -56,7 +56,13 @@ const Tags = styled.ul`
     align-items: center;
     justify-content: center;
     padding: 10px 30px;
-    margin: 0 5px;
+    margin: 5px;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    li {
+      padding: 10px;
+    }
   }
 `;
 
@@ -91,7 +97,7 @@ const SubscribeForm = styled.form`
   }
 
   input {
-    margin: 15px 0;
+    margin: 5px 0;
     font-size: 18px;
     padding: 10px;
     border-radius: 8px;
@@ -99,12 +105,9 @@ const SubscribeForm = styled.form`
     width: 100%;
   }
 
-  button {
-    margin-top: 40px;
-  }
-
   @media ${MediaQuery.isMobile} {
     width: 320px;
+    padding: 40px 20px;
   }
 `;
 
@@ -120,11 +123,31 @@ const Socials = styled.div`
   }
 `;
 
+const Checkbox = styled.div`
+  display: flex;
+
+  label {
+    display: block;
+  }
+`;
+
 const ModifiedInput = styled.div`
   display: flex;
+
+  input:first-child {
+    margin-right: 5px;
+  }
+`;
+
+const WalletAddress = styled.article`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
 `;
 
 const HomeView = () => {
+  const [email, setEmail] = useState<string>();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
   }
@@ -149,19 +172,28 @@ const HomeView = () => {
           <Button appearance={ButtonAppearance.outline}>File a claim</Button>
         </article>
         <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
-          <h2>Filled - No Label</h2>
+          <h2>Register yourself!</h2>
           <hr />
-          <input type="text" placeholder="Jack Sullivan" />
-          <input type="text" placeholder="jack.s@email.com" />
           <ModifiedInput>
-            <input
-              type="text"
-              placeholder="+91"
-              style={{ width: "60px", marginRight: "10px" }}
-            />
-            <input type="text" placeholder="9876543210" />
+            <input type="text" placeholder="Firstname" />
+            <input type="text" placeholder="Lastname" />
           </ModifiedInput>
-          <Button type={ButtonType.submit}>Get updates</Button>
+          <input type="email" placeholder="Email" />
+          <ModifiedInput>
+            <input type="text" placeholder="Company" />
+            <input type="text" placeholder="Position" />
+          </ModifiedInput>
+          <input type="text" placeholder="Interest" />
+          {email ? (
+            <Checkbox>
+              <label htmlFor="update">I want to receive updates</label>
+              <input type="checkbox" />
+            </Checkbox>
+          ) : null}
+          <WalletAddress>
+            <p>0x1dank33kdds565m4o3kngfk21</p>
+          </WalletAddress>
+          <Button type={ButtonType.submit}>Register now</Button>
           <Socials>
             <img src={linkedIn.src} alt="LinkedIn" />
             <img src={youtube.src} alt="Youtube" />
