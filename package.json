@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "color": "^4.2.3",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-player": "^2.10.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
