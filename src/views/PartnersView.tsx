@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { PARTNERS } from "../styled/constants";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 import { MediaQuery } from "../hooks/useDeviceType";
 
 const Container = styled.main`
@@ -65,6 +65,14 @@ const VideoWrapper = styled.div`
 `;
 
 const PartnersView = () => {
+  const [hasWindow, setHasWindow] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasWindow(true);
+    }
+  }, []);
+
   return (
     <Container>
       <Partners>
@@ -73,10 +81,12 @@ const PartnersView = () => {
         ))}
       </Partners>
       <VideoWrapper>
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=ddR0Uk1z1Fo"
-          controls
-        />
+        {hasWindow && (
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=ddR0Uk1z1Fo"
+            controls
+          />
+        )}
       </VideoWrapper>
     </Container>
   );

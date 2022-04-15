@@ -171,7 +171,7 @@ const HomeView = () => {
           </Info>
           <Button appearance={ButtonAppearance.outline}>File a claim</Button>
         </article>
-        <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
+        {/* <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
           <hr />
           <ModifiedInput>
@@ -199,7 +199,7 @@ const HomeView = () => {
             <img src={youtube.src} alt="Youtube" />
             <img src={twitch.src} alt="Twitch" />
           </Socials>
-        </SubscribeForm>
+        </SubscribeForm> */}
       </Content>
     </Container>
   );

@@ -14,11 +14,6 @@ const Container = styled.main`
   padding: 60px 0;
   text-align: center;
 
-  p {
-    max-width: 75%;
-    margin: 0 auto;
-  }
-
   @media ${MediaQuery.isTablet} {
     padding: 40px;
   }
@@ -107,7 +102,7 @@ const BlockTalkView = () => {
         </Heading01>
         <img src={square2.src} alt="Square" />
       </Heading>
-      <p>
+      <p style={{ maxWidth: "75%", margin: "0 auto" }}>
         Block Talk is both in person and virtual meeting of blockchain-based
         game enthusiasts, investors, software developers with the aim of sharing
         knowledge in the professional community and networking to find business
@@ -120,7 +115,7 @@ const BlockTalkView = () => {
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
-            <caption>Prague</caption>
+            <p>Prague</p>
           </figcaption>
         </Photo>
         <Photo>
@@ -129,7 +124,7 @@ const BlockTalkView = () => {
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
-            <caption>Prague</caption>
+            <p>Prague</p>
           </figcaption>
         </Photo>
         <Photo>
@@ -138,7 +133,7 @@ const BlockTalkView = () => {
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
-            <caption>Prague</caption>
+            <p>Prague</p>
           </figcaption>
         </Photo>
       </Photos>

@@ -199,7 +199,7 @@ export const Layout = ({ children }: LayoutProps) => {
               <li>Partnerships</li>
             </ul>
           ) : null}
-          <Button>Connect Wallet</Button>
+          {/* <Button>Connect Wallet</Button> */}
           {!isDesktop ? (
             <HamburgerMenu>
               <div></div>
