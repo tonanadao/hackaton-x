@@ -5,12 +5,14 @@ import { DODGERBLUE } from "../../styled/colors";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 
-const ButtonContainer = styled.button<{
-  appearance: string;
-  isMobile: boolean;
-}>`
+interface ButtonProps {
+  appearance?: ButtonAppearance;
+  isMobile?: boolean;
+}
+
+const ButtonContainer = styled.button<ButtonProps>`
   background-color: ${(props) =>
-    props.appearance === "fill" ? DODGERBLUE : "transparent"};
+    props.appearance === "fill" ? `${DODGERBLUE}` : `transparent`};
   min-width: ${(props) => (props.isMobile ? "164px" : "206px")};
   height: ${(props) => (props.isMobile ? "44px" : "56px")};
   font-size: 18px;
@@ -43,6 +45,8 @@ const ButtonContainer = styled.button<{
 export enum ButtonType {
   submit = "submit",
   button = "button",
+  undefined = "undefined",
+  reset = "reset",
 }
 
 export enum ButtonAppearance {
@@ -71,8 +75,9 @@ export const Button = ({
     return (
       <Link href={href} passHref>
         <ButtonContainer
-          appearance={appearance}
+          //@ts-ignore
           type={type}
+          appearance={appearance}
           isMobile={isMobile}
         >
           {children}
@@ -82,6 +87,7 @@ export const Button = ({
     );
   } else if (onClick) {
     return (
+      //@ts-ignore
       <ButtonContainer appearance={appearance} type={type} onClick={onClick}>
         {children}
         {appearance === "outline" ? <ChevronRightIcon /> : null}
@@ -89,6 +95,7 @@ export const Button = ({
     );
   } else {
     return (
+      //@ts-ignore
       <ButtonContainer appearance={appearance} type={type}>
         {children}
         {appearance === "outline" ? <ChevronRightIcon /> : null}

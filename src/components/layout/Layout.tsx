@@ -19,7 +19,7 @@ const Container = styled.main`
 const Header = styled.header`
   height: 100px;
   width: 100%;
-  background-color: ${BLACKPEARL};
+  background-color: ${BLACKPEARL.toString()};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,7 +67,7 @@ const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
 
 const Footer = styled.footer`
   height: 243px;
-  background-color: ${BLACKPEARL};
+  background-color: ${BLACKPEARL.toString()};
   display: flex;
   justify-content: center;
 
