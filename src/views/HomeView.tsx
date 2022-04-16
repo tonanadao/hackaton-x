@@ -167,9 +167,9 @@ const HomeView = () => {
           <Info>
             <li>&gt; hybrid blockchain conference</li>
             <li>&gt; by blockczech r&d lab</li>
-            <li>&gt; blocktalk.cz</li>
+            <li>&gt; blocktalk.io</li>
           </Info>
-          <Button appearance={ButtonAppearance.outline}>File a claim</Button>
+          {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
         {/* <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
