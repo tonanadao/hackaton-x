@@ -7,7 +7,8 @@ import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 import { HeadingLogo } from "../../styled/common/heading";
 
-import logo from "../../../public/images/blue_square.svg";
+import logo from "../../../public/images/blocktalk_logo.svg";
+import logo_small from "../../../public/images/blue_square.svg";
 import background_large from "../../../public/images/background_large.png";
 import background_small from "../../../public/images/background_small.png";
 
@@ -158,8 +159,20 @@ const Logo = styled.div`
 `;
 
 const LogoWrapper = styled.figure`
-  height: 30px;
-  width: 30px;
+  height: 70px;
+  width: 252px;
+  cursor: pointer;
+  margin-right: 20px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+const LogoWrapperSmall = styled.figure`
+  height: 50px;
+  width: 50px;
   cursor: pointer;
   margin-right: 20px;
 
@@ -182,14 +195,15 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header>
         <Link href="/" passHref>
           <Logo>
-            <LogoWrapper>
-              <img src={logo.src} alt="Logo" />
-            </LogoWrapper>
             {!isMobile ? (
-              <HeadingLogo>
-                BLOCK<Thin>TALK</Thin>
-              </HeadingLogo>
-            ) : null}
+              <LogoWrapper>
+                <img src={logo.src} alt="Logo" />
+              </LogoWrapper>
+            ) : (
+              <LogoWrapperSmall>
+                <img src={logo_small.src} alt="Logo" />
+              </LogoWrapperSmall>
+            )}
           </Logo>
         </Link>
         <Navbar>

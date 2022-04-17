@@ -25,7 +25,8 @@ const Partners = styled.section`
   margin-bottom: 120px;
 
   img {
-    height: 40px;
+    /* height: 40px; */
+    height: 80px;
     margin: 10px;
   }
 
@@ -51,12 +52,16 @@ const Partners = styled.section`
 
 const VideoWrapper = styled.div`
   max-width: 1000px;
-  height: 400px;
+  /* height: 400px; */
   margin: 0 auto;
 
   div {
     width: 100% !important;
     height: 100% !important;
+  }
+
+  video {
+    width: 100% !important;
   }
 
   @media ${MediaQuery.isMobile} {
@@ -77,16 +82,22 @@ const PartnersView = () => {
     <Container>
       <Partners>
         {PARTNERS.map((partner, index) => (
-          <img src={partner.url.src} alt={partner.alt} key={index} />
+          <img src={partner.url} alt={partner.alt} key={index} />
         ))}
       </Partners>
       <VideoWrapper>
-        {hasWindow && (
+        {/* {hasWindow && (
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=ddR0Uk1z1Fo"
+            url="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_intro_1-min.mp4"
             controls
           />
-        )}
+        )} */}
+        <video controls>
+          <source
+            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_intro_1-min.mp4"
+            type="video/mp4"
+          />
+        </video>
       </VideoWrapper>
     </Container>
   );
