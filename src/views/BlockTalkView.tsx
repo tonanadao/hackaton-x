@@ -133,18 +133,15 @@ const BlockTalkView = () => {
             <p>Prague</p>
           </figcaption>
         </Photo>
-        {/* <Photo>
-          <img
-            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_03-min.jpg"
-            alt="Photo"
-          />
+        <Photo>
+          <img src={photo.src} alt="Photo" />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
             <p>Prague</p>
           </figcaption>
-        </Photo> */}
+        </Photo>
       </Photos>
     </Container>
   );
