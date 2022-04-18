@@ -110,7 +110,10 @@ const BlockTalkView = () => {
       </p>
       <Photos>
         <Photo>
-          <img src={photo.src} alt="Photo" />
+          <img
+            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_01-min.jpg"
+            alt="Photo"
+          />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
@@ -119,7 +122,10 @@ const BlockTalkView = () => {
           </figcaption>
         </Photo>
         <Photo>
-          <img src={photo.src} alt="Photo" />
+          <img
+            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_02-min.jpg"
+            alt="Photo"
+          />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
@@ -127,15 +133,18 @@ const BlockTalkView = () => {
             <p>Prague</p>
           </figcaption>
         </Photo>
-        <Photo>
-          <img src={photo.src} alt="Photo" />
+        {/* <Photo>
+          <img
+            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_03-min.jpg"
+            alt="Photo"
+          />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
             <p>Prague</p>
           </figcaption>
-        </Photo>
+        </Photo> */}
       </Photos>
     </Container>
   );

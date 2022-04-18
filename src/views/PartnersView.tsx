@@ -20,7 +20,7 @@ const Container = styled.main`
 
 const Partners = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 120px;
 
@@ -80,7 +80,7 @@ const PartnersView = () => {
 
   return (
     <Container>
-      <Partners>
+      <Partners id="partners">
         {PARTNERS.map((partner, index) => (
           <img src={partner.url} alt={partner.alt} key={index} />
         ))}

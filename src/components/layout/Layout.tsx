@@ -47,6 +47,7 @@ const Navbar = styled.nav`
 
     li {
       margin: 0 20px;
+      cursor: pointer;
     }
   }
 `;
@@ -209,8 +210,12 @@ export const Layout = ({ children }: LayoutProps) => {
         <Navbar>
           {isDesktop ? (
             <ul>
-              <li>Home</li>
-              <li>Partnerships</li>
+              <Link href="/" passHref>
+                <li>Home</li>
+              </Link>
+              <Link href="/#partners" passHref>
+                <li>Partnerships</li>
+              </Link>
             </ul>
           ) : null}
           {/* <Button>Connect Wallet</Button> */}
@@ -226,7 +231,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
       <Footer>
         <FooterContent>
-          <Policies>
+          {/* <Policies>
             <Link href="/privacy-policy" passHref>
               <p>Privacy Policy</p>
             </Link>
@@ -236,7 +241,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <Link href="/terms-and-conditions" passHref>
               <p>Terms & Conditions</p>
             </Link>
-          </Policies>
+          </Policies> */}
           <Info>
             {!isMobile ? (
               <IconWrapper>
