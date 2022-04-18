@@ -196,15 +196,15 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header>
         <Link href="/" passHref>
           <Logo>
-            {!isMobile ? (
-              <LogoWrapper>
-                <img src={logo.src} alt="Logo" />
-              </LogoWrapper>
-            ) : (
+            {/* {!isMobile ? ( */}
+            <LogoWrapper>
+              <img src={logo.src} alt="Logo" />
+            </LogoWrapper>
+            {/* ) : (
               <LogoWrapperSmall>
                 <img src={logo_small.src} alt="Logo" />
               </LogoWrapperSmall>
-            )}
+            )} */}
           </Logo>
         </Link>
         <Navbar>
@@ -219,13 +219,13 @@ export const Layout = ({ children }: LayoutProps) => {
             </ul>
           ) : null}
           {/* <Button>Connect Wallet</Button> */}
-          {!isDesktop ? (
+          {/* {!isDesktop ? (
             <HamburgerMenu>
               <div></div>
               <div></div>
               <div></div>
             </HamburgerMenu>
-          ) : null}
+          ) : null} */}
         </Navbar>
       </Header>
       <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
