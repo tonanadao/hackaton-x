@@ -9,6 +9,8 @@ import Link from "next/link";
 import square from "../../public/images/blue_square.svg";
 import square2 from "../../public/images/purple_square.svg";
 import photo from "../../public/images/photo.svg";
+import photo1 from "../../public/images/photo1.svg";
+import photo2 from "../../public/images/photo2.svg";
 
 const Container = styled.main`
   max-width: 1200px;
@@ -153,12 +155,10 @@ const BlockTalkView = () => {
         knowledge in the professional community and networking to find business
         partners, co-founders, teammates and like-minded people.
       </p>
+
       <Photos>
         <Photo>
-          <img
-            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_01-min.jpg"
-            alt="Photo"
-          />
+          <img src={photo2.src} alt="Photo" />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
@@ -167,10 +167,7 @@ const BlockTalkView = () => {
           </figcaption>
         </Photo>
         <Photo>
-          <img
-            src="https://d3spduprfob5fw.cloudfront.net/blockczech/blocktalk/blocktalk_02-min.jpg"
-            alt="Photo"
-          />
+          <img src={photo1.src} alt="Photo" />
           <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />

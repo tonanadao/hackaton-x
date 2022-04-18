@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 18px;
     min-height: inherit;
     width: 100%;
-      color: white;
+    color: white;
   }
   
 `;
