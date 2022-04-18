@@ -3,6 +3,8 @@ import { Heading01 } from "../styled/common/heading";
 import styled from "styled-components";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
 import { MediaQuery } from "../hooks/useDeviceType";
+import { DODGERBLUE } from "../styled/colors";
+import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import square2 from "../../public/images/purple_square.svg";
@@ -77,6 +79,28 @@ const Photo = styled.figure`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  margin: 40px 0 120px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin: 0 10px;
+    text-decoration: none;
+    background-color: ${DODGERBLUE.toString()};
+    color: white;
+    min-width: 164px;
+    height: 44px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+`;
+
 const IconWrapper = styled.figure`
   height: 20px;
   width: 20px;
@@ -95,6 +119,27 @@ const Thin = styled.span`
 const BlockTalkView = () => {
   return (
     <Container>
+      <p>Subscribe to our channel so you don&apos;t miss out any streams!</p>
+
+      <ButtonWrapper>
+        <Link
+          href="https://www.youtube.com/channel/UCpmXUgn9sIznAGlmjHjZ2DA"
+          passHref
+        >
+          <a target="_blank" rel="noopener noreferrer">
+            Youtube
+          </a>
+        </Link>
+        <Link
+          href="https://www.linkedin.com/events/blocktalkaboutgames-nftdefidaog6915371729389301760/about/"
+          passHref
+        >
+          <a target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </Link>
+      </ButtonWrapper>
+
       <Heading>
         <img src={square.src} alt="Square" />
         <Heading01>
