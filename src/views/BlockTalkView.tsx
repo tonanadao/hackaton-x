@@ -14,6 +14,7 @@ import photo2 from "../../public/images/photo2.svg";
 import arthur from "../../public/images/arthur_sychov.jpeg";
 import bozena from "../../public/images/bozena_rezab.jpeg";
 import logo from "../../public/images/blocktalk_logo.svg";
+import question from "../../public/images/question.jpg";
 
 const Container = styled.main`
   max-width: 1200px;
@@ -108,8 +109,8 @@ const ButtonWrapper = styled.div`
 
 const Speakers = styled.article`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   margin-bottom: 120px;
 
   figure {
@@ -210,6 +211,30 @@ const SpeakersData = [
     },
     company: "GAMEE",
     position: "CEO & Co-founder",
+  },
+  {
+    name: "Speaker 3",
+    image: {
+      url: question,
+    },
+    company: "TBA",
+    position: "TBA",
+  },
+  {
+    name: "Speaker 4",
+    image: {
+      url: question,
+    },
+    company: "TBA",
+    position: "TBA",
+  },
+  {
+    name: "Speaker 5",
+    image: {
+      url: question,
+    },
+    company: "TBA",
+    position: "TBA",
   },
 ];
 

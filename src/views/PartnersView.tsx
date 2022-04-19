@@ -140,7 +140,7 @@ const PartnersView = () => {
           </p>
         </article>
         <article>
-          <h2>VC Incubators</h2>
+          <h2>VCs & Incubators</h2>
           <p>
             Attract customers and make useful connections with like-minded
             people

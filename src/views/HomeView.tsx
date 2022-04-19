@@ -16,7 +16,7 @@ import youtube from "../../public/images/youtube.svg";
 const Container = styled.main`
   max-width: 1240px;
   margin: 0 auto;
-  padding: 140px 0;
+  padding: 140px 0 50px;
 
   @media ${MediaQuery.isTablet} {
     padding: 40px;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BLACKPEARL } from "../../styled/colors";
 import { Button } from "../button/Button";
-import { MailIcon } from "@heroicons/react/outline";
+import { MailIcon, PhoneIcon, GlobeAltIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 
@@ -101,6 +101,7 @@ const Policies = styled.div`
 
 const Info = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
@@ -112,10 +113,7 @@ const Info = styled.div`
 
   div {
     display: flex;
-
-    p {
-      margin: 0 10px;
-    }
+    margin: 10px 0;
   }
 
   @media ${MediaQuery.isMobile} {
@@ -126,6 +124,7 @@ const Info = styled.div`
 const IconWrapper = styled.figure`
   height: 25px;
   width: 25px;
+  margin-right: 20px;
 
   svg {
     height: 100%;
@@ -220,6 +219,9 @@ export const Layout = ({ children }: LayoutProps) => {
               <Link href="/#partners" passHref>
                 <li>Partners</li>
               </Link>
+              <Link href="/#contact" passHref>
+                <li>Contact</li>
+              </Link>
             </ul>
           ) : null}
           {/* <Button>Connect Wallet</Button> */}
@@ -246,20 +248,25 @@ export const Layout = ({ children }: LayoutProps) => {
               <p>Terms & Conditions</p>
             </Link>
           </Policies> */}
-          <Info>
-            {!isMobile ? (
+          <Info id="contact">
+            <div>
               <IconWrapper>
                 <MailIcon />
               </IconWrapper>
-            ) : null}
-            <div>
-              <p>•</p>
               <a href="mailto:blocktalk@blockczech.io">
                 blocktalk@blockczech.io
               </a>
             </div>
             <div>
-              <p>•</p>
+              <IconWrapper>
+                <PhoneIcon />
+              </IconWrapper>
+              <a href="tel:+420773008994">+420 773 008 994</a>
+            </div>
+            <div>
+              <IconWrapper>
+                <GlobeAltIcon />
+              </IconWrapper>
               <Link href="https://www.blockczech.io" passHref>
                 <a target="_blank">www.blockczech.io</a>
               </Link>
