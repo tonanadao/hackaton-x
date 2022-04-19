@@ -29,7 +29,7 @@ const Container = styled.main`
 
 const Content = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
 
   @media ${MediaQuery.isTablet} {
     grid-template-columns: 1fr;
@@ -56,12 +56,18 @@ const Tags = styled.ul`
     align-items: center;
     justify-content: center;
     padding: 10px 15px;
-    margin: 5px;
+    margin: 10px;
   }
 
   @media ${MediaQuery.isMobile} {
     li {
       padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 505px) {
+    ul {
+      flex-direction: column;
     }
   }
 `;
@@ -160,8 +166,12 @@ const HomeView = () => {
             <li style={{ fontSize: "27px", padding: "0" }}>
               12 May 2022 • 19:00
             </li>
-            <li style={{ background: "#0066FF" }}>GameFi, Blockchain, DeFi</li>
-            <li style={{ border: "1px solid white" }}>Language: English</li>
+            <ul style={{ display: "flex" }}>
+              <li style={{ background: "#0066FF" }}>
+                GameFi, Blockchain, DeFi
+              </li>
+              <li style={{ border: "1px solid white" }}>Language: English</li>
+            </ul>
           </Tags>
           <Heading01>
             Learn more about <b style={{ color: `${DODGERBLUE}` }}>GameFi</b>

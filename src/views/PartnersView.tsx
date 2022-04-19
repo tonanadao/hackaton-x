@@ -122,25 +122,25 @@ const PartnersView = () => {
         </video>
       </VideoWrapper>
       <HeadingLogo style={{ textAlign: "center" }}>
-        Who is the webinar for?
+        Who is the event for?
       </HeadingLogo>
       <Webinar>
         <article>
-          <h2>Top managers</h2>
+          <h2>Game developers</h2>
           <p>
             Upgrade your leadership skills and take your career to a new high
             level
           </p>
         </article>
         <article>
-          <h2>Entrepreneurs</h2>
+          <h2>Blockchain Enthusiasts</h2>
           <p>
             Master the skills of accumulated experience and increase the
             professional level
           </p>
         </article>
         <article>
-          <h2>Experts</h2>
+          <h2>VC Incubators</h2>
           <p>
             Attract customers and make useful connections with like-minded
             people

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 import {
   DESKTOP_BREAKPOINT,
   TABLET_BREAKPOINT,
   SMALL_MOBILE_BREAKPOINT,
 } from "../styled/constants";
-import { toPx } from '../styled/utils/toPx'
+import { toPx } from "../styled/utils/toPx";
 
 export const MediaQuery = {
   isDesktop: `(min-width: ${toPx(DESKTOP_BREAKPOINT)})`,
@@ -16,20 +16,20 @@ export const MediaQuery = {
 };
 
 export const useDeviceType = (query: string) => {
-  const [matches, setMatches] = React.useState(false)
+  const [matches, setMatches] = React.useState(false);
 
   React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const media = window.matchMedia(query)
+    if (typeof window !== "undefined") {
+      const media = window.matchMedia(query);
       if (media.matches !== matches) {
-        setMatches(media.matches)
+        setMatches(media.matches);
       }
-      window?.addEventListener('resize', () => setMatches(media.matches))
+      window?.addEventListener("resize", () => setMatches(media.matches));
       return () => {
-        window?.removeEventListener('resize', () => setMatches(media.matches))
-      }
+        window?.removeEventListener("resize", () => setMatches(media.matches));
+      };
     }
-  }, [matches, query])
+  }, [matches, query]);
 
-  return matches
-}
+  return matches;
+};

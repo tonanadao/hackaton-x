@@ -65,5 +65,5 @@ export const PARTNERS = [
 
 // Display resolutions
 export const TABLET_BREAKPOINT = 688;
-export const SMALL_MOBILE_BREAKPOINT = 375;
+export const SMALL_MOBILE_BREAKPOINT = 420;
 export const DESKTOP_BREAKPOINT = 1024;

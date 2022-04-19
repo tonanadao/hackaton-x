@@ -60,7 +60,10 @@ const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: cover;
-  padding: 0 20px;
+
+  @media (max-width: 1500px) {
+    padding: 0 60px;
+  }
 
   @media ${MediaQuery.isMobile} {
     background-position: 0%;
