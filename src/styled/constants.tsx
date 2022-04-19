@@ -5,12 +5,37 @@ import microsoft from "../../public/images/microsoft.svg";
 import walmart from "../../public/images/walmart.svg";
 import fedex from "../../public/images/fedex.svg";
 import blockczech from "../../public/images/blockczech.svg";
+import gamee from "../../public/images/gamee.jpeg";
+import hubhub from "../../public/images/hubhub.png";
+import somnium from "../../public/images/somnium.jpeg";
+import animoca from "../../public/images/animoca.jpeg";
+import amber from "../../public/images/amber.png";
 
 // Partners images
 export const PARTNERS = [
   {
     url: "https://blockczech.io/img/logo.e2bf947f.png",
     alt: "BlockCzech",
+  },
+  {
+    url: hubhub.src,
+    alt: "HubHub",
+  },
+  {
+    url: gamee.src,
+    alt: "Gamee",
+  },
+  {
+    url: somnium.src,
+    alt: "Somnium_Space",
+  },
+  {
+    url: animoca.src,
+    alt: "Animoca_Brands",
+  },
+  {
+    url: amber.src,
+    alt: "Amber",
   },
   // {
   //   url: airbnb,

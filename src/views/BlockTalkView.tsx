@@ -13,6 +13,7 @@ import photo1 from "../../public/images/photo1.svg";
 import photo2 from "../../public/images/photo2.svg";
 import arthur from "../../public/images/arthur_sychov.jpeg";
 import bozena from "../../public/images/bozena_rezab.jpeg";
+import logo from "../../public/images/blocktalk_logo.svg";
 
 const Container = styled.main`
   max-width: 1200px;
@@ -140,6 +141,44 @@ const Speakers = styled.article`
   }
 `;
 
+const HeadingLogo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  img {
+    height: 61px;
+  }
+
+  .logo {
+    height: 120px;
+    margin-right: 30px;
+  }
+
+  @media ${MediaQuery.isTablet} {
+    img {
+      height: 41px;
+    }
+
+    .logo {
+      height: 80px;
+      margin-right: 20px;
+    }
+  }
+
+  @media ${MediaQuery.isMobile} {
+    img {
+      height: 31px;
+    }
+
+    .logo {
+      height: 60px;
+      margin-right: 10px;
+    }
+  }
+`;
+
 const IconWrapper = styled.figure`
   height: 20px;
   width: 20px;
@@ -192,6 +231,7 @@ const BlockTalkView = () => {
           </figure>
         ))}
       </Speakers>
+      <Heading01>Check us out!</Heading01>
       <p>Subscribe to our channel so you don&apos;t miss out any streams!</p>
       <ButtonWrapper>
         <Link
@@ -212,13 +252,10 @@ const BlockTalkView = () => {
         </Link>
       </ButtonWrapper>
 
-      <Heading>
-        <img src={square.src} alt="Square" />
-        <Heading01>
-          BLOCK<Thin>TALK</Thin>
-        </Heading01>
+      <HeadingLogo>
+        <img src={logo.src} alt="Logo" className="logo" />
         <img src={square2.src} alt="Square" />
-      </Heading>
+      </HeadingLogo>
       <p style={{ maxWidth: "75%", margin: "0 auto" }}>
         Block Talk is both in person and virtual meeting of blockchain-based
         game enthusiasts, investors, software developers with the aim of sharing
@@ -229,30 +266,18 @@ const BlockTalkView = () => {
       <Photos>
         <Photo>
           <img src={photo2.src} alt="Photo" />
-          <figcaption>
+          {/* <figcaption>
             <IconWrapper>
               <LocationMarkerIcon />
             </IconWrapper>
             <p>Prague</p>
-          </figcaption>
+          </figcaption> */}
         </Photo>
         <Photo>
           <img src={photo1.src} alt="Photo" />
-          <figcaption>
-            <IconWrapper>
-              <LocationMarkerIcon />
-            </IconWrapper>
-            <p>Prague</p>
-          </figcaption>
         </Photo>
         <Photo>
           <img src={photo.src} alt="Photo" />
-          <figcaption>
-            <IconWrapper>
-              <LocationMarkerIcon />
-            </IconWrapper>
-            <p>Prague</p>
-          </figcaption>
         </Photo>
       </Photos>
     </Container>

@@ -5,7 +5,6 @@ import { Button } from "../button/Button";
 import { MailIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
-import { HeadingLogo } from "../../styled/common/heading";
 
 import logo from "../../../public/images/blocktalk_logo.svg";
 import logo_small from "../../../public/images/blue_square.svg";
@@ -61,9 +60,11 @@ const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: cover;
+  padding: 0 20px;
 
   @media ${MediaQuery.isMobile} {
     background-position: 0%;
+    padding: 0;
   }
 `;
 
@@ -214,7 +215,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 <li>Home</li>
               </Link>
               <Link href="/#partners" passHref>
-                <li>Partnerships</li>
+                <li>Partners</li>
               </Link>
             </ul>
           ) : null}

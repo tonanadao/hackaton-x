@@ -28,7 +28,7 @@ const Partners = styled.section`
   img {
     /* height: 40px; */
     height: 80px;
-    margin: 10px;
+    margin: 10px 20px;
   }
 
   @media ${MediaQuery.isTablet} {

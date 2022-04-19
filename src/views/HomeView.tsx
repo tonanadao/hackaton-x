@@ -169,7 +169,6 @@ const HomeView = () => {
           <Info>
             <li>&gt; hybrid blockchain conference</li>
             <li>&gt; by blockczech r&d lab</li>
-            <li>&gt; blocktalk.io</li>
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
