@@ -14,7 +14,7 @@ import twitch from "../../public/images/twitch.svg";
 import youtube from "../../public/images/youtube.svg";
 
 const Container = styled.main`
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 140px 0;
 
@@ -55,7 +55,7 @@ const Tags = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 30px;
+    padding: 10px 15px;
     margin: 5px;
   }
 
@@ -157,9 +157,11 @@ const HomeView = () => {
       <Content>
         <article>
           <Tags>
+            <li style={{ fontSize: "27px", padding: "0" }}>
+              12 May 2022 • 19:00
+            </li>
             <li style={{ background: "#0066FF" }}>GameFi, Blockchain, DeFi</li>
-            <li style={{ background: "#0BBB07" }}>Date: 12. 05. 2022</li>
-            <li style={{ background: "#282828" }}>Language: English</li>
+            <li style={{ border: "1px solid white" }}>Language: English</li>
           </Tags>
           <Heading01>
             Learn more about <b style={{ color: `${DODGERBLUE}` }}>GameFi</b>

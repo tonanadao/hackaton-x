@@ -11,6 +11,8 @@ import square2 from "../../public/images/purple_square.svg";
 import photo from "../../public/images/photo.svg";
 import photo1 from "../../public/images/photo1.svg";
 import photo2 from "../../public/images/photo2.svg";
+import arthur from "../../public/images/arthur_sychov.jpeg";
+import bozena from "../../public/images/bozena_rezab.jpeg";
 
 const Container = styled.main`
   max-width: 1200px;
@@ -23,7 +25,7 @@ const Container = styled.main`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 80px 0;
+    padding: 20px;
   }
 `;
 
@@ -103,6 +105,41 @@ const ButtonWrapper = styled.div`
   }
 `;
 
+const Speakers = styled.article`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 120px;
+
+  figure {
+    background: #0c0c53;
+    padding: 20px;
+    border-radius: 30px;
+    width: 280px;
+    margin: 20px;
+
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 18px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media ${MediaQuery.isTablet} {
+    flex-direction: column;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    flex-direction: column;
+  }
+`;
+
 const IconWrapper = styled.figure`
   height: 20px;
   width: 20px;
@@ -118,11 +155,44 @@ const Thin = styled.span`
   font-weight: 100;
 `;
 
+const SpeakersData = [
+  {
+    name: "Artur Sychov",
+    image: {
+      url: arthur,
+    },
+    company: "SomniumSpace",
+    position: "Founder & CEO",
+  },
+  {
+    name: "Bozena Rezab",
+    image: {
+      url: bozena,
+    },
+    company: "GAMEE",
+    position: "CEO & Co-founder",
+  },
+];
+
 const BlockTalkView = () => {
   return (
     <Container>
+      <Heading>
+        <img src={square.src} alt="Square" />
+        <Heading01>SPEAKERS</Heading01>
+      </Heading>
+      <Speakers>
+        {SpeakersData.map((speaker, index) => (
+          <figure key={index}>
+            <img src={speaker?.image.url.src} alt="Speaker" />
+            <h2>{speaker?.name}</h2>
+            <p>
+              {speaker?.company} • {speaker?.position}
+            </p>
+          </figure>
+        ))}
+      </Speakers>
       <p>Subscribe to our channel so you don&apos;t miss out any streams!</p>
-
       <ButtonWrapper>
         <Link
           href="https://www.youtube.com/channel/UCpmXUgn9sIznAGlmjHjZ2DA"

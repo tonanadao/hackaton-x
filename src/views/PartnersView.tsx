@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PARTNERS } from "../styled/constants";
 import ReactPlayer from "react-player/youtube";
 import { MediaQuery } from "../hooks/useDeviceType";
+import { HeadingLogo } from "../styled/common/heading";
 
 const Container = styled.main`
   max-width: 1200px;
@@ -14,7 +15,7 @@ const Container = styled.main`
   }
 
   @media ${MediaQuery.isMobile} {
-    padding: 20px 10px;
+    padding: 20px;
   }
 `;
 
@@ -22,7 +23,7 @@ const Partners = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 
   img {
     /* height: 40px; */
@@ -53,7 +54,7 @@ const Partners = styled.section`
 const VideoWrapper = styled.div`
   max-width: 1000px;
   /* height: 400px; */
-  margin: 0 auto;
+  margin: 0 auto 120px;
 
   div {
     width: 100% !important;
@@ -69,6 +70,32 @@ const VideoWrapper = styled.div`
   }
 `;
 
+const Webinar = styled.section`
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-bottom: 120px;
+
+  article {
+    background: #0c0c53;
+    padding: 30px;
+    border-radius: 30px;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media ${MediaQuery.isTablet} {
+    grid-template-columns: 1fr;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    grid-template-columns: 1fr;
+  }
+`;
+
 const PartnersView = () => {
   const [hasWindow, setHasWindow] = useState(false);
 
@@ -80,11 +107,6 @@ const PartnersView = () => {
 
   return (
     <Container>
-      <Partners id="partners">
-        {PARTNERS.map((partner, index) => (
-          <img src={partner.url} alt={partner.alt} key={index} />
-        ))}
-      </Partners>
       <VideoWrapper>
         {/* {hasWindow && (
           <ReactPlayer
@@ -99,6 +121,37 @@ const PartnersView = () => {
           />
         </video>
       </VideoWrapper>
+      <HeadingLogo style={{ textAlign: "center" }}>
+        Who is the webinar for?
+      </HeadingLogo>
+      <Webinar>
+        <article>
+          <h2>Top managers</h2>
+          <p>
+            Upgrade your leadership skills and take your career to a new high
+            level
+          </p>
+        </article>
+        <article>
+          <h2>Entrepreneurs</h2>
+          <p>
+            Master the skills of accumulated experience and increase the
+            professional level
+          </p>
+        </article>
+        <article>
+          <h2>Experts</h2>
+          <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p>
+        </article>
+      </Webinar>
+      <Partners id="partners">
+        {PARTNERS.map((partner, index) => (
+          <img src={partner.url} alt={partner.alt} key={index} />
+        ))}
+      </Partners>
     </Container>
   );
 };
