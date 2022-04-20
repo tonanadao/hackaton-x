@@ -5,10 +5,10 @@ import microsoft from "../../public/images/microsoft.svg";
 import walmart from "../../public/images/walmart.svg";
 import fedex from "../../public/images/fedex.svg";
 import blockczech from "../../public/images/blockczech.svg";
-import gamee from "../../public/images/gamee.jpeg";
+import gamee from "../../public/images/gamee.png";
 import hubhub from "../../public/images/hubhub.png";
-import somnium from "../../public/images/somnium.jpeg";
-import animoca from "../../public/images/animoca.jpeg";
+import somnium from "../../public/images/somnium.png";
+import animoca from "../../public/images/animoca.png";
 import amber from "../../public/images/amber.png";
 
 // Partners images

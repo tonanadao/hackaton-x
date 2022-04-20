@@ -1,7 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import HomeView from "../views/HomeView";
+
+import IntroView from "../views/IntroView";
+import ForWhoView from "../views/ForWhoView";
+import BroadcastView from "../views/BroadcastView";
 import PartnersView from "../views/PartnersView";
+import SpeakersView from "../views/SpeakersView";
 import BlockTalkView from "../views/BlockTalkView";
 
 const Home: NextPage = () => {
@@ -13,8 +17,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeView />
+      <IntroView />
+      <ForWhoView />
+      <BroadcastView />
       <PartnersView />
+      <SpeakersView />
       <BlockTalkView />
     </div>
   );

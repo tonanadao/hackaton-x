@@ -13,7 +13,7 @@ import linkedIn from "../../public/images/linkedIn.svg";
 import twitch from "../../public/images/twitch.svg";
 import youtube from "../../public/images/youtube.svg";
 
-const Container = styled.main`
+const Container = styled.section`
   max-width: 1240px;
   margin: 0 auto;
   padding: 140px 0 50px;
@@ -164,7 +164,7 @@ const HomeView = () => {
         <article>
           <Tags>
             <li style={{ fontSize: "27px", padding: "0" }}>
-              12 May 2022 • 19:00
+              12 May 2022 • 15:00 CEST
             </li>
             <ul style={{ display: "flex" }}>
               <li style={{ background: "#0066FF" }}>
