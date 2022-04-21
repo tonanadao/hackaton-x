@@ -5,6 +5,7 @@ import { MediaQuery } from "../hooks/useDeviceType";
 import youtube from "../../public/images/youtube2.svg";
 import linkedIn from "../../public/images/linkedIn2.svg";
 import doodle from "../../public/images/doodle.svg";
+import { DODGERBLUE } from "../styled/colors";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -85,6 +86,10 @@ const Buttons = styled.div`
     display: flex;
     align-items: center;
     margin-right: 10px;
+
+    &:hover {
+      background-color: ${DODGERBLUE.toString()};
+    }
   }
 
   img {
