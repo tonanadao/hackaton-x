@@ -46,12 +46,13 @@ const Photos = styled.section`
 `;
 
 const Photo = styled.figure`
-  max-height: 210px;
-  max-width: 340px;
+  height: 210px;
+  width: 340px;
 
   img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
 
   figcaption {

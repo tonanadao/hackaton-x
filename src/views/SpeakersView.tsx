@@ -49,11 +49,15 @@ const Speakers = styled.article`
   }
 
   @media ${MediaQuery.isTablet} {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
   }
 
   @media ${MediaQuery.isMobile} {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 `;
 

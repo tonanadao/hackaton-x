@@ -30,7 +30,7 @@ const Webinar = styled.section`
     border-radius: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    text-align: center;
 
     /* h2 {
       margin-bottom: 20px;
