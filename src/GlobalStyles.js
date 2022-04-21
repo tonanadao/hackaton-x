@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { BLACKPEARL } from "./styled/colors";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -17,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: inherit;
     width: 100%;
     color: white;
+    background-color: ${BLACKPEARL.toString()};
   }
   
 `;
