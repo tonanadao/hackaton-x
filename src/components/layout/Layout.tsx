@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { BLACKPEARL } from "../../styled/colors";
 import { Button } from "../button/Button";
-import { MailIcon, PhoneIcon, GlobeAltIcon } from "@heroicons/react/outline";
+import {
+  MailIcon,
+  PhoneIcon,
+  GlobeAltIcon,
+  LocationMarkerIcon,
+} from "@heroicons/react/outline";
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 
@@ -72,7 +77,7 @@ const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
 `;
 
 const Footer = styled.footer`
-  height: 243px;
+  height: 280px;
   background-color: ${BLACKPEARL.toString()};
   display: flex;
   justify-content: center;
@@ -104,7 +109,7 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
   a {
     color: white;
@@ -249,6 +254,12 @@ export const Layout = ({ children }: LayoutProps) => {
             </Link>
           </Policies> */}
           <Info id="contact">
+            <div>
+              <IconWrapper>
+                <LocationMarkerIcon />
+              </IconWrapper>
+              <p>ARA Palác, Perlová 5, Staré Město</p>
+            </div>
             <div>
               <IconWrapper>
                 <MailIcon />
