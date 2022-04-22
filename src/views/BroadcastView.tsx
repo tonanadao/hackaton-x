@@ -109,10 +109,10 @@ const VideoView = () => {
           </DoodleWord>
           exclusively on linkedIn and youtube
         </h1>
-        <p>
+        {/* <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum
-        </p>
+        </p> */}
         <Buttons>
           <a
             href="https://www.youtube.com/channel/UCpmXUgn9sIznAGlmjHjZ2DA"
