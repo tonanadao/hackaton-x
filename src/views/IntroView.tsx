@@ -29,7 +29,7 @@ const Container = styled.section`
 
 const Content = styled.section`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   @media ${MediaQuery.isTablet} {
     grid-template-columns: 1fr;
@@ -117,18 +117,6 @@ const SubscribeForm = styled.form`
   }
 `;
 
-const Socials = styled.div`
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 60px;
-
-  img {
-    margin: 0 10px;
-    cursor: pointer;
-  }
-`;
-
 const Checkbox = styled.div`
   display: flex;
 
@@ -182,7 +170,7 @@ const HomeView = () => {
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
-        {/* <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
+        <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
           <hr />
           <ModifiedInput>
@@ -205,12 +193,7 @@ const HomeView = () => {
             <p>0x1dank33kdds565m4o3kngfk21</p>
           </WalletAddress>
           <Button type={ButtonType.submit}>Register now</Button>
-          <Socials>
-            <img src={linkedIn.src} alt="LinkedIn" />
-            <img src={youtube.src} alt="Youtube" />
-            <img src={twitch.src} alt="Twitch" />
-          </Socials>
-        </SubscribeForm> */}
+        </SubscribeForm>
       </Content>
     </Container>
   );
