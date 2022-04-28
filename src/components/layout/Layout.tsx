@@ -122,7 +122,8 @@ const Info = styled.div`
   }
 
   @media ${MediaQuery.isMobile} {
-    flex-direction: column;
+    padding: 0 40px;
+    align-items: flex-start;
   }
 `;
 
@@ -258,7 +259,9 @@ export const Layout = ({ children }: LayoutProps) => {
               <IconWrapper>
                 <LocationMarkerIcon />
               </IconWrapper>
-              <p>ARA Palác, Perlová 5, Staré Město</p>
+              <p>
+                Paralelní Polis, Dělnická 475/43, Holešovice, 170 00 Praha 7
+              </p>
             </div>
             <div>
               <IconWrapper>
