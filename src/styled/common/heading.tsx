@@ -14,6 +14,27 @@ export const Heading01 = styled.h1`
   }
 `;
 
+export const Heading02 = styled.h1`
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100px;
+  font-family: "DM Sans", sans-serif;
+
+  @media ${MediaQuery.isMobile} {
+    font-size: 40px;
+    line-height: 40px;
+  }
+`;
+
+export const Heading03 = styled.h1`
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  font-family: "DM Sans", sans-serif;
+`;
+
 export const HeadingLogo = styled.h1`
   font-size: 40px;
   font-style: normal;

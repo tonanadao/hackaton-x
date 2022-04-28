@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, createContext } from "react";
 import styled from "styled-components";
 import { BLACKPEARL } from "../../styled/colors";
 import { Button } from "../button/Button";
@@ -10,11 +10,13 @@ import {
 } from "@heroicons/react/outline";
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
+import Popup from "../popup/Popup";
 
 import logo from "../../../public/images/blocktalk_logo.svg";
 import logo_small from "../../../public/images/blue_square.svg";
 import background_large from "../../../public/images/background_large.png";
 import background_small from "../../../public/images/background_small.png";
+import { ethers } from "ethers";
 
 const Container = styled.main`
   height: 100%;
@@ -195,54 +197,67 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const Web3Provider = createContext<ethers.providers.Web3Provider | null>(null);
+
 export const Layout = ({ children }: LayoutProps) => {
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [provider, setProvider] =
+    useState<ethers.providers.Web3Provider | null>(null);
+
   const isDesktop = useDeviceType(MediaQuery.isDesktop);
   const isMobile = useDeviceType(MediaQuery.isMobile);
 
   return (
-    <Container>
-      <Header>
-        <Link href="/" passHref>
-          <Logo>
-            {/* {!isMobile ? ( */}
-            <LogoWrapper>
-              <img src={logo.src} alt="Logo" />
-            </LogoWrapper>
-            {/* ) : (
-              <LogoWrapperSmall>
-                <img src={logo_small.src} alt="Logo" />
-              </LogoWrapperSmall>
-            )} */}
-          </Logo>
-        </Link>
-        <Navbar>
-          {isDesktop ? (
-            <ul>
-              <Link href="/" passHref>
-                <li>Home</li>
-              </Link>
-              <Link href="/#partners" passHref>
-                <li>Partners</li>
-              </Link>
-              <Link href="/#contact" passHref>
-                <li>Contact</li>
-              </Link>
-            </ul>
-          ) : null}
-          {/* <Button>Connect Wallet</Button> */}
-          {/* {!isDesktop ? (
+    <Web3Provider.Provider value={provider}>
+      <Container>
+        <Header>
+          <Link href="/" passHref>
+            <Logo>
+              {!isMobile ? (
+                <LogoWrapper>
+                  <img src={logo.src} alt="Logo" />
+                </LogoWrapper>
+              ) : (
+                <LogoWrapperSmall>
+                  <img src={logo_small.src} alt="Logo" />
+                </LogoWrapperSmall>
+              )}
+            </Logo>
+          </Link>
+          <Navbar>
+            {isDesktop ? (
+              <ul>
+                <Link href="/" passHref>
+                  <li>Home</li>
+                </Link>
+                <Link href="/#partners" passHref>
+                  <li>Partners</li>
+                </Link>
+                <Link href="/#contact" passHref>
+                  <li>Contact</li>
+                </Link>
+              </ul>
+            ) : null}
+            <Button onClick={() => setShowPopup(true)}>Connect Wallet</Button>
+            {/* {!isDesktop ? (
             <HamburgerMenu>
               <div></div>
               <div></div>
               <div></div>
             </HamburgerMenu>
           ) : null} */}
-        </Navbar>
-      </Header>
-      <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
-      <Footer>
-        <FooterContent>
-          {/* <Policies>
+          </Navbar>
+        </Header>
+        {showPopup ? (
+          <Popup
+            closePopup={() => setShowPopup(false)}
+            setProvider={setProvider}
+          />
+        ) : null}
+        <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
+        <Footer>
+          <FooterContent>
+            {/* <Policies>
             <Link href="/privacy-policy" passHref>
               <p>Privacy Policy</p>
             </Link>
@@ -253,42 +268,43 @@ export const Layout = ({ children }: LayoutProps) => {
               <p>Terms & Conditions</p>
             </Link>
           </Policies> */}
-          <Info id="contact">
-            <div>
-              <IconWrapper>
-                <LocationMarkerIcon />
-              </IconWrapper>
-              <p>ARA Palác, Perlová 5, Staré Město</p>
-            </div>
-            <div>
-              <IconWrapper>
-                <MailIcon />
-              </IconWrapper>
-              <a href="mailto:blocktalk@blockczech.io">
-                blocktalk@blockczech.io
-              </a>
-            </div>
-            <div>
-              <IconWrapper>
-                <PhoneIcon />
-              </IconWrapper>
-              <a href="tel:+420773008994">+420 773 008 994</a>
-            </div>
-            <div>
-              <IconWrapper>
-                <GlobeAltIcon />
-              </IconWrapper>
-              <Link href="https://www.blockczech.io" passHref>
-                <a target="_blank">www.blockczech.io</a>
-              </Link>
-            </div>
-          </Info>
-          <p style={{ textAlign: "center" }}>
-            © 2022 BlockCzech R&D Lab. All rights reserved
-          </p>
-        </FooterContent>
-      </Footer>
-    </Container>
+            <Info id="contact">
+              <div>
+                <IconWrapper>
+                  <LocationMarkerIcon />
+                </IconWrapper>
+                <p>ARA Palác, Perlová 5, Staré Město</p>
+              </div>
+              <div>
+                <IconWrapper>
+                  <MailIcon />
+                </IconWrapper>
+                <a href="mailto:blocktalk@blockczech.io">
+                  blocktalk@blockczech.io
+                </a>
+              </div>
+              <div>
+                <IconWrapper>
+                  <PhoneIcon />
+                </IconWrapper>
+                <a href="tel:+420773008994">+420 773 008 994</a>
+              </div>
+              <div>
+                <IconWrapper>
+                  <GlobeAltIcon />
+                </IconWrapper>
+                <Link href="https://www.blockczech.io" passHref>
+                  <a target="_blank">www.blockczech.io</a>
+                </Link>
+              </div>
+            </Info>
+            <p style={{ textAlign: "center" }}>
+              © 2022 BlockCzech R&D Lab. All rights reserved
+            </p>
+          </FooterContent>
+        </Footer>
+      </Container>
+    </Web3Provider.Provider>
   );
 };
 

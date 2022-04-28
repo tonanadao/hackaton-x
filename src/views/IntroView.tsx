@@ -178,11 +178,8 @@ const HomeView = () => {
             <input type="text" placeholder="Lastname" />
           </ModifiedInput>
           <input type="email" placeholder="Email" />
-          <ModifiedInput>
-            <input type="text" placeholder="Company" />
-            <input type="text" placeholder="Position" />
-          </ModifiedInput>
-          <input type="text" placeholder="Interest" />
+          <input type="text" placeholder="LinkedIn" />
+          <input type="text" placeholder="Twitter" />
           {email ? (
             <Checkbox>
               <label htmlFor="update">I want to receive updates</label>
