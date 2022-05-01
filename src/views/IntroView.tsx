@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Heading01 } from "../styled/common/heading";
 import { DODGERBLUE } from "../styled/colors";
 import styled from "styled-components";
@@ -8,10 +8,11 @@ import {
   ButtonType,
 } from "../components/button/Button";
 import { MediaQuery } from "../hooks/useDeviceType";
+import { Web3Provider } from "../components/layout/Layout";
 
-import linkedIn from "../../public/images/linkedIn.svg";
-import twitch from "../../public/images/twitch.svg";
-import youtube from "../../public/images/youtube.svg";
+// import linkedIn from "../../public/images/linkedIn.svg";
+// import twitch from "../../public/images/twitch.svg";
+// import youtube from "../../public/images/youtube.svg";
 
 const Container = styled.section`
   max-width: 1240px;
@@ -140,11 +141,29 @@ const WalletAddress = styled.article`
   height: 60px;
 `;
 
-const HomeView = () => {
+const IntroView = () => {
   const [email, setEmail] = useState<string>();
+  const [accountAddress, setAccountAddress] = useState<string>();
+
+  const provider = React.useContext(Web3Provider);
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
   }
+
+  async function fetchData() {
+    const accounts = await provider?.listAccounts();
+
+    console.log(accounts, provider);
+
+    if (accounts) {
+      setAccountAddress(accounts[0]);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [provider]);
 
   return (
     <Container>
@@ -187,7 +206,7 @@ const HomeView = () => {
             </Checkbox>
           ) : null}
           <WalletAddress>
-            <p>0x1dank33kdds565m4o3kngfk21</p>
+            {provider ? <p>{accountAddress}</p> : null}
           </WalletAddress>
           <Button type={ButtonType.submit}>Register now</Button>
         </SubscribeForm>
@@ -196,4 +215,4 @@ const HomeView = () => {
   );
 };
 
-export default HomeView;
+export default IntroView;

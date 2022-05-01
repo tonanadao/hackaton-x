@@ -86,7 +86,7 @@ const Text = styled.div`
 
 interface PopupProps {
   closePopup: () => void;
-  setProvider: (provider: ethers.providers.Web3Provider) => void;
+  setProvider: (provider: ethers.providers.Web3Provider | null) => void;
 }
 
 const Popup = ({ closePopup, setProvider }: PopupProps) => {
@@ -117,11 +117,11 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
   useOutsideAlerter(wrapperRef);
 
   async function connectMetamask() {
-    if (typeof window !== "undefined") {
-      setLocalProvider((window as any).ethereum);
-    }
+    let ethereum;
 
-    const ethereum = (window as any).ethereum;
+    if (typeof window !== "undefined") {
+      ethereum = (window as any).ethereum;
+    }
 
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
@@ -129,9 +129,9 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
       throw new Error("Metamask extension is not available");
     }
 
-    // ethereum.on("accountsChanged", (accounts: Array<string>) =>
-    //   onAccountsChanged(accounts)
-    // );
+    ethereum.on("accountsChanged", (accounts: string[]) =>
+      onAccountsChange(accounts)
+    );
     // ethereum.on(
     //   "chainChanged",
     //   (chainIdHex: string) =>
@@ -139,6 +139,10 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
     // );
 
     setProvider(new ethers.providers.Web3Provider(ethereum));
+
+    localStorage.setItem("isConnected", "true");
+
+    closePopup();
   }
 
   async function connectWalletConnect() {
@@ -160,9 +164,9 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
     }
 
     //  walletConnectProvider.on("disconnect", onDisconnect);
-    //  walletConnectProvider.on("accountsChanged", (accounts: string[]) =>
-    //    onAccountsChange(accounts)
-    //  );
+    walletConnectProvider.on("accountsChanged", (accounts: string[]) =>
+      onAccountsChange(accounts)
+    );
     //  walletConnectProvider.on("chainChanged", onChainChange);
 
     function isIOS() {
@@ -192,8 +196,23 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
       }
     }
 
-    console.log(walletConnectProvider);
-    setProvider(new ethers.providers.Web3Provider(walletConnectProvider));
+    const isConnectedWC = localStorage.getItem("walletconnect");
+
+    if (isConnectedWC) {
+      setProvider(new ethers.providers.Web3Provider(walletConnectProvider));
+
+      localStorage.setItem("isConnected", "true");
+
+      closePopup();
+    }
+  }
+
+  function onAccountsChange(accounts: string[]) {
+    if (accounts.length === 0) {
+      localStorage.setItem("isConnected", "false");
+
+      setProvider(null);
+    }
   }
 
   return (

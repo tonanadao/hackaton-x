@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import styled from "styled-components";
 import { BLACKPEARL } from "../../styled/colors";
 import { Button } from "../button/Button";
@@ -17,6 +17,7 @@ import logo_small from "../../../public/images/blue_square.svg";
 import background_large from "../../../public/images/background_large.png";
 import background_small from "../../../public/images/background_small.png";
 import { ethers } from "ethers";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 const Container = styled.main`
   height: 100%;
@@ -198,7 +199,9 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Web3Provider = createContext<ethers.providers.Web3Provider | null>(null);
+export const Web3Provider = createContext<ethers.providers.Web3Provider | null>(
+  null
+);
 
 export const Layout = ({ children }: LayoutProps) => {
   const [showPopup, setShowPopup] = useState<boolean>(false);
@@ -207,6 +210,46 @@ export const Layout = ({ children }: LayoutProps) => {
 
   const isDesktop = useDeviceType(MediaQuery.isDesktop);
   const isMobile = useDeviceType(MediaQuery.isMobile);
+
+  function disconnect() {
+    const receivedObject = localStorage.getItem("walletconnect");
+
+    if (receivedObject) {
+      (provider?.provider as WalletConnectProvider).disconnect();
+    }
+
+    localStorage.setItem("isConnected", "false");
+
+    setProvider(null);
+  }
+
+  useEffect(() => {
+    const isConnected = localStorage.getItem("isConnected");
+
+    if (isConnected && isConnected === "true") {
+      const isWalletConnect = localStorage.getItem("walletconnect");
+
+      if (isWalletConnect) {
+        const provider = new WalletConnectProvider({
+          rpc: {
+            97: "https://api-eu1.tatum.io/v3/bsc/web3/8ac074a3-0373-4e80-a904-88fc23f468e5",
+            56: "https://bsc-dataseed.binance.org/",
+            1: "https://main-light.eth.linkpool.io/",
+            4: "https://rinkeby-light.eth.linkpool.io/",
+          },
+          chainId: Number(process.env.REACT_APP_CHAIN_ID),
+        });
+
+        provider.enable();
+
+        setProvider(new ethers.providers.Web3Provider(provider));
+      } else {
+        const ethereum = (window as any).ethereum;
+
+        setProvider(new ethers.providers.Web3Provider(ethereum));
+      }
+    }
+  }, []);
 
   return (
     <Web3Provider.Provider value={provider}>
@@ -239,7 +282,11 @@ export const Layout = ({ children }: LayoutProps) => {
                 </Link>
               </ul>
             ) : null}
-            <Button onClick={() => setShowPopup(true)}>Connect Wallet</Button>
+            {provider ? (
+              <Button onClick={disconnect}>Disconnect</Button>
+            ) : (
+              <Button onClick={() => setShowPopup(true)}>Connect Wallet</Button>
+            )}
             {/* {!isDesktop ? (
             <HamburgerMenu>
               <div></div>

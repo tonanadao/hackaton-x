@@ -97,7 +97,7 @@ const Buttons = styled.div`
   }
 `;
 
-const VideoView = () => {
+const BroadcastView = () => {
   return (
     <Container>
       <Broadcast>
@@ -150,4 +150,4 @@ const VideoView = () => {
   );
 };
 
-export default VideoView;
+export default BroadcastView;
