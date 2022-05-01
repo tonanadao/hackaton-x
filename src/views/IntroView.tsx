@@ -120,9 +120,12 @@ const SubscribeForm = styled.form`
 
 const Checkbox = styled.div`
   display: flex;
+  align-items: center;
 
-  label {
-    display: block;
+  input {
+    margin: 0;
+    width: auto;
+    margin-left: 20px;
   }
 `;
 
@@ -142,22 +145,74 @@ const WalletAddress = styled.article`
 `;
 
 const IntroView = () => {
-  const [email, setEmail] = useState<string>();
-  const [accountAddress, setAccountAddress] = useState<string>();
+  const [email, setEmail] = useState<string>("");
+  const [firstname, setFirstname] = useState<string>("");
+  const [lastname, setLastname] = useState<string>("");
+  const [linkedIn, setLinkedIn] = useState<string>("");
+  const [twitter, setTwitter] = useState<string>("");
+  const [receiveUpdates, setReceiveUpdates] = useState<boolean>(false);
+  const [accountAddress, setAccountAddress] = useState<string>("");
 
   const provider = React.useContext(Web3Provider);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    if (email) {
+      const response_get = await fetch(
+        process.env.REACT_APP_API_LOCATION +
+          "/api/v1/account/register_email/get_register_email_token/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const token_response = await response_get.json();
+
+      const msg = `${email};${token_response.token}`;
+
+      const signature = await provider?.getSigner().signMessage(msg);
+
+      const response_post = await fetch(
+        process.env.REACT_APP_API_LOCATION + "/api/v1/account/register_email/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token_email: msg,
+            signature: signature,
+            first_name: firstname,
+            last_name: lastname,
+            twitter: twitter,
+            linkedin: linkedIn,
+            pfp_nft_address: "pfp_nft_address",
+            pfp_token_id: 0,
+          }),
+        }
+      );
+
+      console.log(await response_post.json());
+    }
   }
 
   async function fetchData() {
     const accounts = await provider?.listAccounts();
 
-    console.log(accounts, provider);
-
     if (accounts) {
       setAccountAddress(accounts[0]);
+    }
+  }
+
+  function checkboxState(e: any) {
+    if (e.target.checked) {
+      setReceiveUpdates(true);
+    } else {
+      setReceiveUpdates(false);
     }
   }
 
@@ -193,16 +248,45 @@ const IntroView = () => {
           <h2>Register yourself!</h2>
           <hr />
           <ModifiedInput>
-            <input type="text" placeholder="Firstname" />
-            <input type="text" placeholder="Lastname" />
+            <input
+              type="text"
+              placeholder="Firstname"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
           </ModifiedInput>
-          <input type="email" placeholder="Email" />
-          <input type="text" placeholder="LinkedIn" />
-          <input type="text" placeholder="Twitter" />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="LinkedIn"
+            value={linkedIn}
+            onChange={(e) => setLinkedIn(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Twitter"
+            value={twitter}
+            onChange={(e) => setTwitter(e.target.value)}
+          />
           {email ? (
             <Checkbox>
-              <label htmlFor="update">I want to receive updates</label>
-              <input type="checkbox" />
+              <p>I want to receive updates</p>
+              <input
+                type="checkbox"
+                checked={receiveUpdates}
+                onChange={(e) => checkboxState(e)}
+              />
             </Checkbox>
           ) : null}
           <WalletAddress>
