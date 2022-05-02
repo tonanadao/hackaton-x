@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import styled from "styled-components";
-import { BLACKPEARL } from "../../styled/colors";
+import { BLACKPEARL, DODGERBLUE } from "../../styled/colors";
 import { Button } from "../button/Button";
 import {
   MailIcon,
@@ -18,6 +18,7 @@ import background_large from "../../../public/images/background_large.png";
 import background_small from "../../../public/images/background_small.png";
 import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { _fetchData } from "ethers/lib/utils";
 
 const Container = styled.main`
   height: 100%;
@@ -162,10 +163,6 @@ const HamburgerMenu = styled.div`
   }
 `;
 
-const Thin = styled.span`
-  font-weight: 100;
-`;
-
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -203,8 +200,13 @@ export const Web3Provider = createContext<ethers.providers.Web3Provider | null>(
   null
 );
 
+export const OpenPopup = createContext<any>({
+  setShowPopup: () => {},
+});
+
 export const Layout = ({ children }: LayoutProps) => {
   const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [accountAddress, setAccountAdress] = useState<string>("");
   const [provider, setProvider] =
     useState<ethers.providers.Web3Provider | null>(null);
 
@@ -223,8 +225,10 @@ export const Layout = ({ children }: LayoutProps) => {
     setProvider(null);
   }
 
-  useEffect(() => {
+  async function fetchData() {
     const isConnected = localStorage.getItem("isConnected");
+
+    let web3: ethers.providers.Web3Provider;
 
     if (isConnected && isConnected === "true") {
       const isWalletConnect = localStorage.getItem("walletconnect");
@@ -242,70 +246,105 @@ export const Layout = ({ children }: LayoutProps) => {
 
         provider.enable();
 
-        setProvider(new ethers.providers.Web3Provider(provider));
+        web3 = new ethers.providers.Web3Provider(provider);
       } else {
         const ethereum = (window as any).ethereum;
 
-        setProvider(new ethers.providers.Web3Provider(ethereum));
+        web3 = new ethers.providers.Web3Provider(ethereum);
       }
+
+      const accounts = await web3.listAccounts();
+
+      setAccountAdress(accounts[0]);
+
+      setProvider(web3);
     }
+  }
+
+  async function getAccountAddress() {
+    const accounts = await provider?.listAccounts();
+
+    if (accounts) {
+      setAccountAdress(accounts[0]);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
+
+  useEffect(() => {
+    getAccountAddress();
+  }, [provider]);
 
   return (
     <Web3Provider.Provider value={provider}>
-      <Container>
-        <Header>
-          <Link href="/" passHref>
-            <Logo>
-              {!isMobile ? (
-                <LogoWrapper>
-                  <img src={logo.src} alt="Logo" />
-                </LogoWrapper>
+      <OpenPopup.Provider value={() => setShowPopup(true)}>
+        <Container>
+          <Header>
+            <Link href="/" passHref>
+              <Logo>
+                {!isMobile ? (
+                  <LogoWrapper>
+                    <img src={logo.src} alt="Logo" />
+                  </LogoWrapper>
+                ) : (
+                  <LogoWrapperSmall>
+                    <img src={logo_small.src} alt="Logo" />
+                  </LogoWrapperSmall>
+                )}
+              </Logo>
+            </Link>
+            <Navbar>
+              {isDesktop ? (
+                <ul>
+                  <Link href="/" passHref>
+                    <li>Home</li>
+                  </Link>
+                  <Link href="/#partners" passHref>
+                    <li>Partners</li>
+                  </Link>
+                  <Link href="/#contact" passHref>
+                    <li>Contact</li>
+                  </Link>
+                </ul>
+              ) : null}
+              {provider ? (
+                <Button
+                  onClick={disconnect}
+                  style={{
+                    backgroundColor: `${DODGERBLUE.toString()}`,
+                    color: "#fff",
+                    border: "1px solid #fff",
+                  }}
+                >
+                  {accountAddress.substring(0, 5).concat("...") +
+                    accountAddress.substring(accountAddress.length - 4)}
+                </Button>
               ) : (
-                <LogoWrapperSmall>
-                  <img src={logo_small.src} alt="Logo" />
-                </LogoWrapperSmall>
+                <Button onClick={() => setShowPopup(true)}>
+                  Connect Wallet
+                </Button>
               )}
-            </Logo>
-          </Link>
-          <Navbar>
-            {isDesktop ? (
-              <ul>
-                <Link href="/" passHref>
-                  <li>Home</li>
-                </Link>
-                <Link href="/#partners" passHref>
-                  <li>Partners</li>
-                </Link>
-                <Link href="/#contact" passHref>
-                  <li>Contact</li>
-                </Link>
-              </ul>
-            ) : null}
-            {provider ? (
-              <Button onClick={disconnect}>Disconnect</Button>
-            ) : (
-              <Button onClick={() => setShowPopup(true)}>Connect Wallet</Button>
-            )}
-            {/* {!isDesktop ? (
+              {/* {!isDesktop ? (
             <HamburgerMenu>
               <div></div>
               <div></div>
               <div></div>
             </HamburgerMenu>
           ) : null} */}
-          </Navbar>
-        </Header>
-        {showPopup ? (
-          <Popup
-            closePopup={() => setShowPopup(false)}
-            setProvider={setProvider}
-          />
-        ) : null}
-        <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
-        <Footer>
-          <FooterContent>
-            {/* <Policies>
+            </Navbar>
+          </Header>
+          {showPopup ? (
+            <Popup
+              closePopup={() => setShowPopup(false)}
+              setProvider={setProvider}
+            />
+          ) : null}
+          <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>
+          <Footer>
+            <FooterContent>
+              {/* <Policies>
             <Link href="/privacy-policy" passHref>
               <p>Privacy Policy</p>
             </Link>
@@ -316,44 +355,45 @@ export const Layout = ({ children }: LayoutProps) => {
               <p>Terms & Conditions</p>
             </Link>
           </Policies> */}
-            <Info id="contact">
-              <div>
-                <IconWrapper>
-                  <LocationMarkerIcon />
-                </IconWrapper>
-                <p>
-                  Paralelní Polis, Dělnická 475/43, Holešovice, 170 00 Praha 7
-                </p>
-              </div>
-              <div>
-                <IconWrapper>
-                  <MailIcon />
-                </IconWrapper>
-                <a href="mailto:blocktalk@blockczech.io">
-                  blocktalk@blockczech.io
-                </a>
-              </div>
-              <div>
-                <IconWrapper>
-                  <PhoneIcon />
-                </IconWrapper>
-                <a href="tel:+420773008994">+420 773 008 994</a>
-              </div>
-              <div>
-                <IconWrapper>
-                  <GlobeAltIcon />
-                </IconWrapper>
-                <Link href="https://www.blockczech.io" passHref>
-                  <a target="_blank">www.blockczech.io</a>
-                </Link>
-              </div>
-            </Info>
-            <p style={{ textAlign: "center" }}>
-              © 2022 BlockCzech R&D Lab. All rights reserved
-            </p>
-          </FooterContent>
-        </Footer>
-      </Container>
+              <Info id="contact">
+                <div>
+                  <IconWrapper>
+                    <LocationMarkerIcon />
+                  </IconWrapper>
+                  <p>
+                    Paralelní Polis, Dělnická 475/43, Holešovice, 170 00 Praha 7
+                  </p>
+                </div>
+                <div>
+                  <IconWrapper>
+                    <MailIcon />
+                  </IconWrapper>
+                  <a href="mailto:blocktalk@blockczech.io">
+                    blocktalk@blockczech.io
+                  </a>
+                </div>
+                <div>
+                  <IconWrapper>
+                    <PhoneIcon />
+                  </IconWrapper>
+                  <a href="tel:+420773008994">+420 773 008 994</a>
+                </div>
+                <div>
+                  <IconWrapper>
+                    <GlobeAltIcon />
+                  </IconWrapper>
+                  <Link href="https://www.blockczech.io" passHref>
+                    <a target="_blank">www.blockczech.io</a>
+                  </Link>
+                </div>
+              </Info>
+              <p style={{ textAlign: "center" }}>
+                © 2022 BlockCzech R&D Lab. All rights reserved
+              </p>
+            </FooterContent>
+          </Footer>
+        </Container>
+      </OpenPopup.Provider>
     </Web3Provider.Provider>
   );
 };

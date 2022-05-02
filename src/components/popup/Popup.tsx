@@ -4,6 +4,7 @@ import { Heading03 } from "../../styled/common/heading";
 import { XIcon } from "@heroicons/react/solid";
 import { ethers, providers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { MediaQuery } from "../../hooks/useDeviceType";
 
 import metamask from "../../../public/images/metamask.svg";
 import walletConnect from "../../../public/images/wallet_connect.svg";
@@ -23,7 +24,8 @@ const Container = styled.main`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   border-radius: 20px;
   padding: 20px;
   color: #000;
@@ -49,6 +51,17 @@ const Wallet = styled.div`
     height: 80px;
     width: 80px;
     margin-right: 40px;
+  }
+
+  @media ${MediaQuery.isMobile} {
+    flex-direction: column;
+    height: 180px;
+
+    img {
+      height: 50px;
+      width: 50px;
+      margin-right: 0;
+    }
   }
 `;
 
@@ -82,6 +95,14 @@ const Text = styled.div`
   p {
     opacity: 0.6;
   }
+
+  @media ${MediaQuery.isMobile} {
+    h1 {
+      margin-top: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
+  }
 `;
 
 interface PopupProps {
@@ -90,10 +111,6 @@ interface PopupProps {
 }
 
 const Popup = ({ closePopup, setProvider }: PopupProps) => {
-  const [localProvider, setLocalProvider] = useState<
-    ethers.providers.ExternalProvider | WalletConnectProvider
-  >();
-
   function useOutsideAlerter(ref: React.MutableRefObject<any>) {
     useEffect(() => {
       /**

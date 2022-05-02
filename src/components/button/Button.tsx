@@ -60,6 +60,7 @@ interface ButtonProps {
   appearance?: ButtonAppearance;
   href?: string;
   onClick?: () => void;
+  style?: any;
 }
 
 export const Button = ({
@@ -68,6 +69,7 @@ export const Button = ({
   children,
   href,
   onClick,
+  style,
 }: ButtonProps) => {
   const isMobile = useDeviceType(MediaQuery.isMobile);
 
@@ -79,6 +81,7 @@ export const Button = ({
           type={type}
           appearance={appearance}
           isMobile={isMobile}
+          style={style}
         >
           {children}
           {appearance === "outline" ? <ChevronRightIcon /> : null}
@@ -88,7 +91,12 @@ export const Button = ({
   } else if (onClick) {
     return (
       //@ts-ignore
-      <ButtonContainer appearance={appearance} type={type} onClick={onClick}>
+      <ButtonContainer
+        appearance={appearance}
+        type={type}
+        onClick={onClick}
+        style={style}
+      >
         {children}
         {appearance === "outline" ? <ChevronRightIcon /> : null}
       </ButtonContainer>
@@ -96,7 +104,7 @@ export const Button = ({
   } else {
     return (
       //@ts-ignore
-      <ButtonContainer appearance={appearance} type={type}>
+      <ButtonContainer appearance={appearance} type={type} style={style}>
         {children}
         {appearance === "outline" ? <ChevronRightIcon /> : null}
       </ButtonContainer>
