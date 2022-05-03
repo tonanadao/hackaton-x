@@ -689,18 +689,16 @@ const IntroView = () => {
           provider.getSigner()
         );
 
-        console.log(contract.functions);
+        const tx = await contract.functions.createProfile([
+          firstname,
+          lastname,
+          twitter,
+          linkedIn,
+          ethers.constants.AddressZero,
+          0,
+        ]);
 
-        const tx = await contract.functions.createProfile({
-          first_name: firstname,
-          last_name: lastname,
-          twitter: twitter,
-          linkedin: linkedIn,
-          pfp_nft_address: "",
-          pfp_token_id: 0,
-        });
-
-        console.log(await tx.wait());
+        await tx.wait();
       }
     }
   }
