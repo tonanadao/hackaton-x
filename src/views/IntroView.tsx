@@ -633,11 +633,6 @@ const IntroView = () => {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
     if (email && provider) {
       const response_get = await fetch(
@@ -657,27 +652,6 @@ const IntroView = () => {
 
       const signature = await provider?.getSigner().signMessage(msg);
 
-<<<<<<< Updated upstream
-      const response_post = await fetch(
-        process.env.REACT_APP_API_LOCATION + "/api/v1/account/register_email/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            token_email: msg,
-            signature: signature,
-            first_name: firstname,
-            last_name: lastname,
-            twitter: twitter,
-            linkedin: linkedIn,
-            pfp_nft_address: null,
-            pfp_token_id: 0,
-          }),
-        }
-      );
-=======
       let response_post;
 
       // Such IF statement, because BE can't receive null or blank string
@@ -762,7 +736,6 @@ const IntroView = () => {
           }
         );
       }
->>>>>>> Stashed changes
 
       console.log(await response_post.json());
 
@@ -805,10 +778,6 @@ const IntroView = () => {
     if (accounts) {
       setAccountAddress(accounts[0]);
     }
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   }
 
   useEffect(() => {
@@ -852,6 +821,7 @@ const IntroView = () => {
         <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
           <hr />
+
           <ModifiedInput>
             <input
               type="text"
@@ -866,17 +836,6 @@ const IntroView = () => {
               onChange={(e) => setLastname(e.target.value)}
             />
           </ModifiedInput>
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-          <input type="email" placeholder="Email" />
-          <ModifiedInput>
-            <input type="text" placeholder="Company" />
-            <input type="text" placeholder="Position" />
-          </ModifiedInput>
-          <input type="text" placeholder="Interest" />
-=======
->>>>>>> Stashed changes
           <input
             type="email"
             placeholder="Email"
@@ -895,42 +854,11 @@ const IntroView = () => {
             value={twitter}
             onChange={(e) => setTwitter(e.target.value)}
           />
-
-<<<<<<< Updated upstream
-=======
           <WalletAddress>
             <input
               type="text"
               value={
                 accountAddress
-                  ? accountAddress.substring(0, 5).concat("...") +
-                    accountAddress.substring(accountAddress.length - 4)
-                  : ""
-              }
-              disabled
-              placeholder="Wallet Address"
-            />
-            <WalletStatus>
-              {provider ? (
-                <div>
-                  <p>connected</p>
-                </div>
-              ) : null}
-            </WalletStatus>
-          </WalletAddress>
->>>>>>> Stashed changes
-          {email ? (
-            <Checkbox>
-              <label htmlFor="update">I want to receive updates</label>
-              <input type="checkbox" />
-            </Checkbox>
-          ) : null}
->>>>>>> Stashed changes
-          <WalletAddress>
-            <input
-              type="text"
-              value={
-                accountAddress !== ""
                   ? accountAddress.substring(0, 5).concat("...") +
                     accountAddress.substring(accountAddress.length - 4)
                   : ""
