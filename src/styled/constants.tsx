@@ -10,6 +10,7 @@ import hubhub from "../../public/images/hubhub.png";
 import somnium from "../../public/images/somnium.png";
 import animoca from "../../public/images/animoca.png";
 import amber from "../../public/images/amber.png";
+import coinintelligence from "../../public/images/coinintelligence.svg";
 
 // Partners images
 export const PARTNERS = [
@@ -36,6 +37,10 @@ export const PARTNERS = [
   {
     url: amber.src,
     alt: "Amber",
+  },
+  {
+    url: coinintelligence.src,
+    alt: "CoinIntelligence",
   },
   // {
   //   url: airbnb,

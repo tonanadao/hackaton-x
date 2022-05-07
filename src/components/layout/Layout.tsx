@@ -276,7 +276,6 @@ export const Layout = ({ children }: LayoutProps) => {
   useEffect(() => {
     getAccountAddress();
   }, [provider]);
-
   return (
     <Web3Provider.Provider value={provider}>
       <OpenPopup.Provider value={() => setShowPopup(true)}>
@@ -318,8 +317,12 @@ export const Layout = ({ children }: LayoutProps) => {
                     border: "1px solid #fff",
                   }}
                 >
-                  {accountAddress.substring(0, 5).concat("...") +
-                    accountAddress.substring(accountAddress.length - 4)}
+                  {accountAddress ? (
+                    accountAddress.substring(0, 5).concat("...") +
+                    accountAddress.substring(accountAddress.length - 4)
+                  ) : (
+                    <p>Disconnect</p>
+                  )}
                 </Button>
               ) : (
                 <Button onClick={() => setShowPopup(true)}>

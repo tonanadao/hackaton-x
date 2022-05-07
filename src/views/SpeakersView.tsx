@@ -2,11 +2,14 @@ import React from "react";
 import { MediaQuery } from "../hooks/useDeviceType";
 import styled from "styled-components";
 import { Heading01 } from "../styled/common/heading";
+import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import arthur from "../../public/images/arthur_sychov.jpeg";
 import bozena from "../../public/images/bozena_rezab.jpeg";
+import yavin from "../../public/images/on_yavin.jpeg";
+import olumide from "../../public/images/olumide_gbendro.jpeg";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -28,12 +31,18 @@ const Speakers = styled.article`
   justify-content: center;
   margin-bottom: 120px;
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
   figure {
     background: #0c0c53;
     padding: 20px;
     border-radius: 30px;
     width: 280px;
     margin: 20px;
+    cursor: pointer;
 
     img {
       width: 100%;
@@ -45,6 +54,7 @@ const Speakers = styled.article`
 
     h2 {
       margin-bottom: 20px;
+      font-size: 26px;
     }
   }
 
@@ -89,6 +99,7 @@ const SpeakersData = [
     },
     company: "SomniumSpace",
     position: "Founder & CEO",
+    linkedin: "https://www.linkedin.com/in/artursychov/",
   },
   {
     name: "Bozena Rezab",
@@ -97,22 +108,25 @@ const SpeakersData = [
     },
     company: "GAMEE",
     position: "CEO & Co-founder",
+    linkedin: "https://www.linkedin.com/in/bozenarezab/",
   },
   {
-    name: "Speaker 3",
+    name: "On Yavin",
     image: {
-      url: question,
+      url: yavin,
     },
-    company: "TBA",
-    position: "TBA",
+    company: "Cointelligence.fund",
+    position: "Managing Partner",
+    linkedin: "https://www.linkedin.com/in/onyavin/",
   },
   {
-    name: "Speaker 4",
+    name: "Olumide Gbendro",
     image: {
-      url: question,
+      url: olumide,
     },
-    company: "TBA",
-    position: "TBA",
+    company: "Non Fungible Fest",
+    position: "NFT Advisor",
+    linkedin: "https://www.linkedin.com/in/olumidegbenro/",
   },
   {
     name: "Speaker 5",
@@ -121,6 +135,7 @@ const SpeakersData = [
     },
     company: "TBA",
     position: "TBA",
+    linkedin: "https://www.linkedin.com/",
   },
 ];
 
@@ -133,13 +148,17 @@ const SpeakersView = () => {
       </Heading>
       <Speakers>
         {SpeakersData.map((speaker, index) => (
-          <figure key={index}>
-            <img src={speaker?.image.url.src} alt="Speaker" />
-            <h2>{speaker?.name}</h2>
-            <p>
-              {speaker?.company} • {speaker?.position}
-            </p>
-          </figure>
+          <Link key={index} href={speaker.linkedin} passHref>
+            <a rel="noreferrer noopener" target="_blank">
+              <figure>
+                <img src={speaker?.image.url.src} alt="Speaker" />
+                <h2>{speaker?.name}</h2>
+                <p>
+                  {speaker?.company} • {speaker?.position}
+                </p>
+              </figure>
+            </a>
+          </Link>
         ))}
       </Speakers>
     </Container>
