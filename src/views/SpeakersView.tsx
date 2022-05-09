@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import arthur from "../../public/images/arthur_sychov.jpeg";
+import francesco from "../../public/images/francesco_vincenti.jpeg";
 import bozena from "../../public/images/bozena_rezab.jpeg";
 import yavin from "../../public/images/on_yavin.jpeg";
 import olumide from "../../public/images/olumide_gbendro.jpeg";
@@ -54,7 +54,7 @@ const Speakers = styled.article`
 
     h2 {
       margin-bottom: 20px;
-      font-size: 26px;
+      font-size: 24px;
     }
   }
 
@@ -93,13 +93,13 @@ const Heading = styled.div`
 
 const SpeakersData = [
   {
-    name: "Artur Sychov",
+    name: "Francesco Vincenti",
     image: {
-      url: arthur,
+      url: francesco,
     },
     company: "SomniumSpace",
-    position: "Founder & CEO",
-    linkedin: "https://www.linkedin.com/in/artursychov/",
+    position: "Business Development",
+    linkedin: "https://www.linkedin.com/in/francesco--vincenti/",
   },
   {
     name: "Bozena Rezab",
