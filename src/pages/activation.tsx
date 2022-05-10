@@ -121,7 +121,7 @@ const Activation = () => {
 
   useEffect(() => {
     activateEmail();
-  }, []);
+  }, [token]);
 
   return (
     <Container>
