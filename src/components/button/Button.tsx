@@ -90,9 +90,9 @@ export const Button = ({
     );
   } else if (onClick) {
     return (
-      //@ts-ignore
       <ButtonContainer
         appearance={appearance}
+        //@ts-ignore
         type={type}
         onClick={onClick}
         style={style}
