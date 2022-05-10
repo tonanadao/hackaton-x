@@ -108,9 +108,10 @@ const Text = styled.div`
 interface PopupProps {
   closePopup: () => void;
   setProvider: (provider: ethers.providers.Web3Provider | null) => void;
+  setAccountAddress: (address: string) => void;
 }
 
-const Popup = ({ closePopup, setProvider }: PopupProps) => {
+const Popup = ({ closePopup, setProvider, setAccountAddress }: PopupProps) => {
   function useOutsideAlerter(ref: React.MutableRefObject<any>) {
     useEffect(() => {
       /**
@@ -146,16 +147,19 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
       throw new Error("Metamask extension is not available");
     }
 
-    ethereum.on("accountsChanged", (accounts: string[]) =>
-      onAccountsChange(accounts)
-    );
     // ethereum.on(
     //   "chainChanged",
     //   (chainIdHex: string) =>
     //     onChainChange && onChainChange(hexToNumber(chainIdHex))
     // );
 
-    setProvider(new ethers.providers.Web3Provider(ethereum));
+    const provider = new ethers.providers.Web3Provider(ethereum);
+
+    setProvider(provider);
+
+    ethereum.on("accountsChanged", (accounts: string[]) =>
+      onAccountsChange(accounts, provider)
+    );
 
     localStorage.setItem("isConnected", "true");
 
@@ -179,12 +183,6 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
     } catch (err) {
       console.log(err);
     }
-
-    //  walletConnectProvider.on("disconnect", onDisconnect);
-    walletConnectProvider.on("accountsChanged", (accounts: string[]) =>
-      onAccountsChange(accounts)
-    );
-    //  walletConnectProvider.on("chainChanged", onChainChange);
 
     function isIOS() {
       return (
@@ -216,19 +214,36 @@ const Popup = ({ closePopup, setProvider }: PopupProps) => {
     const isConnectedWC = localStorage.getItem("walletconnect");
 
     if (isConnectedWC) {
-      setProvider(new ethers.providers.Web3Provider(walletConnectProvider));
+      const provider = new ethers.providers.Web3Provider(walletConnectProvider);
+
+      setProvider(provider);
 
       localStorage.setItem("isConnected", "true");
 
       closePopup();
+
+      //  walletConnectProvider.on("disconnect", onDisconnect);
+      walletConnectProvider.on("accountsChanged", (accounts: string[]) =>
+        onAccountsChange(accounts, provider)
+      );
+      //  walletConnectProvider.on("chainChanged", onChainChange);
     }
   }
 
-  function onAccountsChange(accounts: string[]) {
+  async function onAccountsChange(
+    accounts: string[],
+    provider: ethers.providers.Web3Provider
+  ) {
     if (accounts.length === 0) {
       localStorage.setItem("isConnected", "false");
 
       setProvider(null);
+    } else {
+      const accounts = await provider?.listAccounts();
+
+      if (accounts) {
+        setAccountAddress(accounts[0]);
+      }
     }
   }
 

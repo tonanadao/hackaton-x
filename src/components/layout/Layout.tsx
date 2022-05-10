@@ -196,17 +196,25 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-export const Web3Provider = createContext<ethers.providers.Web3Provider | null>(
-  null
-);
+interface Web3Props {
+  provider: ethers.providers.Web3Provider | null;
+  accountAddress: string;
+}
+
+export const Web3Provider = createContext<Web3Props>({
+  provider: null,
+  accountAddress: "",
+});
 
 export const OpenPopup = createContext<any>({
   setShowPopup: () => {},
 });
 
+export const walletAddress = createContext<string>("");
+
 export const Layout = ({ children }: LayoutProps) => {
   const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [accountAddress, setAccountAdress] = useState<string>("");
+  const [accountAddress, setAccountAddress] = useState<string>("");
   const [provider, setProvider] =
     useState<ethers.providers.Web3Provider | null>(null);
 
@@ -255,7 +263,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
       const accounts = await web3.listAccounts();
 
-      setAccountAdress(accounts[0]);
+      setAccountAddress(accounts[0]);
 
       setProvider(web3);
     }
@@ -265,7 +273,7 @@ export const Layout = ({ children }: LayoutProps) => {
     const accounts = await provider?.listAccounts();
 
     if (accounts) {
-      setAccountAdress(accounts[0]);
+      setAccountAddress(accounts[0]);
     }
   }
 
@@ -276,8 +284,9 @@ export const Layout = ({ children }: LayoutProps) => {
   useEffect(() => {
     getAccountAddress();
   }, [provider]);
+
   return (
-    <Web3Provider.Provider value={provider}>
+    <Web3Provider.Provider value={{ provider, accountAddress }}>
       <OpenPopup.Provider value={() => setShowPopup(true)}>
         <Container>
           <Header>
@@ -342,6 +351,9 @@ export const Layout = ({ children }: LayoutProps) => {
             <Popup
               closePopup={() => setShowPopup(false)}
               setProvider={setProvider}
+              setAccountAddress={(address: string) =>
+                setAccountAddress(address)
+              }
             />
           ) : null}
           <BackgroundWrapper isMobile={isMobile}>{children}</BackgroundWrapper>

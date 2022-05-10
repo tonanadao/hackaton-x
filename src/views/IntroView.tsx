@@ -150,27 +150,28 @@ const WalletStatus = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  div {
-    border-radius: 5px;
-    background-color: ${DODGERBLUE.toString()};
-    color: #fff;
-    padding: 0 10px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin-right: 10px;
-    background: #00c749;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+const Status = styled.div<{ connected: boolean }>`
+  border-radius: 5px;
+  background-color: ${(props) =>
+    props.connected ? "#00c749" : DODGERBLUE.toString()};
+  color: #fff;
+  padding: 0 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-right: 10px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: ${(props) => props.connected === false && "pointer"};
 `;
 
 const IconWrapper = styled.figure<{ color: string }>`
@@ -635,7 +636,7 @@ const IntroView = () => {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (email && provider) {
+    if (email && provider.provider) {
       const response_get = await fetch(
         process.env.REACT_APP_API_LOCATION +
           "/api/v1/account/register_email/get_register_email_token/",
@@ -651,7 +652,7 @@ const IntroView = () => {
 
       const msg = `${email};${token_response.token}`;
 
-      const signature = await provider?.getSigner().signMessage(msg);
+      const signature = await provider.provider?.getSigner().signMessage(msg);
 
       let response_post;
 
@@ -750,11 +751,11 @@ const IntroView = () => {
     } else {
       const contractAddress = "0x62f915D46E17AED84e2B0c28c4617e2B477DEbC4";
 
-      if (provider) {
+      if (provider.provider) {
         const contract = new ethers.Contract(
           contractAddress,
           abi,
-          provider.getSigner()
+          provider.provider.getSigner()
         );
 
         const tx = await contract.functions.createProfile([
@@ -772,9 +773,9 @@ const IntroView = () => {
   }
 
   async function fetchData() {
-    const accounts = await provider?.listAccounts();
+    const accounts = await provider.provider?.listAccounts();
 
-    if (!provider) {
+    if (!provider.provider) {
       setAccountAddress("");
     }
 
@@ -880,11 +881,15 @@ const IntroView = () => {
               placeholder="Wallet Address"
             />
             <WalletStatus>
-              {provider ? (
-                <div>
+              {provider.provider ? (
+                <Status connected={true}>
                   <p>connected</p>
-                </div>
-              ) : null}
+                </Status>
+              ) : (
+                <Status connected={false} onClick={showPopup}>
+                  <p>connect</p>
+                </Status>
+              )}
             </WalletStatus>
           </WalletAddress>
           {email ? (
