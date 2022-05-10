@@ -818,7 +818,7 @@ const IntroView = () => {
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
-        <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
+        {/* <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
           <hr />
 
@@ -880,7 +880,7 @@ const IntroView = () => {
             </SmallText>
           ) : null}
           <Button type={ButtonType.submit}>Register now</Button>
-        </SubscribeForm>
+        </SubscribeForm> */}
       </Content>
     </Container>
   );
