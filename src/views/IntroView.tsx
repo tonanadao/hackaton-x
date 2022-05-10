@@ -10,7 +10,7 @@ import {
 import { MediaQuery } from "../hooks/useDeviceType";
 import { Web3Provider, OpenPopup } from "../components/layout/Layout";
 import CustomPopup from "../components/popup/CustomPopup";
-import { CheckIcon } from "@heroicons/react/solid";
+import { CheckIcon, XIcon } from "@heroicons/react/solid";
 import { ethers } from "ethers";
 
 // import linkedIn from "../../public/images/linkedIn.svg";
@@ -173,13 +173,13 @@ const WalletStatus = styled.div`
   }
 `;
 
-const IconWrapper = styled.figure`
+const IconWrapper = styled.figure<{ color: string }>`
   width: 140px;
   height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00c749;
+  background-color: ${(props) => props.color};
   color: white;
   border-radius: 100%;
   margin-bottom: 40px;
@@ -626,6 +626,7 @@ const IntroView = () => {
   const [twitter, setTwitter] = useState<string>("");
   const [accountAddress, setAccountAddress] = useState<string>("");
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
 
   const provider = React.useContext(Web3Provider);
 
@@ -741,6 +742,8 @@ const IntroView = () => {
 
       if (response_post.ok) {
         setShowSuccess(true);
+      } else {
+        setShowError(true);
       }
     } else if (email) {
       showPopup();
@@ -790,10 +793,20 @@ const IntroView = () => {
         {showSuccess ? (
           <CustomPopup closePopup={() => setShowSuccess(false)}>
             <PopupContent>
-              <IconWrapper>
+              <IconWrapper color="#00c749">
                 <CheckIcon />
               </IconWrapper>
               <p>Registration was successful!</p>
+            </PopupContent>
+          </CustomPopup>
+        ) : null}
+        {showError ? (
+          <CustomPopup closePopup={() => setShowError(false)}>
+            <PopupContent>
+              <IconWrapper color="#e04705">
+                <XIcon />
+              </IconWrapper>
+              <p>Registration failed! The wallet is already registered.</p>
             </PopupContent>
           </CustomPopup>
         ) : null}
@@ -818,7 +831,7 @@ const IntroView = () => {
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
-        {/* <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
+        <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
           <h2>Register yourself!</h2>
           <hr />
 
@@ -880,7 +893,7 @@ const IntroView = () => {
             </SmallText>
           ) : null}
           <Button type={ButtonType.submit}>Register now</Button>
-        </SubscribeForm> */}
+        </SubscribeForm>
       </Content>
     </Container>
   );
