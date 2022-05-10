@@ -87,8 +87,7 @@ const NotificationLoader = styled.div`
   border-radius: 20px;
   padding: 40px 20px;
   justify-content: center;
-  align-items: center;
-`;
+  align-items: center;`;
 
 const Activation = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
@@ -98,7 +97,7 @@ const Activation = () => {
 
   async function activateEmail() {
     const response_post = await fetch(
-      process.env.REACT_APP_API_LOCATION_BLOCKCZECH +
+      process.env.REACT_APP_API_LOCATION +
         "/api/v1/account/activate_email/",
       {
         method: "POST",
