@@ -787,7 +787,7 @@ const IntroView = () => {
     } else if (email) {
       showPopup();
     } else {
-      const contractAddress = "0x62f915D46E17AED84e2B0c28c4617e2B477DEbC4";
+      const contractAddress = "0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07";
 
       if (provider.provider) {
         const contract = new ethers.Contract(
