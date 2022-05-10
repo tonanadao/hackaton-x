@@ -10,7 +10,11 @@ import {
 import { MediaQuery } from "../hooks/useDeviceType";
 import { Web3Provider, OpenPopup } from "../components/layout/Layout";
 import CustomPopup from "../components/popup/CustomPopup";
-import { CheckIcon, XIcon } from "@heroicons/react/solid";
+import {
+  CheckIcon,
+  XIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/solid";
 import { ethers } from "ethers";
 
 // import linkedIn from "../../public/images/linkedIn.svg";
@@ -95,7 +99,6 @@ const SubscribeForm = styled.form`
   padding: 50px;
 
   h2 {
-    margin-bottom: 20px;
     font-family: "DM Sans", sans-serif;
     font-weight: 700;
     font-size: 30px;
@@ -174,6 +177,24 @@ const Status = styled.div<{ connected: boolean }>`
   cursor: ${(props) => props.connected === false && "pointer"};
 `;
 
+const FormHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const FormIconWrapper = styled.figure`
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
 const IconWrapper = styled.figure<{ color: string }>`
   width: 140px;
   height: 140px;
@@ -197,13 +218,29 @@ const PopupContent = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
 `;
 
 const SmallText = styled.p`
   font-size: 14px;
   margin-bottom: 20px;
+`;
+
+const PopupInfo = styled.article`
+  height: 500px;
+  width: 100%;
+  overflow-y: auto;
+  white-space: pre-wrap; /* Webkit */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* IE */
 `;
 
 const abi = [
@@ -628,6 +665,7 @@ const IntroView = () => {
   const [accountAddress, setAccountAddress] = useState<string>("");
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
+  const [showInfo, setShowInfo] = useState<boolean>(false);
 
   const provider = React.useContext(Web3Provider);
 
@@ -791,6 +829,51 @@ const IntroView = () => {
   return (
     <Container>
       <Content>
+        {showInfo ? (
+          <CustomPopup closePopup={() => setShowInfo(false)}>
+            <PopupContent>
+              <h1>What is this registration about?</h1>
+              <PopupInfo>
+                <p>
+                  In BlockCzech we came up with an idea, of how we could use
+                  blockchain technology in various kinds of events. Our
+                  proof-of-concept project called the BlockTalk platform uses
+                  smart contracts to keep track of the people who are attending
+                  the event. Let&apos;s start with the first step. You can
+                  create your BlockTalk Profile right now through our
+                  application or directly in the smart contract{" "}
+                  <a
+                    href="https://polygonscan.com/address/0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    https://polygonscan.com/address/0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07
+                  </a>
+                  . BlockTalk Profile is a soulbound ERC721 NFT that represents
+                  your registration in the BlockTalk platform. There are no
+                  required fields, but feel free to provide data such as
+                  Linkedin or Twitter accounts. Which can then be used for
+                  better networking among others attendees. We do not store this
+                  data directly on-chain, but we keep them indexed in thegraph
+                  through solidity events. After you have successfully created
+                  your Profile, let&apos;s dive into step two. The Event. Every
+                  event is represented as an ERC1155. So we can give POAPs to
+                  attendees when they show up for an event. You will get POAP
+                  based on the type of your attendance such as
+                  &quot;attendee&quot;, &quot;speaker&quot;, or
+                  &quot;partner&quot;. This POAP is also soul-bound so you
+                  cannot transfer it. Some tech details. For Profile ERC721
+                  we&apos;ve used the openzeppelin UUPS Proxy implementation. As
+                  we want to be flexible, with further ideas which can be
+                  implemented upon the ERC721 standard. Event is behind
+                  gnosis-safe clones proxy, so we (or you) can cheaply create
+                  new events. everything is running on the polygon but in the
+                  future, we might implement additional L2s.
+                </p>
+              </PopupInfo>
+            </PopupContent>
+          </CustomPopup>
+        ) : null}
         {showSuccess ? (
           <CustomPopup closePopup={() => setShowSuccess(false)}>
             <PopupContent>
@@ -833,9 +916,13 @@ const IntroView = () => {
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
         <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
-          <h2>Register yourself!</h2>
+          <FormHeader>
+            <h2>Register yourself!</h2>
+            <FormIconWrapper onClick={() => setShowInfo(true)}>
+              <QuestionMarkCircleIcon />
+            </FormIconWrapper>
+          </FormHeader>
           <hr />
-
           <ModifiedInput>
             <input
               type="text"

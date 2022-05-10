@@ -13,6 +13,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
 
 const Container = styled.main`
@@ -28,14 +29,10 @@ const Container = styled.main`
   color: #000;
 `;
 
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-`;
-
 const IconWrapper = styled.figure`
+  position: absolute;
+  top: 20px;
+  right: 20px;
   height: 40px;
   width: 40px;
   display: flex;
@@ -82,11 +79,9 @@ const CustomPopup = ({ closePopup, children }: PopupProps) => {
   return (
     <Overlay>
       <Container ref={wrapperRef}>
-        <Header>
-          <IconWrapper onClick={closePopup}>
-            <XIcon />
-          </IconWrapper>
-        </Header>
+        <IconWrapper onClick={closePopup}>
+          <XIcon />
+        </IconWrapper>
         {children}
       </Container>
     </Overlay>
