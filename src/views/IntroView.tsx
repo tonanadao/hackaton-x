@@ -825,12 +825,12 @@ const IntroView = () => {
             }
           }
         } else {
-          if (accountAddress) {
-            const balance = await contract.functions.balanceOf(accountAddress);
+          const balance = await contract.functions.balanceOf(accounts[0]);
 
-            if (hexToDec(balance[0]._hex) > 0) {
-              setShowQR(true);
-            }
+          if (hexToDec(balance[0]._hex) > 0) {
+            setShowQR(true);
+          } else {
+            setShowQR(false);
           }
         }
       }
