@@ -836,6 +836,8 @@ const IntroView = () => {
       } else {
         setShowQR(false);
       }
+    } else {
+      setShowQR(false);
     }
 
     if (!provider.provider) {
