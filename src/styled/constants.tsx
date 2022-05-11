@@ -16,35 +16,38 @@ import callisto from "../../public/images/callisto.png";
 // Partners images
 export const PARTNERS = [
   {
-    url: "https://blockczech.io/img/logo.e2bf947f.png",
+    img: "https://blockczech.io/img/logo.e2bf947f.png",
+    url: "https://blockczech.io/",
     alt: "BlockCzech",
   },
   {
-    url: hubhub.src,
+    img: hubhub.src,
+    url: "https://www.hubhub.com/cs/praha-palac-ara/?gclid=CjwKCAjwve2TBhByEiwAaktM1D5ftj5r5kZqGA4R1Umj_0WHYOSsr0oOLFCgmOfi3d8Ab56Eip-ogBoCc0IQAvD_BwE",
     alt: "HubHub",
   },
   {
-    url: gamee.src,
+    img: gamee.src,
+    url: "https://www.gamee.com/",
     alt: "Gamee",
   },
   {
-    url: somnium.src,
+    img: somnium.src,
+    url: "https://somniumspace.com/",
     alt: "Somnium_Space",
   },
   {
-    url: animoca.src,
+    img: animoca.src,
+    url: "https://www.animocabrands.com/",
     alt: "Animoca_Brands",
   },
   {
-    url: amber.src,
-    alt: "Amber",
-  },
-  {
-    url: callisto.src,
+    img: callisto.src,
+    url: "https://callisto.network/",
     alt: "Callisto",
   },
   {
-    url: coinintelligence.src,
+    img: coinintelligence.src,
+    url: "https://www.cointelligence.com/",
     alt: "CoinIntelligence",
   },
 

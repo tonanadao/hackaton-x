@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PARTNERS } from "../styled/constants";
 import ReactPlayer from "react-player/youtube";
 import { MediaQuery } from "../hooks/useDeviceType";
+import Link from "next/link";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -28,6 +29,7 @@ const Partners = styled.section`
     /* height: 40px; */
     height: 80px;
     margin: 10px 20px;
+    cursor: pointer;
   }
 
   @media ${MediaQuery.isTablet} {
@@ -63,7 +65,11 @@ const PartnersView = () => {
     <Container>
       <Partners id="partners">
         {PARTNERS.map((partner, index) => (
-          <img src={partner.url} alt={partner.alt} key={index} />
+          <Link href={partner.url} key={index} passHref>
+            <a rel="noopner noreferrer" target="_blank">
+              <img src={partner.img} alt={partner.alt} />
+            </a>
+          </Link>
         ))}
       </Partners>
     </Container>
