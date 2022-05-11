@@ -224,6 +224,7 @@ const PopupContent = styled.div`
   h1 {
     font-size: 24px;
     margin-bottom: 30px;
+    max-width: 80%;
   }
 `;
 
@@ -832,7 +833,15 @@ const IntroView = () => {
         {showInfo ? (
           <CustomPopup closePopup={() => setShowInfo(false)}>
             <PopupContent>
-              <h1>What is this registration about?</h1>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  width: "100%",
+                }}
+              >
+                <h1>What is this registration about?</h1>
+              </div>
               <PopupInfo>
                 <p>
                   In BlockCzech we came up with an idea, of how we could use
