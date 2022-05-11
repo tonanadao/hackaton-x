@@ -673,7 +673,7 @@ const IntroView = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
   const [showInfo, setShowInfo] = useState<boolean>(false);
-  const [showQR, setShowQR] = useState<boolean>(true);
+  const [showQR, setShowQR] = useState<boolean>(false);
 
   const contractAddress = "0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07";
 
