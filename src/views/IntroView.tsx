@@ -950,93 +950,96 @@ const IntroView = () => {
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
-        <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
-          {!showQR ? (
-            <>
-              {" "}
-              <FormHeader>
-                <h2>Register yourself!</h2>
-                <FormIconWrapper onClick={() => setShowInfo(true)}>
-                  <QuestionMarkCircleIcon />
-                </FormIconWrapper>
-              </FormHeader>
-              <hr />
-              <ModifiedInput>
+        {provider.provider ? (
+          <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
+            {!showQR ? (
+              <>
+                {" "}
+                <FormHeader>
+                  <h2>Register yourself!</h2>
+                  <FormIconWrapper onClick={() => setShowInfo(true)}>
+                    <QuestionMarkCircleIcon />
+                  </FormIconWrapper>
+                </FormHeader>
+                <hr />
+                <ModifiedInput>
+                  <input
+                    type="text"
+                    placeholder="Firstname"
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Lastname"
+                    value={lastname}
+                    onChange={(e) => setLastname(e.target.value)}
+                  />
+                </ModifiedInput>
                 <input
-                  type="text"
-                  placeholder="Firstname"
-                  value={firstname}
-                  onChange={(e) => setFirstname(e.target.value)}
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   type="text"
-                  placeholder="Lastname"
-                  value={lastname}
-                  onChange={(e) => setLastname(e.target.value)}
+                  placeholder="LinkedIn"
+                  value={linkedIn}
+                  onChange={(e) => setLinkedIn(e.target.value)}
                 />
-              </ModifiedInput>
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="LinkedIn"
-                value={linkedIn}
-                onChange={(e) => setLinkedIn(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Twitter"
-                value={twitter}
-                onChange={(e) => setTwitter(e.target.value)}
-              />
-              <WalletAddress>
                 <input
                   type="text"
-                  value={
-                    accountAddress
-                      ? accountAddress.substring(0, 5).concat("...") +
-                        accountAddress.substring(accountAddress.length - 4)
-                      : ""
-                  }
-                  disabled
-                  placeholder="Wallet Address"
+                  placeholder="Twitter"
+                  value={twitter}
+                  onChange={(e) => setTwitter(e.target.value)}
                 />
-                <WalletStatus>
-                  {provider.provider ? (
-                    <Status connected={true}>
-                      <p>connected</p>
-                    </Status>
-                  ) : (
-                    <Status connected={false} onClick={showPopup}>
-                      <p>connect</p>
-                    </Status>
-                  )}
-                </WalletStatus>
-              </WalletAddress>
-              {email ? (
-                <SmallText>
-                  By entering email, you agree to receive our updates.
-                </SmallText>
-              ) : null}
-              <Button type={ButtonType.submit}>Register now</Button>
-            </>
-          ) : (
-            <QRCodeWrapper>
-              <h2 style={{ marginBottom: "20px" }}>Wallet QR code</h2>
-              <QRCode
-                value={JSON.stringify({
-                  accountAddress: accountAddress,
-                  tokenId: 6,
-                  contractAddress: process.env.REACT_APP_EVENT_CONTRACT,
-                })}
-              />
-            </QRCodeWrapper>
-          )}
-        </SubscribeForm>
+                <WalletAddress>
+                  <input
+                    type="text"
+                    value={
+                      accountAddress
+                        ? accountAddress.substring(0, 5).concat("...") +
+                          accountAddress.substring(accountAddress.length - 4)
+                        : ""
+                    }
+                    disabled
+                    placeholder="Wallet Address"
+                  />
+                  <WalletStatus>
+                    {provider.provider ? (
+                      <Status connected={true}>
+                        <p>connected</p>
+                      </Status>
+                    ) : (
+                      <Status connected={false} onClick={showPopup}>
+                        <p>connect</p>
+                      </Status>
+                    )}
+                  </WalletStatus>
+                </WalletAddress>
+                <SmallText>■ All fields are optional</SmallText>
+                {email ? (
+                  <SmallText>
+                    By entering email, you agree to receive our updates.
+                  </SmallText>
+                ) : null}
+                <Button type={ButtonType.submit}>Register now</Button>
+              </>
+            ) : (
+              <QRCodeWrapper>
+                <h2 style={{ marginBottom: "20px" }}>Wallet QR code</h2>
+                <QRCode
+                  value={JSON.stringify({
+                    accountAddress: accountAddress,
+                    tokenId: 6,
+                    contractAddress: process.env.REACT_APP_EVENT_CONTRACT,
+                  })}
+                />
+              </QRCodeWrapper>
+            )}
+          </SubscribeForm>
+        ) : null}
       </Content>
     </Container>
   );
