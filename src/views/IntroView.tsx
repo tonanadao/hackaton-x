@@ -15,6 +15,7 @@ import {
   XIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/react/solid";
+import QRCode from "react-qr-code";
 import { ethers } from "ethers";
 
 const Container = styled.section`
@@ -44,6 +45,15 @@ const Content = styled.section`
     grid-template-columns: 1fr;
     grid-gap: 4rem;
   }
+`;
+
+const QRCodeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 `;
 
 const Tags = styled.ul`
@@ -663,6 +673,9 @@ const IntroView = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
   const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [showQR, setShowQR] = useState<boolean>(false);
+
+  const contractAddress = "0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07";
 
   const provider = React.useContext(Web3Provider);
 
@@ -778,14 +791,13 @@ const IntroView = () => {
 
       if (response_post.ok) {
         setShowSuccess(true);
+        setShowQR(true);
       } else {
         setShowError(true);
       }
     } else if (email) {
       showPopup();
     } else {
-      const contractAddress = "0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07";
-
       if (provider.provider) {
         const contract = new ethers.Contract(
           contractAddress,
@@ -807,8 +819,26 @@ const IntroView = () => {
     }
   }
 
+  function hexToDec(hexString: string) {
+    return parseInt(hexString, 16);
+  }
+
   async function fetchData() {
     const accounts = await provider.provider?.listAccounts();
+
+    if (provider.provider && accounts) {
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi,
+        provider.provider.getSigner()
+      );
+
+      const balance = await contract.functions.balanceOf(accounts[0]);
+
+      if (hexToDec(balance[0]._hex) > 0) {
+        setShowQR(true);
+      }
+    }
 
     if (!provider.provider) {
       setAccountAddress("");
@@ -921,75 +951,85 @@ const IntroView = () => {
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
         <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
-          <FormHeader>
-            <h2>Register yourself!</h2>
-            <FormIconWrapper onClick={() => setShowInfo(true)}>
-              <QuestionMarkCircleIcon />
-            </FormIconWrapper>
-          </FormHeader>
-          <hr />
-          <ModifiedInput>
-            <input
-              type="text"
-              placeholder="Firstname"
-              value={firstname}
-              onChange={(e) => setFirstname(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Lastname"
-              value={lastname}
-              onChange={(e) => setLastname(e.target.value)}
-            />
-          </ModifiedInput>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="LinkedIn"
-            value={linkedIn}
-            onChange={(e) => setLinkedIn(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Twitter"
-            value={twitter}
-            onChange={(e) => setTwitter(e.target.value)}
-          />
-          <WalletAddress>
-            <input
-              type="text"
-              value={
-                accountAddress
-                  ? accountAddress.substring(0, 5).concat("...") +
-                    accountAddress.substring(accountAddress.length - 4)
-                  : ""
-              }
-              disabled
-              placeholder="Wallet Address"
-            />
-            <WalletStatus>
-              {provider.provider ? (
-                <Status connected={true}>
-                  <p>connected</p>
-                </Status>
-              ) : (
-                <Status connected={false} onClick={showPopup}>
-                  <p>connect</p>
-                </Status>
-              )}
-            </WalletStatus>
-          </WalletAddress>
-          {email ? (
-            <SmallText>
-              By entering email, you agree to receive our updates.
-            </SmallText>
-          ) : null}
-          <Button type={ButtonType.submit}>Register now</Button>
+          {!showQR ? (
+            <>
+              {" "}
+              <FormHeader>
+                <h2>Register yourself!</h2>
+                <FormIconWrapper onClick={() => setShowInfo(true)}>
+                  <QuestionMarkCircleIcon />
+                </FormIconWrapper>
+              </FormHeader>
+              <hr />
+              <ModifiedInput>
+                <input
+                  type="text"
+                  placeholder="Firstname"
+                  value={firstname}
+                  onChange={(e) => setFirstname(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Lastname"
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)}
+                />
+              </ModifiedInput>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="LinkedIn"
+                value={linkedIn}
+                onChange={(e) => setLinkedIn(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Twitter"
+                value={twitter}
+                onChange={(e) => setTwitter(e.target.value)}
+              />
+              <WalletAddress>
+                <input
+                  type="text"
+                  value={
+                    accountAddress
+                      ? accountAddress.substring(0, 5).concat("...") +
+                        accountAddress.substring(accountAddress.length - 4)
+                      : ""
+                  }
+                  disabled
+                  placeholder="Wallet Address"
+                />
+                <WalletStatus>
+                  {provider.provider ? (
+                    <Status connected={true}>
+                      <p>connected</p>
+                    </Status>
+                  ) : (
+                    <Status connected={false} onClick={showPopup}>
+                      <p>connect</p>
+                    </Status>
+                  )}
+                </WalletStatus>
+              </WalletAddress>
+              {email ? (
+                <SmallText>
+                  By entering email, you agree to receive our updates.
+                </SmallText>
+              ) : null}
+              <Button type={ButtonType.submit}>Register now</Button>
+            </>
+          ) : (
+            <QRCodeWrapper>
+              <h2 style={{ marginBottom: "20px" }}>Wallet QR code</h2>
+              <QRCode value={accountAddress} />
+            </QRCodeWrapper>
+          )}
         </SubscribeForm>
       </Content>
     </Container>
