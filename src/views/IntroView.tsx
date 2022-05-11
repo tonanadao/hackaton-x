@@ -17,10 +17,6 @@ import {
 } from "@heroicons/react/solid";
 import { ethers } from "ethers";
 
-// import linkedIn from "../../public/images/linkedIn.svg";
-// import twitch from "../../public/images/twitch.svg";
-// import youtube from "../../public/images/youtube.svg";
-
 const Container = styled.section`
   max-width: 1240px;
   margin: 0 auto;
