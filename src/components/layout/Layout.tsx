@@ -60,6 +60,8 @@ const Navbar = styled.nav`
   }
 `;
 
+// .
+
 const BackgroundWrapper = styled.div<{ isMobile: boolean }>`
   min-height: 100vh;
   background-image: ${(props) =>
