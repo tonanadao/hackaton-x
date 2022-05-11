@@ -11,6 +11,7 @@ import somnium from "../../public/images/somnium.png";
 import animoca from "../../public/images/animoca.png";
 import amber from "../../public/images/amber.png";
 import coinintelligence from "../../public/images/coinintelligence.svg";
+import callisto from "../../public/images/callisto.png";
 
 // Partners images
 export const PARTNERS = [
@@ -39,9 +40,14 @@ export const PARTNERS = [
     alt: "Amber",
   },
   {
+    url: callisto.src,
+    alt: "Callisto",
+  },
+  {
     url: coinintelligence.src,
     alt: "CoinIntelligence",
   },
+
   // {
   //   url: airbnb,
   //   alt: "Airbnb",

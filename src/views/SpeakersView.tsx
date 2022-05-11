@@ -120,7 +120,7 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/onyavin/",
   },
   {
-    name: "Olumide Gbendro",
+    name: "Olúmidé Gbendro",
     image: {
       url: olumide,
     },
