@@ -833,6 +833,8 @@ const IntroView = () => {
             setShowQR(false);
           }
         }
+      } else {
+        setShowQR(false);
       }
     }
 
