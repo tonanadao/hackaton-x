@@ -702,90 +702,34 @@ const IntroView = () => {
 
       const signature = await provider.provider?.getSigner().signMessage(msg);
 
-      let response_post;
+      let responseBody: any = {
+        token_email: msg,
+        signature: signature,
+        first_name: firstname,
+        last_name: lastname,
+        pfp_nft_address: ethers.constants.AddressZero,
+        pfp_token_id: 0,
+      };
 
-      // Such IF statement, because BE can't receive null or blank string
       if (linkedIn && twitter) {
-        response_post = await fetch(
-          process.env.REACT_APP_API_LOCATION +
-            "/api/v1/account/register_email/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token_email: msg,
-              signature: signature,
-              first_name: firstname,
-              last_name: lastname,
-              twitter: twitter,
-              linkedin: linkedIn,
-              pfp_nft_address: ethers.constants.AddressZero,
-              pfp_token_id: 0,
-            }),
-          }
-        );
+        responseBody.linkedIn = linkedIn;
+        responseBody.twitter = twitter;
       } else if (linkedIn) {
-        response_post = await fetch(
-          process.env.REACT_APP_API_LOCATION +
-            "/api/v1/account/register_email/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token_email: msg,
-              signature: signature,
-              first_name: firstname,
-              last_name: lastname,
-              linkedin: linkedIn,
-              pfp_nft_address: ethers.constants.AddressZero,
-              pfp_token_id: 0,
-            }),
-          }
-        );
+        responseBody.linkedIn = linkedIn;
       } else if (twitter) {
-        response_post = await fetch(
-          process.env.REACT_APP_API_LOCATION +
-            "/api/v1/account/register_email/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token_email: msg,
-              signature: signature,
-              first_name: firstname,
-              last_name: lastname,
-              twitter: twitter,
-              pfp_nft_address: ethers.constants.AddressZero,
-              pfp_token_id: 0,
-            }),
-          }
-        );
-      } else {
-        response_post = await fetch(
-          process.env.REACT_APP_API_LOCATION +
-            "/api/v1/account/register_email/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token_email: msg,
-              signature: signature,
-              first_name: firstname,
-              last_name: lastname,
-              pfp_nft_address: ethers.constants.AddressZero,
-              pfp_token_id: 0,
-            }),
-          }
-        );
+        responseBody.twitter = twitter;
       }
+
+      const response_post = await fetch(
+        process.env.REACT_APP_API_LOCATION + "/api/v1/account/register_email/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(responseBody),
+        }
+      );
 
       console.log(await response_post.json());
 
@@ -805,16 +749,36 @@ const IntroView = () => {
           provider.provider.getSigner()
         );
 
-        const tx = await contract.functions.createProfile([
-          firstname,
-          lastname,
-          twitter,
-          linkedIn,
-          ethers.constants.AddressZero,
-          0,
-        ]);
+        let networkId = (await provider.provider.getNetwork()).chainId;
 
-        await tx.wait();
+        if (networkId !== Number(process.env.REACT_APP_POLYGON_CHAIN_ID)) {
+          try {
+            //@ts-ignore
+            provider.provider.provider.request({
+              method: "wallet_switchEthereumChain",
+              params: [
+                {
+                  chainId: decToHex(
+                    Number(process.env.REACT_APP_POLYGON_CHAIN_ID)
+                  ),
+                },
+              ],
+            });
+          } catch (err) {
+            console.log(err);
+          }
+        } else {
+          const tx = await contract.functions.createProfile([
+            firstname,
+            lastname,
+            twitter,
+            linkedIn,
+            ethers.constants.AddressZero,
+            0,
+          ]);
+
+          await tx.wait();
+        }
       }
     }
   }
@@ -822,6 +786,8 @@ const IntroView = () => {
   function hexToDec(hexString: string) {
     return parseInt(hexString, 16);
   }
+
+  const decToHex = (val: number): string => `0x${val.toString(16)}`;
 
   async function fetchData() {
     const accounts = await provider.provider?.listAccounts();
@@ -834,10 +800,38 @@ const IntroView = () => {
           provider.provider.getSigner()
         );
 
-        const balance = await contract.functions.balanceOf(accounts[0]);
+        let networkId = (await provider.provider.getNetwork()).chainId;
 
-        if (hexToDec(balance[0]._hex) > 0) {
-          setShowQR(true);
+        if (networkId !== Number(process.env.REACT_APP_POLYGON_CHAIN_ID)) {
+          //@ts-ignore
+          provider.provider.provider.request({
+            method: "wallet_switchEthereumChain",
+            params: [
+              {
+                chainId: decToHex(
+                  Number(process.env.REACT_APP_POLYGON_CHAIN_ID)
+                ),
+              },
+            ],
+          });
+
+          networkId = (await provider.provider.getNetwork()).chainId;
+
+          if (networkId === Number(process.env.REACT_APP_POLYGON_CHAIN_ID)) {
+            const balance = await contract.functions.balanceOf(accounts[0]);
+
+            if (hexToDec(balance[0]._hex) > 0) {
+              setShowQR(true);
+            }
+          }
+        } else {
+          if (accountAddress) {
+            const balance = await contract.functions.balanceOf(accountAddress);
+
+            if (hexToDec(balance[0]._hex) > 0) {
+              setShowQR(true);
+            }
+          }
         }
       }
     }

@@ -5,6 +5,7 @@ module.exports = {
     REACT_APP_API_LOCATION: process.env.REACT_APP_API_LOCATION,
     REACT_APP_API_LOCATION_BLOCKCZECH:
       process.env.REACT_APP_API_LOCATION_BLOCKCZECH,
+    REACT_APP_POLYGON_CHAIN_ID: process.env.REACT_APP_POLYGON_CHAIN_ID,
   },
   reactStrictMode: true,
 };
