@@ -673,7 +673,7 @@ const IntroView = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
   const [showInfo, setShowInfo] = useState<boolean>(false);
-  const [showQR, setShowQR] = useState<boolean>(false);
+  const [showQR, setShowQR] = useState<boolean>(true);
 
   const contractAddress = "0xED840aC715e7bd6B986C58bd84F1dbE4A3350E07";
 
@@ -1027,7 +1027,13 @@ const IntroView = () => {
           ) : (
             <QRCodeWrapper>
               <h2 style={{ marginBottom: "20px" }}>Wallet QR code</h2>
-              <QRCode value={accountAddress} />
+              <QRCode
+                value={JSON.stringify({
+                  accountAddress: accountAddress,
+                  tokenId: 6,
+                  contractAddress: process.env.REACT_APP_EVENT_CONTRACT,
+                })}
+              />
             </QRCodeWrapper>
           )}
         </SubscribeForm>
