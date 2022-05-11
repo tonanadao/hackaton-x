@@ -56,7 +56,7 @@ const Wallet = styled.div`
 
   @media ${MediaQuery.isMobile} {
     flex-direction: column;
-    height: 180px;
+    min-height: 180px;
 
     img {
       height: 50px;
