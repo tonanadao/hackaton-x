@@ -827,16 +827,18 @@ const IntroView = () => {
     const accounts = await provider.provider?.listAccounts();
 
     if (provider.provider && accounts) {
-      const contract = new ethers.Contract(
-        contractAddress,
-        abi,
-        provider.provider.getSigner()
-      );
+      if (accounts.length > 0) {
+        const contract = new ethers.Contract(
+          contractAddress,
+          abi,
+          provider.provider.getSigner()
+        );
 
-      const balance = await contract.functions.balanceOf(accounts[0]);
+        const balance = await contract.functions.balanceOf(accounts[0]);
 
-      if (hexToDec(balance[0]._hex) > 0) {
-        setShowQR(true);
+        if (hexToDec(balance[0]._hex) > 0) {
+          setShowQR(true);
+        }
       }
     }
 
