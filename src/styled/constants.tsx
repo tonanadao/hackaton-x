@@ -12,6 +12,7 @@ import animoca from "../../public/images/animoca.png";
 import amber from "../../public/images/amber.png";
 import coinintelligence from "../../public/images/coinintelligence.svg";
 import callisto from "../../public/images/callisto.png";
+import polis from "../../public/images/polis.png";
 
 // Partners images
 export const PARTNERS = [
@@ -44,6 +45,11 @@ export const PARTNERS = [
     img: callisto.src,
     url: "https://callisto.network/",
     alt: "Callisto",
+  },
+  {
+    img: polis.src,
+    url: "https://www.paralelnipolis.cz/",
+    alt: "Paralelni Polis",
   },
   {
     img: coinintelligence.src,

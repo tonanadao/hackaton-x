@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import Script from "next/script";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -42,21 +41,6 @@ export default class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans&family=Poppins&display=swap"
             rel="stylesheet"
-          />
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-2H06LGWTSD"
-          />
-          <Script
-            id="google-analytics"
-            dangerouslySetInnerHTML={{
-              __html: `
-               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-2H06LGWTSD');
-            `,
-            }}
           />
         </Head>
         <body>
