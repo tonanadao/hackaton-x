@@ -10,6 +10,7 @@ import francesco from "../../public/images/francesco_vincenti.jpeg";
 import bozena from "../../public/images/bozena_rezab.jpeg";
 import yavin from "../../public/images/on_yavin.jpeg";
 import olumide from "../../public/images/olumide_gbendro.jpeg";
+import chris from "../../public/images/chris_curra.jpeg";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -41,6 +42,7 @@ const Speakers = styled.article`
     padding: 20px;
     border-radius: 30px;
     width: 280px;
+    min-height: 400px;
     margin: 20px;
     cursor: pointer;
 
@@ -102,13 +104,13 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/francesco--vincenti/",
   },
   {
-    name: "Bozena Rezab",
+    name: "Christophe  Curra",
     image: {
-      url: bozena,
+      url: chris,
     },
-    company: "GAMEE",
-    position: "CEO & Co-founder",
-    linkedin: "https://www.linkedin.com/in/bozenarezab/",
+    company: "Defungify",
+    position: "Founder",
+    linkedin: "https://www.linkedin.com/in/chrisjcurra",
   },
   {
     name: "On Yavin",
