@@ -735,7 +735,6 @@ const IntroView = () => {
 
       if (response_post.ok) {
         setShowSuccess(true);
-        setShowQR(true);
       } else {
         setShowError(true);
       }
