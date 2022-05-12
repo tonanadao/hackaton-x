@@ -172,10 +172,11 @@ const Popup = ({ closePopup, setProvider, setAccountAddress }: PopupProps) => {
       rpc: {
         97: "https://api-eu1.tatum.io/v3/bsc/web3/8ac074a3-0373-4e80-a904-88fc23f468e5",
         56: "https://bsc-dataseed.binance.org/",
+        137: "https://polygon-rpc.com/",
         1: "https://main-light.eth.linkpool.io/",
         4: "https://rinkeby-light.eth.linkpool.io/",
       },
-      chainId: Number(process.env.REACT_APP_CHAIN_ID),
+      chainId: Number(process.env.REACT_APP_POLYGON_CHAIN_ID),
     });
 
     try {

@@ -123,7 +123,7 @@ const BroadcastView = () => {
             View on Youtube
           </a>
           <a
-            href="https://www.linkedin.com/events/blocktalkaboutgames-nftdefidaog6915371729389301760/about/"
+            href="https://www.linkedin.com/video/event/urn:li:ugcPost:6929711310305665024/"
             target="_blank"
             rel="noopener noreferrer"
           >

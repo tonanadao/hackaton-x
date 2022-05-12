@@ -791,6 +791,8 @@ const IntroView = () => {
   async function fetchData() {
     const accounts = await provider.provider?.listAccounts();
 
+    console.log(accounts);
+
     if (provider.provider && accounts) {
       if (accounts.length > 0) {
         const contract = new ethers.Contract(
@@ -800,6 +802,8 @@ const IntroView = () => {
         );
 
         let networkId = (await provider.provider.getNetwork()).chainId;
+
+        console.log(networkId);
 
         if (networkId !== Number(process.env.REACT_APP_POLYGON_CHAIN_ID)) {
           //@ts-ignore
@@ -816,8 +820,12 @@ const IntroView = () => {
 
           networkId = (await provider.provider.getNetwork()).chainId;
 
+          console.log("1");
+
           if (networkId === Number(process.env.REACT_APP_POLYGON_CHAIN_ID)) {
             const balance = await contract.functions.balanceOf(accounts[0]);
+
+            console.log("balance", balance);
 
             if (hexToDec(balance[0]._hex) > 0) {
               setShowQR(true);
