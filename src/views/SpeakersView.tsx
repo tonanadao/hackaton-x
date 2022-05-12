@@ -11,7 +11,7 @@ import bozena from "../../public/images/bozena_rezab.jpeg";
 import yavin from "../../public/images/on_yavin.jpeg";
 import olumide from "../../public/images/olumide_gbendro.jpeg";
 import chris from "../../public/images/chris_curra.jpeg";
-import edwin from "../../public/images/edwin_kapesa.jpeg";
+import simon from "../../public/images/simon_mikolajczyk.jpeg";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -46,6 +46,10 @@ const Speakers = styled.article`
     min-height: 400px;
     margin: 20px;
     cursor: pointer;
+
+    p {
+      font-size: 17px;
+    }
 
     img {
       width: 100%;
@@ -132,13 +136,13 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/olumidegbenro/",
   },
   {
-    name: "Edwin Kapesa",
+    name: "Simon Mikolajczyk",
     image: {
-      url: edwin,
+      url: simon,
     },
-    company: "ChromaPixelGame",
-    position: "CEO & Founder",
-    linkedin: "https://www.linkedin.com/in/edwin-kapesa-82340a202",
+    company: "Metaverse Fashion Council",
+    position: "Founder MaisonDAO",
+    linkedin: "https://www.linkedin.com/in/simonmikolajczyk/",
   },
 ];
 
