@@ -13,6 +13,7 @@ import olumide from "../../public/images/olumide_gbendro.jpeg";
 import chris from "../../public/images/chris_curra.jpeg";
 import simon from "../../public/images/simon_mikolajczyk.jpeg";
 import aashima from "../../public/images/aashima_arora.jpeg";
+import edwin from "../../public/images/edwin_kapesa.jpeg";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -110,13 +111,13 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/francesco--vincenti/",
   },
   {
-    name: "Christophe  Curra",
+    name: "Edwin Kapesa",
     image: {
-      url: chris,
+      url: edwin,
     },
-    company: "Defungify",
-    position: "Founder",
-    linkedin: "https://www.linkedin.com/in/chrisjcurra",
+    company: "ChromaPixelGames",
+    position: "CEO & Founder",
+    linkedin: "https://www.linkedin.com/in/edwin-kapesa-82340a202/",
   },
   {
     name: "On Yavin",
