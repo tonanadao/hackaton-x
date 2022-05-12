@@ -12,6 +12,7 @@ import yavin from "../../public/images/on_yavin.jpeg";
 import olumide from "../../public/images/olumide_gbendro.jpeg";
 import chris from "../../public/images/chris_curra.jpeg";
 import simon from "../../public/images/simon_mikolajczyk.jpeg";
+import aashima from "../../public/images/aashima_arora.jpeg";
 
 const Container = styled.section`
   max-width: 1200px;
@@ -136,13 +137,13 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/olumidegbenro/",
   },
   {
-    name: "Simon Mikolajczyk",
+    name: "Aashima Arora ",
     image: {
-      url: simon,
+      url: aashima,
     },
-    company: "Metaverse Fashion Council",
-    position: "Founder MaisonDAO",
-    linkedin: "https://www.linkedin.com/in/simonmikolajczyk/",
+    company: "Polygon Technology",
+    position: "Investments Lead",
+    linkedin: "https://www.linkedin.com/in/aashima-arora/",
   },
 ];
 
