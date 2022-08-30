@@ -137,14 +137,12 @@ const BlockTalkView = () => {
   return (
     <Container>
       <HeadingLogo>
-        <img src={logo.src} alt="Logo" className="logo" />
-        <img src={square2.src} alt="Square" />
+        <Heading01>Hack-a-TON x Prague</Heading01>
       </HeadingLogo>
       <p style={{ maxWidth: "75%", margin: "0 auto" }}>
-        Block Talk is both in person and virtual meeting of blockchain-based
-        game enthusiasts, investors, software developers with the aim of sharing
-        knowledge in the professional community and networking to find business
-        partners, co-founders, teammates and like-minded people.
+        Hack-a-TON x Prague is a startup & coding event that brings experts and
+        students together to prototype new GameFi, DeFi & DAO products on TON
+        Blockchain.
       </p>
 
       <Photos>

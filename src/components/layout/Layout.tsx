@@ -19,6 +19,7 @@ import background_small from "../../../public/images/background_small.png";
 import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { _fetchData } from "ethers/lib/utils";
+import { Heading03 } from "../../styled/common/heading";
 
 const Container = styled.main`
   height: 100%;
@@ -54,7 +55,7 @@ const Navbar = styled.nav`
     list-style-type: none;
 
     li {
-      margin: 0 20px;
+      margin: 0 40px;
       cursor: pointer;
     }
   }
@@ -293,17 +294,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <Container>
           <Header>
             <Link href="/" passHref>
-              <Logo>
-                {!isMobile ? (
-                  <LogoWrapper>
-                    <img src={logo.src} alt="Logo" />
-                  </LogoWrapper>
-                ) : (
-                  <LogoWrapperSmall>
-                    <img src={logo_small.src} alt="Logo" />
-                  </LogoWrapperSmall>
-                )}
-              </Logo>
+              <Heading03>Hack-a-TON x Prague</Heading03>
             </Link>
             <Navbar>
               {isDesktop ? (
@@ -319,7 +310,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   </Link>
                 </ul>
               ) : null}
-              {provider ? (
+              {/* {provider ? (
                 <Button
                   onClick={disconnect}
                   style={{
@@ -339,7 +330,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 <Button onClick={() => setShowPopup(true)}>
                   Connect Wallet
                 </Button>
-              )}
+              )} */}
               {/* {!isDesktop ? (
             <HamburgerMenu>
               <div></div>
@@ -377,30 +368,26 @@ export const Layout = ({ children }: LayoutProps) => {
                   <IconWrapper>
                     <LocationMarkerIcon />
                   </IconWrapper>
-                  <p>
-                    Paralelní Polis, Dělnická 475/43, Holešovice, 170 00 Praha 7
-                  </p>
+                  <p>Palác ARA, Na Příkopě 14, 110 00 Praha</p>
                 </div>
                 <div>
                   <IconWrapper>
                     <MailIcon />
                   </IconWrapper>
-                  <a href="mailto:blocktalk@blockczech.io">
-                    blocktalk@blockczech.io
-                  </a>
+                  <a href="mailto:artrm@blockczech.io">artrm@blockczech.io</a>
                 </div>
                 <div>
                   <IconWrapper>
                     <PhoneIcon />
                   </IconWrapper>
-                  <a href="tel:+420773008994">+420 773 008 994</a>
+                  <a href="tel:+420602391879">+420 602 391 879</a>
                 </div>
                 <div>
                   <IconWrapper>
                     <GlobeAltIcon />
                   </IconWrapper>
-                  <Link href="https://www.blockczech.io" passHref>
-                    <a target="_blank">www.blockczech.io</a>
+                  <Link href="https://t.me/hackaton2022" passHref>
+                    <a target="_blank">https://t.me/hackaton2022</a>
                   </Link>
                 </div>
               </Info>

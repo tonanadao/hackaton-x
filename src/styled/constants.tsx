@@ -7,6 +7,11 @@ import fedex from "../../public/images/fedex.svg";
 import blockczech from "../../public/images/blockczech.svg";
 import gamee from "../../public/images/gamee.png";
 import hubhub from "../../public/images/hubhub.png";
+import ton from "../../public/images/ton.png";
+import tonana from "../../public/images/tonana.svg";
+import tonStarter from "../../public/images/ton_starter.svg";
+import tonPlay from "../../public/images/ton_play.webp";
+import fslabs from "../../public/images/fslabs.svg";
 import somnium from "../../public/images/somnium.png";
 import animoca from "../../public/images/animoca.png";
 import amber from "../../public/images/amber.png";
@@ -27,35 +32,60 @@ export const PARTNERS = [
     alt: "HubHub",
   },
   {
+    img: tonana.src,
+    url: "https://tonana.org/",
+    alt: "Tonana",
+  },
+  {
+    img: ton.src,
+    url: "https://ton.org/",
+    alt: "Ton",
+  },
+  {
     img: gamee.src,
     url: "https://www.gamee.com/",
     alt: "Gamee",
   },
   {
-    img: somnium.src,
-    url: "https://somniumspace.com/",
-    alt: "Somnium_Space",
+    img: tonStarter.src,
+    url: "https://tonstarter.com/",
+    alt: "TonStarter",
   },
   {
-    img: animoca.src,
-    url: "https://www.animocabrands.com/",
-    alt: "Animoca_Brands",
+    img: tonPlay.src,
+    url: "https://tonplay.io/",
+    alt: "TonPlay",
   },
   {
-    img: callisto.src,
-    url: "https://callisto.network/",
-    alt: "Callisto",
+    img: fslabs.src,
+    url: "https://fslabs.io/",
+    alt: "FSLabs",
   },
-  {
-    img: polis.src,
-    url: "https://www.paralelnipolis.cz/",
-    alt: "Paralelni Polis",
-  },
-  {
-    img: coinintelligence.src,
-    url: "https://www.cointelligence.com/",
-    alt: "CoinIntelligence",
-  },
+  // {
+  //   img: somnium.src,
+  //   url: "https://somniumspace.com/",
+  //   alt: "Somnium_Space",
+  // },
+  // {
+  //   img: animoca.src,
+  //   url: "https://www.animocabrands.com/",
+  //   alt: "Animoca_Brands",
+  // },
+  // {
+  //   img: callisto.src,
+  //   url: "https://callisto.network/",
+  //   alt: "Callisto",
+  // },
+  // {
+  //   img: polis.src,
+  //   url: "https://www.paralelnipolis.cz/",
+  //   alt: "Paralelni Polis",
+  // },
+  // {
+  //   img: coinintelligence.src,
+  //   url: "https://www.cointelligence.com/",
+  //   alt: "CoinIntelligence",
+  // },
 
   // {
   //   url: airbnb,

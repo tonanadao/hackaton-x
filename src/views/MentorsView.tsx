@@ -29,7 +29,7 @@ const Container = styled.section`
   }
 `;
 
-const Speakers = styled.article`
+const Mentors = styled.article`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -100,9 +100,9 @@ const Heading = styled.div`
   }
 `;
 
-const SpeakersData = [
+const MentorsData = [
   {
-    name: "Speaker 1",
+    name: "Mentor 1",
     image: {
       url: question,
     },
@@ -111,7 +111,7 @@ const SpeakersData = [
     linkedin: "",
   },
   {
-    name: "Speaker 2",
+    name: "Mentor 2",
     image: {
       url: question,
     },
@@ -120,7 +120,7 @@ const SpeakersData = [
     linkedin: "",
   },
   {
-    name: "Speaker 3",
+    name: "Mentor 3",
     image: {
       url: question,
     },
@@ -130,30 +130,30 @@ const SpeakersData = [
   },
 ];
 
-const SpeakersView = () => {
+const MentorsView = () => {
   return (
     <Container>
       <Heading>
         <img src={square.src} alt="Square" />
-        <Heading01>SPEAKERS</Heading01>
+        <Heading01>MENTORS</Heading01>
       </Heading>
-      <Speakers>
-        {SpeakersData.map((speaker, index) => (
-          <Link key={index} href={speaker.linkedin} passHref>
+      <Mentors>
+        {MentorsData.map((mentor, index) => (
+          <Link key={index} href={mentor.linkedin} passHref>
             <a rel="noreferrer noopener" target="_blank">
               <figure>
-                <img src={speaker?.image.url.src} alt="Speaker" />
-                <h2>{speaker?.name}</h2>
+                <img src={mentor?.image.url.src} alt="mentor" />
+                <h2>{mentor?.name}</h2>
                 <p>
-                  {speaker?.company} • {speaker?.position}
+                  {mentor?.company} • {mentor?.position}
                 </p>
               </figure>
             </a>
           </Link>
         ))}
-      </Speakers>
+      </Mentors>
     </Container>
   );
 };
 
-export default SpeakersView;
+export default MentorsView;

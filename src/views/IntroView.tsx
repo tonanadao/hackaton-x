@@ -17,6 +17,7 @@ import {
 } from "@heroicons/react/solid";
 import QRCode from "react-qr-code";
 import { ethers } from "ethers";
+import tonana from "../../public/images/tonana2.svg";
 
 const Container = styled.section`
   max-width: 1240px;
@@ -35,6 +36,11 @@ const Container = styled.section`
 const Content = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 
   @media ${MediaQuery.isTablet} {
     grid-template-columns: 1fr;
@@ -939,25 +945,25 @@ const IntroView = () => {
         <article>
           <Tags>
             <li style={{ fontSize: "27px", padding: "0" }}>
-              12 May 2022 • 15:00 CEST
+              30 Sep - 02 Oct 2022
             </li>
             <ul style={{ display: "flex" }}>
-              <li style={{ background: "#0066FF" }}>
-                GameFi, Blockchain, DeFi
-              </li>
+              <li style={{ background: "#0066FF" }}>GameFi, DeFi, DAO & NFT</li>
               <li style={{ border: "1px solid white" }}>Language: English</li>
             </ul>
           </Tags>
           <Heading01>
-            Learn more about <b style={{ color: `${DODGERBLUE}` }}>GameFi</b>
+            Hack-a-TON x <b style={{ color: `${DODGERBLUE}` }}>Prague</b>
           </Heading01>
           <Info>
-            <li>&gt; hybrid blockchain conference</li>
-            <li>&gt; by blockczech r&d lab</li>
+            <li>&gt; educational program</li>
+            <li>&gt; mentorship</li>
+            <li>&gt; demo day</li>
           </Info>
           {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
         </article>
-        {provider.provider ? (
+        <img src={tonana.src} alt="Tonana" />
+        {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
               <>
@@ -1046,7 +1052,7 @@ const IntroView = () => {
               </QRCodeWrapper>
             )}
           </SubscribeForm>
-        ) : null}
+        ) : null} */}
       </Content>
     </Container>
   );

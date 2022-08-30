@@ -55,7 +55,7 @@ const ForWhoView = () => {
       </HeadingLogo>
       <Webinar>
         <article>
-          <h2>Game developers</h2>
+          <h2>Developers</h2>
           {/* <p>
             Upgrade your leadership skills and take your career to a new high
             level
