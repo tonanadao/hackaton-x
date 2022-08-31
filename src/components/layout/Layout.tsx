@@ -294,7 +294,9 @@ export const Layout = ({ children }: LayoutProps) => {
         <Container>
           <Header>
             <Link href="/" passHref>
-              <Heading03>Hack-a-TON x Prague</Heading03>
+              <Heading03 style={{ cursor: "pointer" }}>
+                Hack-a-TON x Prague
+              </Heading03>
             </Link>
             <Navbar>
               {isDesktop ? (

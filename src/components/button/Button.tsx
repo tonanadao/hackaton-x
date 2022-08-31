@@ -42,6 +42,10 @@ const ButtonContainer = styled.button<ButtonProps>`
   }
 `;
 
+const ALink = styled.a`
+  text-decoration: none;
+`;
+
 export enum ButtonType {
   submit = "submit",
   button = "button",
@@ -76,16 +80,18 @@ export const Button = ({
   if (href) {
     return (
       <Link href={href} passHref>
-        <ButtonContainer
-          //@ts-ignore
-          type={type}
-          appearance={appearance}
-          isMobile={isMobile}
-          style={style}
-        >
-          {children}
-          {appearance === "outline" ? <ChevronRightIcon /> : null}
-        </ButtonContainer>
+        <ALink target="_blank" rel="noopener noreferrer">
+          <ButtonContainer
+            //@ts-ignore
+            type={type}
+            appearance={appearance}
+            isMobile={isMobile}
+            style={style}
+          >
+            {children}
+            {appearance === "outline" ? <ChevronRightIcon /> : null}
+          </ButtonContainer>
+        </ALink>
       </Link>
     );
   } else if (onClick) {

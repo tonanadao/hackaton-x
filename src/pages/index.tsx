@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
       <IntroView />
       <ForWhoView />
-      <BroadcastView />
+      {/* <BroadcastView /> */}
       <PartnersView />
       <SpeakersView />
       <MentorsView />

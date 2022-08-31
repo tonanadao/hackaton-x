@@ -960,9 +960,14 @@ const IntroView = () => {
             <li>&gt; mentorship</li>
             <li>&gt; demo day</li>
           </Info>
-          {/* <Button appearance={ButtonAppearance.outline}>File a claim</Button> */}
+          <Button
+            appearance={ButtonAppearance.outline}
+            href="https://forms.gle/UGwNBBRbmSitiXGe9"
+          >
+            Apply for hacking
+          </Button>
         </article>
-        <img src={tonana.src} alt="Tonana" />
+        {/* <img src={tonana.src} alt="Tonana" /> */}
         {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
