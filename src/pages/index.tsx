@@ -15,8 +15,8 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Hack-a-TON</title>
-        <meta name="description" content="BlockTalk events" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Tonana Hack-a-TON x Prague. Come and Learn, Compete, Enjoy" />
+        <link rel="icon" href="/tonana.svg" />
       </Head>
 
       <IntroView />
