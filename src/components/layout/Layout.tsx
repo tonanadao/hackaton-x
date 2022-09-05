@@ -12,6 +12,7 @@ import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 import Popup from "../popup/Popup";
 
+import ton from "../../../public/images/tonw.png";
 import logo from "../../../public/images/blocktalk_logo.svg";
 import logo_small from "../../../public/images/blue_square.svg";
 import background_large from "../../../public/images/background_large.png";
@@ -34,6 +35,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 120px;
+  position:fixed;
 
   @media ${MediaQuery.isTablet} {
     padding: 0 60px;
@@ -49,6 +51,7 @@ const Navbar = styled.nav`
   align-items: center;
   height: 100%;
 
+
   ul {
     display: flex;
     align-items: center;
@@ -57,6 +60,11 @@ const Navbar = styled.nav`
     li {
       margin: 0 40px;
       cursor: pointer;
+    }
+
+    a {
+      color: #fff;
+      text-decoration:none;
     }
   }
 `;
@@ -169,6 +177,10 @@ const HamburgerMenu = styled.div`
 const Logo = styled.div`
   display: flex;
   align-items: center;
+
+  img {
+    max-height: 70px;
+  }
 `;
 
 const LogoWrapper = styled.figure`
@@ -295,7 +307,9 @@ export const Layout = ({ children }: LayoutProps) => {
           <Header>
             <Link href="/" passHref>
               <Heading03 style={{ cursor: "pointer" }}>
-                Hack-a-TON x Prague
+                <Logo>
+                  <img src={ton.src} alt="Ton"/>
+                </Logo>
               </Heading03>
             </Link>
             <Navbar>
@@ -306,6 +320,11 @@ export const Layout = ({ children }: LayoutProps) => {
                   </Link>
                   <Link href="/#partners" passHref>
                     <li>Partners</li>
+                  </Link>
+                  <Link href="https://docs.google.com/document/d/1Yjqg63FVvWgqchMpxG87LNqLqtenq9TDrUjpp2mIhso/edit?usp=sharing" passHref>
+                    <a target="_blank">
+                      <li>Agenda</li>
+                    </a>
                   </Link>
                   <Link href="/#contact" passHref>
                     <li>Contact</li>
@@ -376,7 +395,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   <IconWrapper>
                     <MailIcon />
                   </IconWrapper>
-                  <a href="mailto:artrm@blockczech.io">artrm@blockczech.io</a>
+                  <a href="mailto:artem@tonana.org">artem@tonana.org</a>
                 </div>
                 <div>
                   <IconWrapper>
@@ -394,7 +413,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 </div>
               </Info>
               <p style={{ textAlign: "center" }}>
-                © 2022 BlockCzech R&D Lab. All rights reserved
+                © 2022 Tonana.org | All rights reserved
               </p>
             </FooterContent>
           </Footer>

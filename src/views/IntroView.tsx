@@ -967,7 +967,7 @@ const IntroView = () => {
             Apply for hacking
           </Button>
         </article>
-        {/* <img src={tonana.src} alt="Tonana" /> */}
+        <img src={tonana.src} alt="Tonana" />
         {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
