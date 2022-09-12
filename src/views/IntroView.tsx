@@ -166,7 +166,12 @@ const WalletStatus = styled.div`
   align-items: center;
   justify-content: center;
 `;
+const Venue = styled.section`
 
+img {
+  border-radius: 18px;
+}
+`;
 const Status = styled.div<{ connected: boolean }>`
   border-radius: 5px;
   background-color: ${(props) =>
@@ -968,7 +973,9 @@ const IntroView = () => {
           </Button>
 
         </article>
-          <img src={tonana.src} alt="Tonana" width={255} />
+        <Venue>
+          <img src={tonana.src} alt="Tonana" />
+        </Venue>
         {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
