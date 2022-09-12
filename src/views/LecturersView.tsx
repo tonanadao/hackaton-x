@@ -15,7 +15,10 @@ import simon from "../../public/images/simon_mikolajczyk.jpeg";
 import aashima from "../../public/images/aashima_arora.jpeg";
 import edwin from "../../public/images/edwin_kapesa.jpeg";
 import tony from "../../public/images/tony.jpg";
+import roman from "../../public/images/roman.jpg";
 import nikita from "../../public/images/nikita.jpg";
+
+
 
 const Container = styled.section`
   max-width: 1200px;
@@ -31,7 +34,7 @@ const Container = styled.section`
   }
 `;
 
-const Judges = styled.article`
+const Lecturers = styled.article`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -102,60 +105,60 @@ const Heading = styled.div`
   }
 `;
 
-const JudgesData = [
+const LecturersData = [
   {
-    name: "Nikita Moskalenko",
+    name: "Roman Krutovoy",
     image: {
-      url: nikita,
+      url: roman,
     },
-    company: "Hexit Capital",
-    position: "Investment Manager",
-    linkedin: "https://www.linkedin.com/in/nikmos/",
-  },
-  {
-    name: "Anthony Tsivarev",
-    image: {
-      url: tony,
-    },
-    company: "FS Labs",
-    position: "Senior Partner",
-    linkedin: "https://www.linkedin.com/in/tsivarev/",
+    company: "TON Community",
+    position: "Head of Onboarding / Product Manager",
+    linkedin: "https://www.linkedin.com/in/krutovoy/",
   },
   {
     name: "TBA",
     image: {
       url: question,
     },
-    company: "Tonstarter",
+    company: "TON PLAY",
+    position: "TBA",
+    linkedin: "",
+  },
+  {
+    name: "Arthur Stambultsyan",
+    image: {
+      url: question,
+    },
+    company: "TWA",
     position: "TBA",
     linkedin: "",
   },
 ];
 
-const JudgesView = () => {
+const LecturersView = () => {
   return (
     <Container>
       <Heading>
         <img src={square.src} alt="Square" />
-        <Heading01>JUDGES</Heading01>
+        <Heading01>Lecturers</Heading01>
       </Heading>
-      <Judges>
-        {JudgesData.map((judge, index) => (
-          <Link key={index} href={judge.linkedin} passHref>
+      <Lecturers>
+        {LecturersData.map((lecture, index) => (
+          <Link key={index} href={lecture.linkedin} passHref>
             <a rel="noreferrer noopener" target="_blank">
               <figure>
-                <img src={judge?.image.url.src} alt="judge" />
-                <h2>{judge?.name}</h2>
+                <img src={lecture?.image.url.src} alt="lecturer" />
+                <h2>{lecture?.name}</h2>
                 <p>
-                  {judge?.company} • {judge?.position}
+                  {lecture?.company} • {lecture?.position}
                 </p>
               </figure>
             </a>
           </Link>
         ))}
-      </Judges>
+      </Lecturers>
     </Container>
   );
 };
 
-export default JudgesView;
+export default LecturersView;

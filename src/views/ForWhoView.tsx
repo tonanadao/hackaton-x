@@ -75,6 +75,48 @@ const ForWhoView = () => {
             people
           </p> */}
         </article>
+        <article>
+          <h2>Students</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
+        <article>
+          <h2>Engineers</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
+        <article>
+          <h2>Business devs</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
+        <article>
+          <h2>Designers</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
+        <article>
+          <h2>Artists</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
+        <article>
+          <h2>Cyberpunks</h2>
+          {/* <p>
+            Attract customers and make useful connections with like-minded
+            people
+          </p> */}
+        </article>
       </Webinar>
     </Container>
   );

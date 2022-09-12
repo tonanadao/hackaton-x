@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Heading01 } from "../styled/common/heading";
+import { Heading03 } from "../styled/common/heading";
 import { DODGERBLUE } from "../styled/colors";
 import styled from "styled-components";
 import {
@@ -17,7 +17,7 @@ import {
 } from "@heroicons/react/solid";
 import QRCode from "react-qr-code";
 import { ethers } from "ethers";
-import tonana from "../../public/images/tonana2.svg";
+import venue from "../../public/images/venue.jpg";
 
 const Container = styled.section`
   max-width: 1240px;
@@ -194,6 +194,12 @@ const FormHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+`;
+const Venue = styled.section`
+
+img {
+  border-radius: 18px;
+}
 `;
 
 const FormIconWrapper = styled.figure`
@@ -943,7 +949,7 @@ const IntroView = () => {
           </CustomPopup>
         ) : null}
         <article>
-          <Tags>
+          {/* <Tags>
             <li style={{ fontSize: "27px", padding: "0" }}>
               30 Sep - 02 Oct 2022
             </li>
@@ -951,24 +957,24 @@ const IntroView = () => {
               <li style={{ background: "#0066FF" }}>GameFi, DeFi, DAO & NFT</li>
               <li style={{ border: "1px solid white" }}>Language: English</li>
             </ul>
-          </Tags>
-          <Heading01>
-            Hack-a-TON x <b style={{ color: `${DODGERBLUE}` }}>Prague</b>
-          </Heading01>
+          </Tags> */}
           <Info>
-            <li>&gt; educational program</li>
-            <li>&gt; mentorship</li>
-            <li>&gt; demo day</li>
+            <li>A three-day hackathon and space for creative experiments</li>
           </Info>
+          <Heading03>
+          This is the first TON-based hackathon in Europe hosted by the Blockczech & TonanaBridge team
+          </Heading03>
           <Button
             appearance={ButtonAppearance.outline}
-            href="https://forms.gle/UGwNBBRbmSitiXGe9"
+            href="https://docs.google.com/document/d/1aARBTKBBjZc8oV90aKnaYJJMJ8xJXP5VTJz_xjmGr2Y/edit?usp=sharing"
+            style={ {marginTop: "20px"}}
           >
-            Apply for hacking
+           Preparation material
           </Button>
-
         </article>
-        <img src={tonana.src} alt="Tonana" />
+        <Venue>
+        <img src={venue.src} alt="hubhub" />
+        </Venue>
         
         {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>

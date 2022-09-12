@@ -6,14 +6,11 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import francesco from "../../public/images/francesco_vincenti.jpeg";
-import bozena from "../../public/images/bozena_rezab.jpeg";
-import yavin from "../../public/images/on_yavin.jpeg";
-import olumide from "../../public/images/olumide_gbendro.jpeg";
-import chris from "../../public/images/chris_curra.jpeg";
-import simon from "../../public/images/simon_mikolajczyk.jpeg";
-import aashima from "../../public/images/aashima_arora.jpeg";
-import edwin from "../../public/images/edwin_kapesa.jpeg";
+import vadim from "../../public/images/vadim.jpg";
+import tamara from "../../public/images/tamara.jpg";
+import eugene from "../../public/images/eugene.jpg";
+
+
 
 const Container = styled.section`
   max-width: 1200px;
@@ -102,31 +99,31 @@ const Heading = styled.div`
 
 const MentorsData = [
   {
-    name: "Mentor 1",
+    name: "Eugene Anisei",
     image: {
-      url: question,
+      url: eugene,
     },
-    company: "TBA",
-    position: "TBA",
-    linkedin: "",
+    company: "Tonana",
+    position: "COO",
+    linkedin: "https://www.linkedin.com/in/eugen-anisei/",
   },
   {
-    name: "Mentor 2",
+    name: "Vadim Keffler",
     image: {
-      url: question,
+      url: vadim,
     },
-    company: "TBA",
-    position: "TBA",
-    linkedin: "",
+    company: "T7T Labs",
+    position: "CEO",
+    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
   },
   {
-    name: "Mentor 3",
+    name: "Tamara Bizyuk",
     image: {
-      url: question,
+      url: tamara,
     },
-    company: "TBA",
-    position: "TBA",
-    linkedin: "",
+    company: "Tatum",
+    position: "Customer Acquisition & Retention",
+    linkedin: "https://www.linkedin.com/in/tamarabizyuk/",
   },
 ];
 

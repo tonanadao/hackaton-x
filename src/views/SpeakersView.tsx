@@ -6,14 +6,10 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import francesco from "../../public/images/francesco_vincenti.jpeg";
-import bozena from "../../public/images/bozena_rezab.jpeg";
-import yavin from "../../public/images/on_yavin.jpeg";
-import olumide from "../../public/images/olumide_gbendro.jpeg";
-import chris from "../../public/images/chris_curra.jpeg";
-import simon from "../../public/images/simon_mikolajczyk.jpeg";
-import aashima from "../../public/images/aashima_arora.jpeg";
 import edwin from "../../public/images/edwin_kapesa.jpeg";
+import vova from "../../public/images/vova.png";
+import vlad from "../../public/images/vlad.jpg";
+
 
 const Container = styled.section`
   max-width: 1200px;
@@ -102,22 +98,22 @@ const Heading = styled.div`
 
 const SpeakersData = [
   {
-    name: "Speaker 1",
+    name: "Vova Manoilo",
     image: {
-      url: question,
+      url: vova,
     },
-    company: "TBA",
-    position: "TBA",
-    linkedin: "",
+    company: "Wargaming",
+    position: "Marketing Manager",
+    linkedin: "https://www.linkedin.com/in/manoilo/",
   },
   {
-    name: "Speaker 2",
+    name: "Vladislav Blizniuk",
     image: {
-      url: question,
+      url: vlad,
     },
-    company: "TBA",
+    company: "Tonana",
     position: "TBA",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/sepezho/",
   },
   {
     name: "Speaker 3",
