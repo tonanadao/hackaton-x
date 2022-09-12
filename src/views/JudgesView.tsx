@@ -121,15 +121,15 @@ const JudgesData = [
     position: "Senior Partner",
     linkedin: "https://www.linkedin.com/in/tsivarev/",
   },
-  {
-    name: "TBA",
-    image: {
-      url: question,
-    },
-    company: "Tonstarter",
-    position: "TBA",
-    linkedin: "",
-  },
+  // {
+  //   name: "TBA",
+  //   image: {
+  //     url: question,
+  //   },
+  //   company: "Tonstarter",
+  //   position: "TBA",
+  //   linkedin: "",
+  // },
 ];
 
 const JudgesView = () => {
