@@ -115,15 +115,15 @@ const LecturersData = [
     position: "Head of Onboarding / Product Manager",
     linkedin: "https://www.linkedin.com/in/krutovoy/",
   },
-  {
-    name: "TBA",
-    image: {
-      url: question,
-    },
-    company: "TON PLAY",
-    position: "TBA",
-    linkedin: "",
-  },
+  // {
+  //   name: "TBA",
+  //   image: {
+  //     url: question,
+  //   },
+  //   company: "TON PLAY",
+  //   position: "TBA",
+  //   linkedin: "",
+  // },
   {
     name: "Arthur Stambultsyan",
     image: {

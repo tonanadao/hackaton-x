@@ -115,15 +115,15 @@ const SpeakersData = [
     position: "TBA",
     linkedin: "https://www.linkedin.com/in/sepezho/",
   },
-  {
-    name: "Speaker 3",
-    image: {
-      url: question,
-    },
-    company: "TBA",
-    position: "TBA",
-    linkedin: "",
-  },
+  // {
+  //   name: "Ricardo Biosas",
+  //   image: {
+  //     url: question,
+  //   },
+  //   company: "TBA",
+  //   position: "TBA",
+  //   linkedin: "",
+  // },
 ];
 
 const SpeakersView = () => {
