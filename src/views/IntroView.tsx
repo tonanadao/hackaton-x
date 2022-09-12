@@ -968,8 +968,7 @@ const IntroView = () => {
           </Button>
 
         </article>
-        <img src={tonana.src} alt="Tonana" />
-        
+          <img src={tonana.src} alt="Tonana" width={255} />
         {/* {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
