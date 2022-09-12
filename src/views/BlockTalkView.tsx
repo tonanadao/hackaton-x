@@ -136,9 +136,6 @@ const IconWrapper = styled.figure`
 const BlockTalkView = () => {
   return (
     <Container>
-      <HeadingLogo>
-        <Heading01>Hack-a-TON x Prague</Heading01>
-      </HeadingLogo>
       <p style={{ maxWidth: "75%", margin: "0 auto" }}>
         Hack-a-TON x Prague is a startup & coding event that brings experts and
         students together to prototype new GameFi, DeFi & DAO products on TON

@@ -22,6 +22,7 @@ const Home: NextPage = () => {
       </Head>
 
       <IntroView />
+      <BlockTalkView />
       <ForWhoView />
       <InfoView />
       {/* <BroadcastView /> */}
@@ -30,7 +31,6 @@ const Home: NextPage = () => {
       <LecturersView />
       <SpeakersView />
       <MentorsView />
-      <BlockTalkView />
     </div>
   );
 };
