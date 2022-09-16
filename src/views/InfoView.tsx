@@ -969,7 +969,7 @@ const IntroView = () => {
             href="https://docs.google.com/document/d/1aARBTKBBjZc8oV90aKnaYJJMJ8xJXP5VTJz_xjmGr2Y/edit?usp=sharing"
             style={ {marginTop: "20px"}}
           >
-           Preparation material
+          Materials
           </Button>
         </article>
         <Venue>

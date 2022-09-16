@@ -5,18 +5,10 @@ import { Heading01 } from "../styled/common/heading";
 import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
-import question from "../../public/images/question.jpg";
-import francesco from "../../public/images/francesco_vincenti.jpeg";
-import bozena from "../../public/images/bozena_rezab.jpeg";
-import yavin from "../../public/images/on_yavin.jpeg";
-import olumide from "../../public/images/olumide_gbendro.jpeg";
-import chris from "../../public/images/chris_curra.jpeg";
-import simon from "../../public/images/simon_mikolajczyk.jpeg";
-import aashima from "../../public/images/aashima_arora.jpeg";
-import edwin from "../../public/images/edwin_kapesa.jpeg";
-import tony from "../../public/images/tony.jpg";
 import roman from "../../public/images/roman.jpg";
-import nikita from "../../public/images/nikita.jpg";
+import artur from "../../public/images/artur.jpg";
+import question from "../../public/images/question.jpg";
+import getgems from "../../public/images/getgemsicon.svg";
 
 
 
@@ -115,22 +107,22 @@ const LecturersData = [
     position: "Head of Onboarding / Product Manager",
     linkedin: "https://www.linkedin.com/in/krutovoy/",
   },
-  // {
-  //   name: "TBA",
-  //   image: {
-  //     url: question,
-  //   },
-  //   company: "TON PLAY",
-  //   position: "TBA",
-  //   linkedin: "",
-  // },
   {
-    name: "Arthur Stambultsyan",
+    name: "TBA",
     image: {
       url: question,
     },
-    company: "TWA",
+    company: "GetGems",
     position: "TBA",
+    linkedin: "",
+  },
+  {
+    name: "Arthur Stambultsyan",
+    image: {
+      url: artur,
+    },
+    company: "@wallet",
+    position: "Front-end Developer",
     linkedin: "",
   },
 ];

@@ -6,16 +6,10 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import francesco from "../../public/images/francesco_vincenti.jpeg";
-import bozena from "../../public/images/bozena_rezab.jpeg";
-import yavin from "../../public/images/on_yavin.jpeg";
-import olumide from "../../public/images/olumide_gbendro.jpeg";
-import chris from "../../public/images/chris_curra.jpeg";
-import simon from "../../public/images/simon_mikolajczyk.jpeg";
-import aashima from "../../public/images/aashima_arora.jpeg";
-import edwin from "../../public/images/edwin_kapesa.jpeg";
 import tony from "../../public/images/tony.jpg";
 import nikita from "../../public/images/nikita.jpg";
+
+
 
 const Container = styled.section`
   max-width: 1200px;
@@ -121,15 +115,16 @@ const JudgesData = [
     position: "Senior Partner",
     linkedin: "https://www.linkedin.com/in/tsivarev/",
   },
-  // {
-  //   name: "TBA",
-  //   image: {
-  //     url: question,
-  //   },
-  //   company: "Tonstarter",
-  //   position: "TBA",
-  //   linkedin: "",
-  // },
+  {
+    name: "Sergey Chikirev",
+    image: {
+      url: question,
+    },
+    company: "Tonstarter",
+    position: "Engineer",
+    linkedin: "",
+  },
+
 ];
 
 const JudgesView = () => {

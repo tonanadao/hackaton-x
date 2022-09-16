@@ -976,7 +976,7 @@ const IntroView = () => {
         <Venue>
           <img src={tonana.src} alt="Tonana" />
         </Venue>
-        {/* {provider.provider ? (
+        {provider.provider ? (
           <SubscribeForm onSubmit={(e) => handleSubmit(e)}>
             {!showQR ? (
               <>
@@ -1065,7 +1065,7 @@ const IntroView = () => {
               </QRCodeWrapper>
             )}
           </SubscribeForm>
-        ) : null} */}
+        ) : null}
       </Content>
     </Container>
   );
