@@ -8,6 +8,7 @@ import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import tony from "../../public/images/tony.jpg";
 import nikita from "../../public/images/nikita.jpg";
+import sergey from "../../public/images/sergey.jpg";
 
 
 
@@ -118,7 +119,7 @@ const JudgesData = [
   {
     name: "Sergey Chikirev",
     image: {
-      url: question,
+      url: sergey,
     },
     company: "Tonstarter",
     position: "Engineer",

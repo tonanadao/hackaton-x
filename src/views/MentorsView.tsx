@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import vadim from "../../public/images/vadim.jpg";
+import oleg from "../../public/images/oleglarionov.jpg";
 import tamara from "../../public/images/tamara.jpg";
 import eugene from "../../public/images/eugene.jpg";
 
@@ -108,13 +108,13 @@ const MentorsData = [
     linkedin: "https://www.linkedin.com/in/eugen-anisei/",
   },
   {
-    name: "Vadim Keffler",
+    name: "Oleg Illarionov",
     image: {
-      url: vadim,
+      url: oleg,
     },
-    company: "T7T Labs",
-    position: "CEO",
-    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
+    company: "Tonstarter",
+    position: "Engineer",
+    linkedin: "https://www.linkedin.com/in/oleg-illarionov-76723321/",
   },
   {
     name: "Tamara Bizyuk",

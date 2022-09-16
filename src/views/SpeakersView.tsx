@@ -8,7 +8,7 @@ import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import vova from "../../public/images/vova.png";
 import vlad from "../../public/images/vlad.jpg";
-import oleg from "../../public/images/oleg_larionov.jpg";
+import vadim from "../../public/images/vadim.jpg";
 
 
 const Container = styled.section`
@@ -107,13 +107,13 @@ const SpeakersData = [
     linkedin: "https://www.linkedin.com/in/manoilo/",
   },
   {
-    name: "Oleg Illarionov",
+    name: "Vadim Keffler",
     image: {
-      url: oleg,
+      url: vadim,
     },
-    company: "Tonstarter",
-    position: "Engineer",
-    linkedin: "https://www.linkedin.com/in/oleg-illarionov-76723321/",
+    company: "T7T Labs",
+    position: "CEO",
+    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
   },
   {
     name: "Vladislav Blizniuk",

@@ -11,6 +11,7 @@ import MentorsView from "../views/MentorsView";
 import JudgesView from "../views/JudgesView";
 import LecturersView from "../views/LecturersView";
 import BlockTalkView from "../views/BlockTalkView";
+import TracksView from "../views/TracksView";
 
 const Home: NextPage = () => {
   return (
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
       <ForWhoView />
       <InfoView />
       {/* <BroadcastView /> */}
+      <TracksView />
       <PartnersView />
       <JudgesView />
       <LecturersView />
