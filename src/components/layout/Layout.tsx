@@ -39,10 +39,13 @@ const Header = styled.header`
 
   @media ${MediaQuery.isTablet} {
     padding: 0 60px;
+    position:relative;
   }
 
   @media ${MediaQuery.isMobile} {
     padding: 0 20px;
+    position:relative;
+    ;
   }
 `;
 

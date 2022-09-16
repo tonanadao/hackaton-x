@@ -45,11 +45,15 @@ const Content = styled.section`
   @media ${MediaQuery.isTablet} {
     grid-template-columns: 1fr;
     grid-gap: 4rem;
+    display: flex;
+    flex-direction:column-reverse;
   }
 
   @media ${MediaQuery.isMobile} {
     grid-template-columns: 1fr;
     grid-gap: 4rem;
+    display: flex;
+    flex-direction:column-reverse;
   }
 `;
 
@@ -936,6 +940,7 @@ const IntroView = () => {
             </PopupContent>
           </CustomPopup>
         ) : null}
+        
         <Venue>
         <img src={awards.src} alt="hubhub" />
         </Venue>
