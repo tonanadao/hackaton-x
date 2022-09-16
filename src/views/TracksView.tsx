@@ -946,7 +946,7 @@ const IntroView = () => {
         </Venue>
         <article>
         <Heading03>
-        🏆 total prize fund of $35k paid in TON
+        🏆 total prize fund of $37k paid in TON
         </Heading03>
           <Info>
             <li style={{color: "white" }}>Tracks:</li>
@@ -955,8 +955,9 @@ const IntroView = () => {
             <li>The best project in GameFi track - 5k$</li>
             <li>The best project in DAO track - 5k$</li>
             <li>The best project in DeFi track - 5k$</li>
+            <li style={{color: "white" }}>the Grand Prix:</li>
             <li>The grand prize for the best idea – 7k$</li>
-            <li>Special prize for the best Telegram Web App - 3k$</li>
+            <li>Special prize for the best Telegram Web App - 5k$</li>
 
           </Info>
 

@@ -26,11 +26,13 @@ const ButtonContainer = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   font-family: "DM Sans", sans-serif;
+  margin-left: 1px;
+
 
   svg {
     height: 25px;
     width: 25px;
-    margin-left: 5px;
+    margin-left: 4px;
   }
 
   &:focus {

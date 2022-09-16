@@ -137,9 +137,7 @@ const EventView = () => {
   return (
     <Container>
       <p style={{ margin: "0 auto", textAlign: "left" }}>
-        Hack-a-TON x Prague is a startup & coding event that brings experts and
-        students together to prototype new GameFi, DeFi & DAO products on TON
-        Blockchain.
+      Hack-a-TON x Prague is an independent startup & coding event that brings experts and students together to prototype new GameFi, DeFi & DAO products on TON Blockchain.
       </p>
 
       <Photos>
