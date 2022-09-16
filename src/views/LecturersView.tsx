@@ -123,7 +123,7 @@ const LecturersData = [
     },
     company: "@wallet",
     position: "Front-end Developer",
-    linkedin: "",
+    linkedin: "https://t.me/wallet",
   },
 ];
 

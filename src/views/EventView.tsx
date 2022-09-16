@@ -133,7 +133,7 @@ const IconWrapper = styled.figure`
   }
 `;
 
-const BlockTalkView = () => {
+const EventView = () => {
   return (
     <Container>
       <p style={{ margin: "0 auto", textAlign: "left" }}>
@@ -163,4 +163,4 @@ const BlockTalkView = () => {
   );
 };
 
-export default BlockTalkView;
+export default EventView;

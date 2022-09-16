@@ -112,7 +112,7 @@ const MentorsData = [
     image: {
       url: oleg,
     },
-    company: "Tonstarter",
+    company: "StickerFace",
     position: "Developer и Product manager",
     linkedin: "https://illarionov.tech/",
   },

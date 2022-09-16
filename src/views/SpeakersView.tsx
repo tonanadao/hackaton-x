@@ -121,7 +121,7 @@ const SpeakersData = [
       url: vlad,
     },
     company: "Tonana",
-    position: "TBA",
+    position: "CTO",
     linkedin: "https://www.linkedin.com/in/sepezho/",
   },
   // {

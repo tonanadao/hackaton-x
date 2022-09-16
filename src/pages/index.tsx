@@ -10,7 +10,7 @@ import SpeakersView from "../views/SpeakersView";
 import MentorsView from "../views/MentorsView";
 import JudgesView from "../views/JudgesView";
 import LecturersView from "../views/LecturersView";
-import BlockTalkView from "../views/BlockTalkView";
+import EventView from "../views/EventView";
 import TracksView from "../views/TracksView";
 
 const Home: NextPage = () => {
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Hack-a-TON</title>
         <meta name="description" content="Tonana Hack-a-TON x Prague. Come and Learn, Compete, Enjoy" />
-        <link rel="icon" href="../../public/images/tonana.png" />
+        <link rel="icon" href="images/logo.png" />
 
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,viewport-fit=cover" />
         <meta name="author" content="Tonana Hack-a-TON x Prague" />
@@ -30,12 +30,11 @@ const Home: NextPage = () => {
         <meta property="og:title" content="Tonana Hack-a-TON x Prague" />
         <meta property="og:description" content="This is the first TON-based hackathon in Europe for students, engineers, business devs, designers, artists, and cypherpunks!" />
         <meta property="og:url" content="https://hackatonx.tonana.org" />
-        <meta property="og:image" content="../../public/images/tonana.png" />
 
       </Head>
 
       <IntroView />
-      <BlockTalkView />
+      <EventView />
       <ForWhoView />
       <InfoView />
       {/* <BroadcastView /> */}

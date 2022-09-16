@@ -942,19 +942,22 @@ const IntroView = () => {
         ) : null}
         
         <Venue>
-        <img src={awards.src} alt="hubhub" />
+        <img src={awards.src} alt="awards" />
         </Venue>
         <article>
         <Heading03>
-          total prize fund of $30,000 🏆
+        🏆 total prize fund of $35k paid in TON
         </Heading03>
           <Info>
-            <li>Best SocialFi - 5k$</li>
-            <li>Best NFT - 5k$</li>
-            <li>Best GameFi - 5k$</li>
-            <li>Best DAO - 5k$</li>
-            <li>Best TWA - 3k$</li>
-            <li>Best idea - 7k$</li>
+            <li style={{color: "white" }}>Tracks:</li>
+            <li>The best project in SocialFi track - 5k$</li>
+            <li>The best project in NFT track - 5k$</li>
+            <li>The best project in GameFi track - 5k$</li>
+            <li>The best project in DAO track - 5k$</li>
+            <li>The best project in DeFi track - 5k$</li>
+            <li>The grand prize for the best idea – 7k$</li>
+            <li>Special prize for the best Telegram Web App - 3k$</li>
+
           </Info>
 
           <Button
