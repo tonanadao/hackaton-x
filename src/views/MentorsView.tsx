@@ -113,8 +113,8 @@ const MentorsData = [
       url: oleg,
     },
     company: "Tonstarter",
-    position: "Engineer",
-    linkedin: "https://www.linkedin.com/in/oleg-illarionov-76723321/",
+    position: "Developer и Product manager",
+    linkedin: "https://illarionov.tech/",
   },
   {
     name: "Tamara Bizyuk",
