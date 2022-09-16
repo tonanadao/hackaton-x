@@ -946,7 +946,7 @@ const IntroView = () => {
         </Venue>
         <article>
         <Heading03>
-          total prize fund of $40,000 🏆
+          total prize fund of $30,000 🏆
         </Heading03>
           <Info>
             <li>Best SocialFi - 5k$</li>
