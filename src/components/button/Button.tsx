@@ -13,7 +13,7 @@ interface ButtonProps {
 const ButtonContainer = styled.button<ButtonProps>`
   background-color: ${(props) =>
     props.appearance === "fill" ? `${DODGERBLUE}` : `transparent`};
-  min-width: ${(props) => (props.isMobile ? "164px" : "206px")};
+  min-width: ${(props) => (props.isMobile ? "168px" : "212px")};
   height: ${(props) => (props.isMobile ? "44px" : "56px")};
   font-size: 18px;
   font-weight: 700;
@@ -26,13 +26,14 @@ const ButtonContainer = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   font-family: "DM Sans", sans-serif;
-  margin-left: 1px;
+  margin-left: 3px;
 
 
   svg {
     height: 25px;
     width: 25px;
-    margin-left: 4px;
+    margin-left: -2px;
+
   }
 
   &:focus {
@@ -41,6 +42,13 @@ const ButtonContainer = styled.button<ButtonProps>`
 
   &:active {
     transform: scale(0.93);
+  }
+  @media ${MediaQuery.isTablet} {
+    margin-right: -2px;
+  }
+  
+  @media ${MediaQuery.isMobile} {
+    margin-right: -5px;
   }
 `;
 

@@ -176,6 +176,14 @@ img {
   border-radius: 18px;
   width:75%;
 }
+
+@media ${MediaQuery.isTablet} {
+  margin-top: 15px;
+}
+
+@media ${MediaQuery.isMobile} {
+  margin-top: 15px;
+}
 `;
 
 const FormIconWrapper = styled.figure`
