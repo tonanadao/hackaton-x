@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Tonana Hack-a-TON x Prague" />
         <meta property="og:title" content="Tonana Hack-a-TON x Prague" />
-        <meta property="og:description" content="This is the first TON-based hackathon in Europe for students, engineers, business devs, designers, artists, and cypherpunks!" />
+        <meta property="og:description" content="Hack-a-TON x Prague is an independent startup & coding event that brings experts and students together to prototype new GameFi, DeFi & DAO products on TON Blockchain." />
         <meta property="og:url" content="https://hackatonx.tonana.org" />
 
       </Head>
