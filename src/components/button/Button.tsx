@@ -32,7 +32,7 @@ const ButtonContainer = styled.button<ButtonProps>`
   svg {
     height: 25px;
     width: 25px;
-    margin-left: -2px;
+    margin-left: -3px;
 
   }
 
@@ -42,13 +42,6 @@ const ButtonContainer = styled.button<ButtonProps>`
 
   &:active {
     transform: scale(0.93);
-  }
-  @media ${MediaQuery.isTablet} {
-    margin-right: -2px;
-  }
-  
-  @media ${MediaQuery.isMobile} {
-    margin-right: -5px;
   }
 `;
 

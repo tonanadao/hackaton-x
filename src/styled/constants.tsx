@@ -32,6 +32,11 @@ export const PARTNERS = [
     alt: "TonPlay",
   },
   {
+    img: ton.src,
+    url: "https://ton.org/",
+    alt: "Ton",
+  },
+  {
     img: fslabs.src,
     url: "https://fslabs.io/",
     alt: "FSLabs",
@@ -40,11 +45,6 @@ export const PARTNERS = [
     img: tonStarter.src,
     url: "https://tonstarter.com/",
     alt: "TonStarter",
-  },
-  {
-    img: ton.src,
-    url: "https://ton.org/",
-    alt: "Ton",
   },
   {
     img: tonana.src,
