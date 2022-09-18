@@ -7,6 +7,7 @@ import tonana from "../../public/images/tonana.png";
 import tonStarter from "../../public/images/tonstarter.svg";
 import tonPlay from "../../public/images/ton_play.webp";
 import fslabs from "../../public/images/fslabs.svg";
+import ton_society from "../../public/images/ton_society_text.svg";
 
 // Partners images
 export const PARTNERS = [
@@ -49,6 +50,11 @@ export const PARTNERS = [
     img: ton.src,
     url: "https://ton.org/",
     alt: "Ton",
+  },
+  {
+    img: ton_society.src,
+    url: "https://society.ton.org/",
+    alt: "TonSociety",
   },
 ];
 
