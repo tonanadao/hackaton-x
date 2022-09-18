@@ -42,14 +42,14 @@ export const PARTNERS = [
     alt: "TonStarter",
   },
   {
-    img: tonana.src,
-    url: "https://tonana.org/",
-    alt: "Tonana",
-  },
-  {
     img: ton.src,
     url: "https://ton.org/",
     alt: "Ton",
+  },
+  {
+    img: tonana.src,
+    url: "https://tonana.org/",
+    alt: "Tonana",
   },
   {
     img: ton_society.src,

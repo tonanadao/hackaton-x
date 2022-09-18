@@ -13,7 +13,7 @@ interface ButtonProps {
 const ButtonContainer = styled.button<ButtonProps>`
   background-color: ${(props) =>
     props.appearance === "fill" ? `${DODGERBLUE}` : `transparent`};
-  min-width: ${(props) => (props.isMobile ? "168px" : "212px")};
+  min-width: ${(props) => (props.isMobile ? "185px" : "212px")};
   height: ${(props) => (props.isMobile ? "44px" : "56px")};
   font-size: 18px;
   font-weight: 700;
