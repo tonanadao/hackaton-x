@@ -950,7 +950,7 @@ const IntroView = () => {
         <article>
           <Tags>
             <li style={{ fontSize: "27px", padding: "0" }}>
-              30 Sep - 02 Oct 2022
+              30 Sep - 2 Oct 2022
             </li>
             <ul style={{ display: "flex" }}>
               <li style={{ background: "#0066FF" }}>GameFi, DeFi, DAO & NFT</li>
