@@ -9,11 +9,12 @@ import question from "../../public/images/question.jpg";
 import tony from "../../public/images/tony.jpg";
 import nikita from "../../public/images/nikita.jpg";
 import sergey from "../../public/images/sergey.jpg";
+import shahar from "../../public/images/shahar.jpg";
 
 
 
 const Container = styled.section`
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px 0;
 
@@ -125,7 +126,15 @@ const JudgesData = [
     position: "Engineer",
     linkedin: "",
   },
-
+  {
+    name: "Shahar Yakir",
+    image: {
+      url: shahar,
+    },
+    company: "Orbs",
+    position: "jetton.live creator",
+    linkedin: "https://jetton.live/",
+  },
 ];
 
 const JudgesView = () => {

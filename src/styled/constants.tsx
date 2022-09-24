@@ -8,6 +8,7 @@ import tonStarter from "../../public/images/tonstarter.svg";
 import tonPlay from "../../public/images/ton_play.webp";
 import fslabs from "../../public/images/fslabs.svg";
 import ton_society from "../../public/images/ton_society_text.svg";
+import orbs from "../../public/images/orbs.png";
 
 // Partners images
 export const PARTNERS = [
@@ -42,19 +43,25 @@ export const PARTNERS = [
     alt: "FSLabs",
   },
   {
+    img: ton_society.src,
+    url: "https://society.ton.org/",
+    alt: "TonSociety",
+  },
+  {
     img: tonStarter.src,
     url: "https://tonstarter.com/",
     alt: "TonStarter",
   },
   {
+    img: orbs.src,
+    url: "https://www.orbs.com/",
+    alt: "Orbs",
+  },
+  
+  {
     img: tonana.src,
     url: "https://tonana.org/",
     alt: "Tonana",
-  },
-  {
-    img: ton_society.src,
-    url: "https://society.ton.org/",
-    alt: "TonSociety",
   },
 ];
 
