@@ -8,6 +8,7 @@ import BroadcastView from "../views/BroadcastView";
 import PartnersView from "../views/PartnersView";
 import SpeakersView from "../views/SpeakersView";
 import MentorsView from "../views/MentorsView";
+import StreamersView from "../views/StreamersView";
 import JudgesView from "../views/JudgesView";
 import LecturersView from "../views/LecturersView";
 import EventView from "../views/EventView";
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
       <ForWhoView />
       <InfoView />
       {/* <BroadcastView /> */}
+      <StreamersView />
       <TracksView />
       <PartnersView />
       <JudgesView />

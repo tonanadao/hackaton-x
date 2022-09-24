@@ -5,7 +5,6 @@ import { LocationMarkerIcon } from "@heroicons/react/outline";
 import { MediaQuery } from "../hooks/useDeviceType";
 import { DODGERBLUE } from "../styled/colors";
 import Link from "next/link";
-
 import square2 from "../../public/images/purple_square.svg";
 import photo from "../../public/images/photo.svg";
 import photo1 from "../../public/images/photo1.svg";

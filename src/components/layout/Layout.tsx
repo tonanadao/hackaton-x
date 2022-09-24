@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { MediaQuery, useDeviceType } from "../../hooks/useDeviceType";
 import Popup from "../popup/Popup";
-
+import telegram from "../../../public/images/telegram.png";
 import ton from "../../../public/images/tonw.png";
 import logo from "../../../public/images/blocktalk_logo.svg";
 import logo_small from "../../../public/images/blue_square.svg";
@@ -408,7 +408,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 </div>
                 <div>
                   <IconWrapper>
-                    <GlobeAltIcon />
+                    <img src={telegram.src} alt="Telegram" />
                   </IconWrapper>
                   <Link href="https://t.me/hackaton2022" passHref>
                     <a target="_blank">https://t.me/hackaton2022</a>
