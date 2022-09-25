@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import oleg from "../../public/images/oleglarionov.jpg";
+import oleg from "../../public/images/oleglarionov.png";
 import tamara from "../../public/images/tamara.jpg";
 import eugene from "../../public/images/eugene.jpg";
 

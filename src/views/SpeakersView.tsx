@@ -3,7 +3,8 @@ import { MediaQuery } from "../hooks/useDeviceType";
 import styled from "styled-components";
 import { Heading01 } from "../styled/common/heading";
 import Link from "next/link";
-
+import roman from "../../public/images/roman.jpg";
+import artur from "../../public/images/artur.jpg";
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import vova from "../../public/images/vova.png";
@@ -133,6 +134,33 @@ const SpeakersData = [
   //   position: "TBA",
   //   linkedin: "",
   // },
+  {
+    name: "Roman Krutovoy",
+    image: {
+      url: roman,
+    },
+    company: "TON Community",
+    position: "Head of Onboarding / Product Manager",
+    linkedin: "https://www.linkedin.com/in/krutovoy/",
+  },
+  // {
+  //   name: "TBA",
+  //   image: {
+  //     url: question,
+  //   },
+  //   company: "GetGems",
+  //   position: "TBA",
+  //   linkedin: "",
+  // },
+  {
+    name: "Arthur Stambultsyan",
+    image: {
+      url: artur,
+    },
+    company: "@wallet",
+    position: "Front-end Developer",
+    linkedin: "https://t.me/wallet",
+  },
 ];
 
 const SpeakersView = () => {

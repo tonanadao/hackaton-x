@@ -10,7 +10,6 @@ import SpeakersView from "../views/SpeakersView";
 import MentorsView from "../views/MentorsView";
 import StreamersView from "../views/StreamersView";
 import JudgesView from "../views/JudgesView";
-import LecturersView from "../views/LecturersView";
 import EventView from "../views/EventView";
 import TracksView from "../views/TracksView";
 
@@ -43,7 +42,6 @@ const Home: NextPage = () => {
       <TracksView />
       <PartnersView />
       <JudgesView />
-      <LecturersView />
       <SpeakersView />
       <MentorsView />
     </div>
