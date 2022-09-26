@@ -4,16 +4,17 @@ import styled from "styled-components";
 import { Heading01 } from "../styled/common/heading";
 import Link from "next/link";
 
+import vadim from "../../public/images/vadim.jpg";
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
-import oleg from "../../public/images/oleglarionov.png";
 import tamara from "../../public/images/tamara.jpg";
 import eugene from "../../public/images/eugene.jpg";
+import vlad from "../../public/images/vlad.jpg";
 
 
 
 const Container = styled.section`
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px 0;
 
@@ -107,15 +108,7 @@ const MentorsData = [
     position: "COO",
     linkedin: "https://www.linkedin.com/in/eugen-anisei/",
   },
-  {
-    name: "Oleg Illarionov",
-    image: {
-      url: oleg,
-    },
-    company: "StickerFace",
-    position: "Developer и Product manager",
-    linkedin: "https://illarionov.tech/",
-  },
+
   {
     name: "Tamara Bizyuk",
     image: {
@@ -124,6 +117,24 @@ const MentorsData = [
     company: "Tatum",
     position: "Customer Acquisition & Retention",
     linkedin: "https://www.linkedin.com/in/tamarabizyuk/",
+  },
+  {
+    name: "Vadim Keffler",
+    image: {
+      url: vadim,
+    },
+    company: "T7T Labs",
+    position: "CEO",
+    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
+  },
+  {
+    name: "Vladislav Blizniuk",
+    image: {
+      url: vlad,
+    },
+    company: "Tonana",
+    position: "CTO",
+    linkedin: "https://www.linkedin.com/in/sepezho/",
   },
   // {
   //   name: "Alessio Pezzin",

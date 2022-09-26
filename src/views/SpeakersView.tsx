@@ -8,12 +8,11 @@ import artur from "../../public/images/artur.jpg";
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import vova from "../../public/images/vova.png";
-import vlad from "../../public/images/vlad.jpg";
-import vadim from "../../public/images/vadim.jpg";
+import oleg from "../../public/images/oleglarionov.png";
 
 
 const Container = styled.section`
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px 0;
 
@@ -107,23 +106,15 @@ const SpeakersData = [
     position: "Marketing Manager",
     linkedin: "https://www.linkedin.com/in/manoilo/",
   },
+
   {
-    name: "Vadim Keffler",
+    name: "Oleg Illarionov",
     image: {
-      url: vadim,
+      url: oleg,
     },
-    company: "T7T Labs",
-    position: "CEO",
-    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
-  },
-  {
-    name: "Vladislav Blizniuk",
-    image: {
-      url: vlad,
-    },
-    company: "Tonana",
-    position: "CTO",
-    linkedin: "https://www.linkedin.com/in/sepezho/",
+    company: "StickerFace",
+    position: "Developer и Product manager",
+    linkedin: "https://illarionov.tech/",
   },
   // {
   //   name: "Ricardo Biosas",

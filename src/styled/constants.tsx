@@ -8,7 +8,9 @@ import tonStarter from "../../public/images/tonstarter.svg";
 import tonPlay from "../../public/images/ton_play.webp";
 import fslabs from "../../public/images/fslabs.svg";
 import ton_society from "../../public/images/ton_society_text.svg";
-import orbs from "../../public/images/orbs.png";
+import orbs from "../../public/images/aibc.webp";
+import aibc from "../../public/images/orbs.png";
+import sigma from "../../public/images/sigma.webp";
 
 // Partners images
 export const PARTNERS = [
@@ -56,6 +58,16 @@ export const PARTNERS = [
     img: orbs.src,
     url: "https://www.orbs.com/",
     alt: "Orbs",
+  },
+  {
+    img: sigma.src,
+    url: "https://www.orbs.com/",
+    alt: "Sigma",
+  },
+  {
+    img: aibc.src,
+    url: "https://www.orbs.com/",
+    alt: "Aibc",
   },
   
   {
