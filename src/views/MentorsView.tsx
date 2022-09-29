@@ -147,15 +147,6 @@ const MentorsData = [
     position: "CEO & Founder",
     linkedin: "http://Stablegram.com",
   },
-  // {
-  //   name: "Alessio Pezzin",
-  //   image: {
-  //     url: tamara,
-  //   },
-  //   company: "Tatum",
-  //   position: "Customer Acquisition & Retention",
-  //   linkedin: "  https://www.linkedin.com/in/alessio-pezzin/",
-  // },
 ];
 
 const MentorsView = () => {
