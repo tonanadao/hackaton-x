@@ -10,6 +10,8 @@ import question from "../../public/images/question.jpg";
 import tamara from "../../public/images/tamara.jpg";
 import eugene from "../../public/images/eugene.jpg";
 import vlad from "../../public/images/vlad.jpg";
+import dima from "../../public/images/dima.jpg";
+
 
 
 
@@ -135,6 +137,15 @@ const MentorsData = [
     company: "Tonana",
     position: "CTO",
     linkedin: "https://www.linkedin.com/in/sepezho/",
+  },
+  {
+    name: "Dima Voloshchuk",
+    image: {
+      url: dima,
+    },
+    company: "Stablegram",
+    position: "CEO & Founder",
+    linkedin: "http://Stablegram.com",
   },
   // {
   //   name: "Alessio Pezzin",
