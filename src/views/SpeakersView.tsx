@@ -8,7 +8,7 @@ import artur from "../../public/images/artur.jpg";
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import vova from "../../public/images/vova.png";
-import oleg from "../../public/images/oleglarionov.png";
+import oleg from "../../public/images/oleglarionov.jpg";
 
 
 const Container = styled.section`
