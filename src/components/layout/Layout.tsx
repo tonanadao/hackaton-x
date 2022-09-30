@@ -392,7 +392,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   <IconWrapper>
                     <LocationMarkerIcon />
                   </IconWrapper>
-                  <p>Palác ARA, Na Příkopě 14, 110 00 Praha</p>
+                  <p>Perlova 5, 110 00 Praha</p>
                 </div>
                 <div>
                   <IconWrapper>
