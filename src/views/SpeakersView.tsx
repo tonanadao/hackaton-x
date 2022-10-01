@@ -9,6 +9,7 @@ import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import vova from "../../public/images/vova.png";
 import oleg from "../../public/images/oleglarionov.jpg";
+import max from "../../public/images/max.jpg";
 
 
 const Container = styled.section`
@@ -152,6 +153,15 @@ const SpeakersData = [
     position: "Front-end Developer",
     linkedin: "https://t.me/wallet",
   },
+  {
+    name: "Max Hampshire",
+    image: {
+      url: max,
+    },
+    company: "NYM",
+    position: "Developer Relations",
+    linkedin: "https://nymtech.net/",
+  }
 ];
 
 const SpeakersView = () => {
