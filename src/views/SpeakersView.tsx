@@ -153,15 +153,7 @@ const SpeakersData = [
     position: "Front-end Developer",
     linkedin: "https://t.me/wallet",
   },
-  {
-    name: "Max Hampshire",
-    image: {
-      url: max,
-    },
-    company: "NYM",
-    position: "Developer Relations",
-    linkedin: "https://nymtech.net/",
-  }
+
 ];
 
 const SpeakersView = () => {
