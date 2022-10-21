@@ -138,6 +138,15 @@ const MentorsData = [
     position: "CTO",
     linkedin: "https://www.linkedin.com/in/sepezho/",
   },
+  {
+    name: "Dima ",
+    image: {
+      url: dima,
+    },
+    company: "Stablegram",
+    position: "CEO",
+    linkedin: "https://www.linkedin.com/in/dimavol/",
+  }
 ];
 
 const MentorsView = () => {
