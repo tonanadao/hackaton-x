@@ -26,7 +26,7 @@ const Partners = styled.section`
   margin-bottom: 60px;
 
   img {
-    /* height: 40px; */
+    // width: 300px;
     height: 80px;
     margin: 10px 20px;
     cursor: pointer;

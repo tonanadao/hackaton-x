@@ -3,17 +3,22 @@ import blockczech from "../../public/images/blockczech.svg";
 import gamee from "../../public/images/gamee.png";
 import hubhub from "../../public/images/hubhub.png";
 import ton from "../../public/images/tonw.png";
-import tonana from "../../public/images/tonana.png";
+import tonana from "../../public/images/full_logo_color_white.svg";
 import tonStarter from "../../public/images/tonstarter.svg";
 import tonPlay from "../../public/images/ton_play.webp";
 import fslabs from "../../public/images/fslabs.svg";
 import ton_society from "../../public/images/ton_society_text.svg";
-import orbs from "../../public/images/aibc.webp";
-import aibc from "../../public/images/orbs.png";
+import aibc from "../../public/images/aibc.webp";
+import orbs from "../../public/images/orbs.png";
 import sigma from "../../public/images/sigma.webp";
 
 // Partners images
 export const PARTNERS = [
+  {
+    img: ton.src,
+    url: "https://ton.org/",
+    alt: "Ton",
+  },
   {
     img: "https://blockczech.io/img/logo.e2bf947f.png",
     url: "https://blockczech.io/",
@@ -34,11 +39,7 @@ export const PARTNERS = [
     url: "https://tonplay.io/",
     alt: "TonPlay",
   },
-  {
-    img: ton.src,
-    url: "https://ton.org/",
-    alt: "Ton",
-  },
+ 
   {
     img: fslabs.src,
     url: "https://fslabs.io/",

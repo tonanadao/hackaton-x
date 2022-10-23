@@ -398,7 +398,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   <IconWrapper>
                     <MailIcon />
                   </IconWrapper>
-                  <a href="mailto:artem@tonana.org">artem@tonana.org</a>
+                  <a href="mailto:info@tonana.org">info@tonana.org</a>
                 </div>
                 <div>
                   <IconWrapper>
