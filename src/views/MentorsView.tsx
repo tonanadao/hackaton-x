@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Heading01 } from "../styled/common/heading";
 import Link from "next/link";
 
-import vadim from "../../public/images/vadim.jpg";
 import square from "../../public/images/blue_square.svg";
 import question from "../../public/images/question.jpg";
 import tamara from "../../public/images/tamara.jpg";
@@ -120,15 +119,7 @@ const MentorsData = [
     position: "Customer Acquisition & Retention",
     linkedin: "https://www.linkedin.com/in/tamarabizyuk/",
   },
-  {
-    name: "Vadim Keffler",
-    image: {
-      url: vadim,
-    },
-    company: "T7T Labs",
-    position: "CEO",
-    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
-  },
+ 
   {
     name: "Vladislav Blizniuk",
     image: {

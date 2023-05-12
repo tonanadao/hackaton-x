@@ -10,6 +10,7 @@ import tony from "../../public/images/tony.jpg";
 import nikita from "../../public/images/nikita.jpg";
 import sergey from "../../public/images/sergey.jpg";
 import shahar from "../../public/images/shahar.jpg";
+import vadim from "../../public/images/vadim.jpg";
 
 
 
@@ -125,6 +126,15 @@ const JudgesData = [
     company: "Tonstarter",
     position: "Engineer",
     linkedin: "",
+  },
+  {
+    name: "Vadim Keffler",
+    image: {
+      url: vadim,
+    },
+    company: "T7T Labs",
+    position: "CEO",
+    linkedin: "https://www.linkedin.com/in/vadimkeffler/",
   },
   {
     name: "Shahar Yakir",
